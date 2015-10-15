@@ -62,15 +62,8 @@
     <string name="inputaccount">请输入账号</string>
     <string name="login_btn">登   录</string>
     <string name="registerfree">登录配置</string>
-    <string name="login_loading">正在登錄，請稍候。。</string>
-    
-    
-<!--  购物车 -->
-    <string name="cart">购物车</string>
-    <string name="cartinfo_no">您的购物车是空的，快去选购吧！</string>
-    <string name="cartinfo_synchronous">购物车同步中</string>
-    <string name="cart_logininfo">您可以在登录后系统后同步电脑与手机购物 \n车中的商品</string>
-    <string name="cart_market">促销大卖场</string>
+    <string name="login_loading">正在登录，请稍候。。</string>
+   
     
 <!--   更多 -->
 <string name="more">更多</string>
@@ -87,12 +80,6 @@
 
 
 
-<!-- 导航栏的其他的标题和其他 -->
-<string name="clothingcity">服装城</string>
-<string name="hotproduct">热卖商品</string>
-<string name="digital">数码家电馆</string>
-<string name="ebook">好书汇</string>
-<string name="daily">百货集</string>
 
     <!-- JazzyViewPager -->
     <string-array name="jazzy_effects">
