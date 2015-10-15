@@ -3,7 +3,7 @@
     <string name="app_name">东华供应链平台</string>
     <string name="splash_version_info">东华供应链客户端\n\nVersion 1.0.0</string>
 	<string name="common_back">返回</string>
-	<string name="ingdrec_title_txt">扫码入库</string>
+	 <string name="ingdrec_title_txt">扫码入库</string>	
     <!-- 菜单 -->
     <string name="menu_setting">设置</string>
     <string name="menu_history">浏览历史</string>
@@ -18,32 +18,17 @@
 	 <string name="configip_webcontent">数据库ip</string>
 	 <string name="configip_filecontent">文件ip</string>
     <!-- 首页 -->
-    <string name="index_limit">还剩</string>
-    <string name="index_hour">时</string>
-    <string name="index_min">分</string>
-    <string name="index_seconds">秒</string>
-    <string name="index_price">秒杀价:</string>
-    <string name="index_raw_price">原价:</string>
-    <string name="index_slogan">疯狂秒杀</string>
+
     <string name="index_ingdrec">扫码入库</string>
-    <string name="index_recharge">充值</string>
-    <string name="index_group_buy">团购</string>
-    <string name="index_lottery">彩票</string>
-    <string name="index_shake">摇一摇</string>
-    <string name="index_order">订单状态</string>
-    <string name="index_history">浏览历史</string>
-    <string name="index_collect">我的关注</string>
-    <string name="index_life_journey">生活娱乐</string>
-    <string name="index_notify_info">向左滑，更多优惠等你抢</string>
-    <string name="index_shopping_jinqiufengbao">金秋风暴</string>
-    <string name="index_shopping_remenyouhui">热门特惠</string>
+	<string name="index_trf">出库</string>
+    <string name="index_pack">拆包装</string>
+    <string name="index_query">入库单查询</string>
     <!-- 首页 -->
 
-<!-- 商品分类 -->
-<string name="category">全部分类</string>
+
 <!-- 二维码 -->
-<string name="scan_tip">请将二维码置于取景框内扫描</string>
-<string name="scan_retry">二维码扫描出错啦,请重新扫描</string>
+	<string name="scan_tip">请将二维码置于取景框内扫描</string>
+	<string name="scan_retry">二维码扫描出错啦,请重新扫描</string>
     <string name="scan_title">扫一扫</string>
     <!-- 个人中心 -->
     <string name="personal_title">我的京东</string>
@@ -100,18 +85,7 @@
 <string name="more_apps">应用推荐</string>
 
 
-<!-- 注册 -->
-<string name="registerinfo">输入手机号后，点击"获取密码"，系统会自动向你的手机发送一条短信</string>
-<string name="register_tip">【提示】\n 1.使用手机号注册免费 \n 2.此手机号用来登录京东\n 3.你还可以选择其他注册方式</string>
-<string name="register_in_normal">普通用户注册</string>
-<string name="register_normal_useraccount">帐户名：</string>
-<string name="register_normal_useraccount_hint">请输入你的手机号</string>
-<string name="register_normal_email">邮箱：</string>
-<string name="register_normal_email_hint">请输入邮箱帐号</string>
-<string name="register_normal_password">密码：</string>
-<string name="register_normal_password_hint">请输入密码</string>
-<string name="register_normal_repassword">确认密码：</string>
-<string name="register_normal_repassword_hint">请输入确认密码</string>
+
 
 <!-- 导航栏的其他的标题和其他 -->
 <string name="clothingcity">服装城</string>
@@ -137,5 +111,9 @@
     </string-array>
     <!-- JazzyViewPager -->
         <string name="ingdrec_str_scan">扫码</string>
+      
+
+       
+        
 
 </resources>

@@ -58,7 +58,7 @@
 
             <Button
                 android:id="@+id/ingdrec_barcode_btn"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/ingdrec_barcode_txt"
                 android:layout_alignRight="@+id/ingdrec_barcode_txt"

@@ -5,12 +5,10 @@
     android:background="@drawable/home_panicbuying_background" >
 
     <RelativeLayout
+        android:id="@+id/index_title"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:id="@+id/index_title"
         android:background="@drawable/android_title_bg" >
-
-
 
         <TextView
             android:id="@+id/textview_title"
@@ -55,6 +53,8 @@
                 android:gravity="center"
                 android:orientation="horizontal" >
 
+                <!-- 入库 -->
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -76,6 +76,29 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>
+                <!-- 出库 -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/index_trf_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/app_home_shortcuts_button_selector"
+                        android:src="@drawable/shortcuts_icon_collect" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/index_trf"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/micro_text_size" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -87,6 +110,8 @@
                 android:gravity="center"
                 android:orientation="horizontal" >
 
+                <!-- 拆包装 -->
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -95,7 +120,30 @@
                     android:orientation="vertical" >
 
                     <ImageButton
-                        android:id="@+id/index_order_btn"
+                        android:id="@+id/index_pack_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/app_home_shortcuts_button_selector"
+                        android:src="@drawable/shortcuts_icon_promotion" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/index_pack"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/micro_text_size" />
+                </LinearLayout>
+                <!-- 订单查询 -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/index_query_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/app_home_shortcuts_button_selector"
@@ -104,7 +152,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/index_order"
+                        android:text="@string/index_query"
                         android:textColor="@color/black"
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>

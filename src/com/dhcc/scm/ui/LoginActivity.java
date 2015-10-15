@@ -87,22 +87,24 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 
 	private void userlogin() {
-		username = loginaccount.getText().toString().trim();
-		password = loginpassword.getText().toString().trim();
-
-		if (username.equals("")) {
-			DisplayToast("用户名不能为空!");
-		}
-		if (password.equals("")) {
-			DisplayToast("密码不能为空!");
-		}
-
-		if (username.equals("test") && password.equals("123")) {
-			DisplayToast("登錄成功!");
-			
-			openActivity(SplashActivity.class);
-			LoginActivity.this.finish();
-		}
+		openActivity(SplashActivity.class);
+		LoginActivity.this.finish();
+//		username = loginaccount.getText().toString().trim();
+//		password = loginpassword.getText().toString().trim();
+//
+//		if (username.equals("")) {
+//			DisplayToast("用户名不能为空!");
+//		}
+//		if (password.equals("")) {
+//			DisplayToast("密码不能为空!");
+//		}
+//
+//		if (username.equals("test") && password.equals("123")) {
+//			DisplayToast("登錄成功!");
+//			
+//			openActivity(SplashActivity.class);
+//			LoginActivity.this.finish();
+//		}
 
 	}
 	private void showConfig() {

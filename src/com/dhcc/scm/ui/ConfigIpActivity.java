@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dhcc.scm.R;
+import com.dhcc.scm.config.Constants;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 /**
@@ -22,10 +23,11 @@ import com.dhcc.scm.ui.base.BaseActivity;
  * @date 2015年7月30日 上午10:35:12
  * 
  */
-public class ConfigIpActivity extends BaseActivity implements View.OnClickListener{
+public class ConfigIpActivity extends BaseActivity implements View.OnClickListener {
 	private EditText webUrlConEditText;
 	private EditText fileUrlConEditText;
 	private Button saveButton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,8 +37,6 @@ public class ConfigIpActivity extends BaseActivity implements View.OnClickListen
 		findViewById();
 		initView();
 	}
-
-
 
 	@Override
 	protected void findViewById() {
@@ -50,27 +50,26 @@ public class ConfigIpActivity extends BaseActivity implements View.OnClickListen
 
 	@Override
 	protected void initView() {
-		SharedPreferences preferences = getSharedPreferences("configIp",   
-                Activity.MODE_PRIVATE);   
-		webUrlConEditText.setText(preferences.getString("WebUrl", ""));  // //从内存加载config
+		SharedPreferences preferences = getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
+		webUrlConEditText.setText(preferences.getString("WebUrl", "")); // //从内存加载config
 		fileUrlConEditText.setText(preferences.getString("FilebUrl", ""));
 	}
 
 	@Override
 	public void onClick(View v) {
 		try {
-			SharedPreferences sharedPreferences = getSharedPreferences("configIp", Context.MODE_PRIVATE);
+			SharedPreferences sharedPreferences = getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
 			Editor editor = sharedPreferences.edit();// 获取编辑器
 			editor.putString("WebUrl", webUrlConEditText.getText().toString());
 			editor.putString("FileUrl", fileUrlConEditText.getText().toString());
 			editor.commit();// 提交修改
 		} catch (Exception e) {
 			Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-		}finally{
+		} finally {
 			Toast.makeText(getApplicationContext(), "保存成功", Toast.LENGTH_SHORT).show();
-			//ConfigIpActivity.this.finish();
+			// ConfigIpActivity.this.finish();
 		}
-		
+
 	}
 
 }

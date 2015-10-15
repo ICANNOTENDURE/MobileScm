@@ -53,17 +53,10 @@ public class HomeActivity extends TabActivity {
 		mTabHost = getTabHost();
 
 		Intent i_main = new Intent(this, IndexActivity.class);
-		//Intent i_search = new Intent(this, SearchActivity.class);
-		Intent i_category = new Intent(this, CategoryActivity.class);
-		//Intent i_cart = new Intent(this, CartActivity.class);
 		Intent i_personal = new Intent(this, PersonalActivity.class);
 
 		mTabHost.addTab(mTabHost.newTabSpec(TAB_MAIN).setIndicator(TAB_MAIN)
 				.setContent(i_main));
-		//mTabHost.addTab(mTabHost.newTabSpec(TAB_SEARCH).setIndicator(TAB_SEARCH).setContent(i_search));
-		mTabHost.addTab(mTabHost.newTabSpec(TAB_CATEGORY)
-				.setIndicator(TAB_CATEGORY).setContent(i_category));
-		//mTabHost.addTab(mTabHost.newTabSpec(TAB_CART).setIndicator(TAB_CART) .setContent(i_cart));
 		mTabHost.addTab(mTabHost.newTabSpec(TAB_PERSONAL)
 				.setIndicator(TAB_PERSONAL).setContent(i_personal));
 

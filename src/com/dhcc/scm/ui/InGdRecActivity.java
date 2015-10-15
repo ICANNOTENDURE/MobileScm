@@ -16,17 +16,17 @@ import com.dhcc.scm.zxing.CaptureActivity;
 
 /**
  * 
-* @ClassName: InGdRecActivity 
-* @Description: TODO(这里用一句话描述这个类的作用) 
-* @author zhouxin
-* @date 2015年7月30日 下午3:33:18 
-*
+ * @ClassName: InGdRecActivity
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @author zhouxin
+ * @date 2015年7月30日 下午3:33:18
+ * 
  */
 public class InGdRecActivity extends BaseActivity implements OnClickListener {
 
 	private ImageView imgBack;// 回退按钮
 	private Button btnScanCode;// 扫码
-	private EditText barcodeTxt; //条码框
+	private EditText barcodeTxt; // 条码框
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +45,13 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		// 扫码
 		btnScanCode = (Button) this.findViewById(R.id.ingdrec_barcode_btn);
 		btnScanCode.setOnClickListener(this);
-		
-		barcodeTxt=(EditText)this.findViewById(R.id.ingdrec_barcode_txt);
-		
 
+		barcodeTxt = (EditText) this.findViewById(R.id.ingdrec_barcode_txt);
+		//this.getSystemService(C);
 	}
 
 	@Override
 	protected void initView() {
-		
 
 	}
 
@@ -64,23 +62,23 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 			finish();
 			break;
 		case R.id.ingdrec_barcode_btn:
-			startActivityForResult(new Intent(InGdRecActivity.this, CaptureActivity.class),0);
+			startActivityForResult(new Intent(InGdRecActivity.this, CaptureActivity.class), 0);
 			break;
 		default:
 			break;
 		}
-		
 	}
 
-	 @Override  
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
-        super.onActivityResult(requestCode, resultCode, data);  
-        //处理扫描结果（在界面上显示）  
-        if (resultCode == RESULT_OK) {  
-            Bundle bundle = data.getExtras();  
-            String scanResult = bundle.getString("result");
-            barcodeTxt.setText(scanResult);
-            CommonTools.showShortToast(getApplicationContext(), scanResult);
-        }  
-    }  
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		// 处理扫描结果（在界面上显示）
+		if (resultCode == RESULT_OK) {
+			Bundle bundle = data.getExtras();
+			String scanResult = bundle.getString("result");
+			barcodeTxt.setText(scanResult);
+			CommonTools.showShortToast(getApplicationContext(), scanResult);
+		}
+	}	
+	
 }
