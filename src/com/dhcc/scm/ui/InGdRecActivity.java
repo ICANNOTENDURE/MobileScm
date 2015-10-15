@@ -1,5 +1,8 @@
 package com.dhcc.scm.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +11,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.dhcc.scm.R;
+import com.dhcc.scm.adapter.InGdRecAdapter;
+import com.dhcc.scm.entity.InGdRec;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.utils.CommonTools;
 import com.dhcc.scm.zxing.CaptureActivity;
@@ -27,7 +33,9 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	private ImageView imgBack;// 回退按钮
 	private Button btnScanCode;// 扫码
 	private EditText barcodeTxt; // 条码框
-
+	private ListView listview;
+	private List<InGdRec> inGdRecs;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,18 +49,21 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void findViewById() {
 		imgBack = (ImageView) findViewById(R.id.ingdrec_back_btn);
-		imgBack.setOnClickListener(this);
-		// 扫码
 		btnScanCode = (Button) this.findViewById(R.id.ingdrec_barcode_btn);
-		btnScanCode.setOnClickListener(this);
-
 		barcodeTxt = (EditText) this.findViewById(R.id.ingdrec_barcode_txt);
-		//this.getSystemService(C);
+		listview=(ListView)this.findViewById(R.id.ingdrec_itm_scroll_list);
 	}
 
 	@Override
 	protected void initView() {
-
+		imgBack.setOnClickListener(this);
+		btnScanCode.setOnClickListener(this);
+		
+		InGdRec inGdRec=new InGdRec();
+		inGdRec.setDesc("222222222");
+		inGdRecs=new ArrayList<InGdRec>();
+		inGdRecs.add(inGdRec);
+		listview.setAdapter(new InGdRecAdapter(this,inGdRecs));
 	}
 
 	@Override
