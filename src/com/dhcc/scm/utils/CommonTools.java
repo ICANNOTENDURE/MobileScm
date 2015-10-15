@@ -12,11 +12,8 @@ import android.widget.Toast;
 
 import com.dhcc.scm.R;
 
-
 public class CommonTools {
 
-	
-	
 	/**
 	 * 短暂显示Toast消息
 	 * 
@@ -24,8 +21,7 @@ public class CommonTools {
 	 * @param message
 	 */
 	public static void showShortToast(Context context, String message) {
-		LayoutInflater inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.custom_toast, null);
 		TextView text = (TextView) view.findViewById(R.id.toast_message);
 		text.setText(message);
@@ -81,17 +77,16 @@ public class CommonTools {
 		return statusBarHeight;
 	}
 
-	
 	/**
-	 * 判断手机号码*/
-	public static boolean isMobileNO(String mobiles){
-		
-		Pattern pattern = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");  
-		Matcher matcher = pattern.matcher(mobiles);  
-		
+	 * 判断手机号码
+	 */
+	public static boolean isMobileNO(String mobiles) {
+
+		Pattern pattern = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+		Matcher matcher = pattern.matcher(mobiles);
+
 		return matcher.matches();
-		
+
 	}
-	
-	
+
 }

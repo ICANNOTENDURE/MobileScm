@@ -17,8 +17,7 @@ public class NetworkUtils {
 	 * @return
 	 */
 	public static boolean isNetworkAvailable(Context context) {
-		ConnectivityManager connectivity = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (connectivity == null) {
 		} else {
 			NetworkInfo[] info = connectivity.getAllNetworkInfo();
@@ -52,8 +51,7 @@ public class NetworkUtils {
 	 * @return
 	 */
 	public static boolean isGpsEnabled(Context context) {
-		LocationManager locationManager = ((LocationManager) context
-				.getSystemService(Context.LOCATION_SERVICE));
+		LocationManager locationManager = ((LocationManager) context.getSystemService(Context.LOCATION_SERVICE));
 		List<String> accessibleProviders = locationManager.getProviders(true);
 		return accessibleProviders != null && accessibleProviders.size() > 0;
 	}
@@ -62,13 +60,9 @@ public class NetworkUtils {
 	 * wifi是否打开
 	 */
 	public static boolean isWifiEnabled(Context context) {
-		ConnectivityManager mgrConn = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		TelephonyManager mgrTel = (TelephonyManager) context
-				.getSystemService(Context.TELEPHONY_SERVICE);
-		return ((mgrConn.getActiveNetworkInfo() != null && mgrConn
-				.getActiveNetworkInfo().getState() == NetworkInfo.State.CONNECTED) || mgrTel
-				.getNetworkType() == TelephonyManager.NETWORK_TYPE_UMTS);
+		ConnectivityManager mgrConn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		TelephonyManager mgrTel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		return ((mgrConn.getActiveNetworkInfo() != null && mgrConn.getActiveNetworkInfo().getState() == NetworkInfo.State.CONNECTED) || mgrTel.getNetworkType() == TelephonyManager.NETWORK_TYPE_UMTS);
 	}
 
 	/**
@@ -79,11 +73,9 @@ public class NetworkUtils {
 	 * @return boolean
 	 */
 	public static boolean isWifi(Context context) {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-		if (activeNetInfo != null
-				&& activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+		if (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
 			return true;
 		}
 		return false;
@@ -96,11 +88,9 @@ public class NetworkUtils {
 	 * @return boolean
 	 */
 	public static boolean is3G(Context context) {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-		if (activeNetInfo != null
-				&& activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+		if (activeNetInfo != null && activeNetInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
 			return true;
 		}
 		return false;
