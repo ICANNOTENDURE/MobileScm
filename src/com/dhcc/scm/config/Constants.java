@@ -12,20 +12,20 @@ public class Constants {
 	public static String APP_NAME = "";
 
 	// 图片路径
-	public static final String IMAGE_URL = "http://58.211.5.34:8080/studioms/staticmedia/images/#";
+	public static final String IMAGE_URL = "#";
 
 	// 视频路径
-	public static final String VIDEO_URL = "http://58.211.5.34:8080/studioms/staticmedia/video/#";
+	public static final String VIDEO_URL = "#";
 
 	// 保存参数文件夹名称
-	public static final String SHARED_PREFERENCE_NAME = "itau_jingdong_prefs";
+	public static final String SHARED_PREFERENCE_NAME = "config_ip";
 
 	// SDCard路径
 	public static final String SD_PATH = Environment
 			.getExternalStorageDirectory().getAbsolutePath();
 
 	// 图片存储路径
-	public static final String BASE_PATH = SD_PATH + "/iTau/jingdong/";
+	public static final String BASE_PATH = SD_PATH + "/iTau/scm/";
 
 	// 缓存图片路径
 	public static final String BASE_IMAGE_CACHE = BASE_PATH + "cache/images/";
@@ -82,5 +82,5 @@ public class Constants {
 	 ******************************************* 参数设置信息结束 ******************************************
 	 */
 	
-	public static final String HTTPURL="";
+	public static final String HTTPURL="http://111.205.100.88/scm/";
 }
