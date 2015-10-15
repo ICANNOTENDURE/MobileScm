@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.InGdRec;
+import com.dhcc.scm.utils.CommonTools;
 
 public class InGdRecAdapter extends BaseAdapter {
 	
@@ -53,7 +54,7 @@ public class InGdRecAdapter extends BaseAdapter {
 			holder.desc=(TextView) convertView.findViewById(R.id.ingdrec_itm_desc);
 			holder.rp=(TextView) convertView.findViewById(R.id.ingdrec_itm_manf);
 			holder.qty=(TextView) convertView.findViewById(R.id.ingdrec_itm_qty);
-			holder.batno=(TextView) convertView.findViewById(R.id.ingdrec_itm_batno);
+			holder.batno=(TextView) convertView.findViewById(R.id.ingdrec_itm_batno_exp);
 			holder.manf=(TextView) convertView.findViewById(R.id.ingdrec_itm_manf);
 			//使用tag存储数据
 			convertView.setTag(holder);
@@ -62,7 +63,9 @@ public class InGdRecAdapter extends BaseAdapter {
 		}
 		holder.desc.setText(list.get(position).getDesc());
 		holder.rp.setText(String.valueOf(list.get(position).getRp()));
-		holder.qty.setText(String.valueOf(list.get(position).getQty()));
+		holder.qty.setText(String.valueOf(list.get(position).getQty())+list.get(position).getUom());
+		holder.manf.setText(list.get(position).getManf());
+		holder.batno.setText(list.get(position).getBatno());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
 		return convertView;
 	}
 	
@@ -73,5 +76,7 @@ public class InGdRecAdapter extends BaseAdapter {
 		TextView qty;
 		TextView manf;
 		TextView batno;
+		TextView vendor;
 	}
+	
 }

@@ -1,15 +1,16 @@
 package com.dhcc.scm.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.dhcc.scm.R;
 
 public class CommonTools {
@@ -88,5 +89,21 @@ public class CommonTools {
 		return matcher.matches();
 
 	}
-
+	
+	/**
+	 * 
+	* @Title: formatDate 
+	* @Description: TODO(这里用一句话描述这个方法的作用) 
+	* @param @param date
+	* @param @return    设定文件 
+	* @return String    返回类型 
+	* @throws 
+	* @author zhouxin   
+	* @date 2015年10月15日 下午5:39:21
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public static String formatDate(Date date){
+		SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd");
+		return sfd.format(date);
+	}
 }

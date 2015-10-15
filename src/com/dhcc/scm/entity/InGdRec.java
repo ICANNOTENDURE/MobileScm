@@ -20,6 +20,18 @@ public class InGdRec {
 	private String manf;
 	
 	private String uom;
+	
+	private String vendor;
+	
+	
+	
+	public String getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(String vendor) {
+		this.vendor = vendor;
+	}
 
 	public String getDesc() {
 		return desc;

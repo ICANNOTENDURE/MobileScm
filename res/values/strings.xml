@@ -63,8 +63,11 @@
     <string name="login_btn">登   录</string>
     <string name="registerfree">登录配置</string>
     <string name="login_loading">正在登录，请稍候。。</string>
-   
-    
+<!-- 扫码入库 -->   
+    <string name="ingdrec_itm_batno_exp">批号/效期</string>
+    <string name="ingdrec_itm_manf">产地</string>
+    <string name="ingdrec_itm_qty">数量</string>
+    <string name="ingdrec_itm_desc">名称</string>
 <!--   更多 -->
 <string name="more">更多</string>
 

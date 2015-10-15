@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomView"
+        android:layout_below="@id/layout_top"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dip"
+            android:orientation="vertical"
+            android:weightSum="7" >
+
+            <!-- 描述 -->
+
+            <TextView
+                android:id="@+id/ingdrec_itm_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ingdrec_itm_desc"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <!--  -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ingdrec_itm_qty"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="0sp"
+                    android:id="@+id/ingdrec_itm_qty"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+                 <TextView
+                     android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ingdrec_itm_batno_exp"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="0sp"
+                    android:id="@+id/ingdrec_itm_batno_exp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ingdrec_itm_manf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ingdrec_itm_manf"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
