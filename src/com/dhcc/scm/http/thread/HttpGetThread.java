@@ -30,7 +30,6 @@ public class HttpGetThread implements Runnable {
 	public void run() {
 		// 获取我们回调主ui的message
 		Message msg = hand.obtainMessage();
-		Log.e("liuxiaowei", url);
 		try {
 			String result = myGet.doGet(url);
 			msg.what = 200;

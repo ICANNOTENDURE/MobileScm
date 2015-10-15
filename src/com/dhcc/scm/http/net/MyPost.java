@@ -29,10 +29,8 @@ public class MyPost {
 		HttpResponse httpResponse = null;
 		HttpPost post = new HttpPost(Constants.HTTPURL + url);
 		DefaultHttpClient client = new DefaultHttpClient();
-		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT,
-				30000); // 超时设置
-		client.getParams().setIntParameter(
-				HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
+		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
+		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		// Json字符串拼接
 		nameValuePairs.add(new BasicNameValuePair("value", value));
@@ -42,8 +40,7 @@ public class MyPost {
 			httpResponse = client.execute(post);
 			Log.e("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				result = EntityUtils
-						.toString(httpResponse.getEntity(), "utf-8");
+				result = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
 				Log.e("HTTP", "result:" + result);
 			} else {
 				result = null;
@@ -63,10 +60,8 @@ public class MyPost {
 		HttpResponse httpResponse = null;
 		HttpPost post = new HttpPost(Constants.HTTPURL + url);
 		DefaultHttpClient client = new DefaultHttpClient();
-		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT,
-				30000); // 超时设置
-		client.getParams().setIntParameter(
-				HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
+		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
+		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		// Json字符串拼接
 		nameValuePairs.add(new BasicNameValuePair("value", value));
@@ -75,8 +70,7 @@ public class MyPost {
 			httpResponse = client.execute(post);
 			Log.e("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
-				result = EntityUtils
-						.toString(httpResponse.getEntity(), "utf-8");
+				result = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
 				Log.e("HTTP", "result:" + result);
 			} else {
 				result = null;

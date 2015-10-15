@@ -17,10 +17,8 @@ public class IsNet {
 	}
 
 	public boolean IsConnect() {
-		ConnectivityManager manager = (ConnectivityManager) ctx
-				.getSystemService(ctx.CONNECTIVITY_SERVICE);
-		NetworkInfo info = manager
-				.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		ConnectivityManager manager = (ConnectivityManager) ctx.getSystemService(ctx.CONNECTIVITY_SERVICE);
+		NetworkInfo info = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 		State stata = null;
 		if (info != null) {
 			stata = info.getState();

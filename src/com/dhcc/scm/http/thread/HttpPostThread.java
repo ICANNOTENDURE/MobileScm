@@ -17,8 +17,7 @@ public class HttpPostThread implements Runnable {
 	private String img = "";
 	private MyPost myGet = new MyPost();
 
-	public HttpPostThread(Handler hand, String endParamerse, String value,
-			String img) {
+	public HttpPostThread(Handler hand, String endParamerse, String value, String img) {
 		this.hand = hand;
 		// 拼接访问服务器完整的地址
 		url = endParamerse;

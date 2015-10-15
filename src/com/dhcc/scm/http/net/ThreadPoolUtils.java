@@ -28,8 +28,7 @@ public class ThreadPoolUtils {
 
 	// 阻塞队列。当核心线程队列满了放入的
 	// 初始化一个大小为10的泛型为Runnable的队列
-	private static BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(
-			10);
+	private static BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(10);
 	// 线程工厂,把传递进来的runnable对象生成一个Thread
 	private static ThreadFactory threadFactory = new ThreadFactory() {
 
@@ -38,8 +37,7 @@ public class ThreadPoolUtils {
 
 		@Override
 		public Thread newThread(Runnable arg0) {
-			return new Thread(arg0, "MyThreadPool thread:"
-					+ ineger.getAndIncrement());
+			return new Thread(arg0, "MyThreadPool thread:" + ineger.getAndIncrement());
 		}
 	};
 
@@ -55,9 +53,7 @@ public class ThreadPoolUtils {
 	private static ThreadPoolExecutor threadpool;
 	// 静态代码块，在类被加载的时候进入
 	static {
-		threadpool = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE,
-				KEEP_ALIVE_TIME, TimeUnit.SECONDS, workQueue, threadFactory,
-				handler);
+		threadpool = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS, workQueue, threadFactory, handler);
 	}
 
 	public static void execute(Runnable runnable) {
