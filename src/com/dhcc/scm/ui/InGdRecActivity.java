@@ -116,7 +116,9 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 			CommonTools.showShortToast(getApplicationContext(), scanResult);
 		}
 	}
-
+	/**
+	 * 回调句柄
+	 */
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
