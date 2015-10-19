@@ -173,5 +173,13 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@drawable/back_button_default_style</item>
     </style>
-
+	
+    	
+    <style name="myProgressBarStyleLarge" >
+	　　<item name="android:indeterminateDrawable">@drawable/progress_bg</item>
+	    <item name="android:minWidth">32dip</item>
+	　　<item name="android:maxWidth">32dip</item>
+	　　<item name="android:minHeight">32dip</item>
+	　　<item name="android:maxHeight">32dip</item>
+	</style>
 </resources>

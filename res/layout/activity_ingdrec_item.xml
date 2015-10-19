@@ -36,32 +36,20 @@
                 android:orientation="horizontal" >
                 <TextView
                     android:layout_width="0sp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/ingdrec_itm_qty"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-                <TextView
-                    android:layout_width="0sp"
                     android:id="@+id/ingdrec_itm_qty"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
-                 <TextView
-                     android:layout_width="0sp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/ingdrec_itm_batno_exp"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
                 <TextView
-                    android:layout_width="0sp"
+                    android:text="@string/ingdrec_itm_batno_exp"
                     android:id="@+id/ingdrec_itm_batno_exp"
+                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <TextView
