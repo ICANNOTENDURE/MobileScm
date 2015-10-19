@@ -121,6 +121,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	 * 111
 	 * 222
 	 * 333
+	 * 444
     */
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
