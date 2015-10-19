@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -66,6 +68,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		listview = (ListView) this.findViewById(R.id.ingdrec_itm_scroll_list);
 		inGdRecAdapter=new InGdRecAdapter(this, inGdRecs);
 		listview.setAdapter(inGdRecAdapter);
+		barcodeTxt.setText("8a8081f54dd08c6a014dd0905fad0004");
 	}
 
 	@Override
@@ -86,18 +89,20 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 			startActivityForResult(new Intent(InGdRecActivity.this, CaptureActivity.class), 0);
 			break;
 		case R.id.ingdrec_save_btn:
-			List<NameValuePair> barCodeNameValuePairs=new ArrayList<NameValuePair>();
-			barCodeNameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
-			ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
+			saveIngdrec();
 			break;
 		case R.id.ingdrec_search_btn:
-			List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
-			nameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
-			ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_GET_BARCODE_INFO, nameValuePairs));
+			saveIngdrec();
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void saveIngdrec() {
+		List<NameValuePair> barCodeNameValuePairs=new ArrayList<NameValuePair>();
+		barCodeNameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
+		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
 	}
 
 	@Override
@@ -121,10 +126,19 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 				CommonTools.showShortToast(InGdRecActivity.this, "服务器无响应");
 			} else if (msg.what == 200) {
 				
-				String result = (String) msg.obj;
-				CommonTools.showShortToast(InGdRecActivity.this, result);
 				InGdRec gdRec = new InGdRec();
-				gdRec.setDesc(result);
+				try {
+					JSONObject jsonObject=new JSONObject((String)msg.obj);	
+					gdRec.setDesc(jsonObject.getString("desc"));
+					gdRec.setBatno(jsonObject.getString("batno"));
+					gdRec.setExpDate(jsonObject.getString("expDate"));
+					gdRec.setManf(jsonObject.getString("vendor"));
+					gdRec.setQty(Float.valueOf(jsonObject.getString("qty")));
+					gdRec.setUom(jsonObject.getString("uom"));
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				inGdRecs.add(gdRec);
 			}
 			inGdRecAdapter.notifyDataSetChanged();

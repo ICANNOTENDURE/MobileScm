@@ -1,6 +1,5 @@
 package com.dhcc.scm.entity;
 
-import java.util.Date;
 
 public class InGdRec {
 	
@@ -13,7 +12,7 @@ public class InGdRec {
 	
 	private String batno;
 	
-	private Date expDate;
+	private String expDate;
 	
 	private String hisId;
 	
@@ -65,11 +64,11 @@ public class InGdRec {
 		this.batno = batno;
 	}
 
-	public Date getExpDate() {
+	public String getExpDate() {
 		return expDate;
 	}
 
-	public void setExpDate(Date expDate) {
+	public void setExpDate(String expDate) {
 		this.expDate = expDate;
 	}
 

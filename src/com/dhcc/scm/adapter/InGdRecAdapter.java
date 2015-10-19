@@ -64,7 +64,7 @@ public class InGdRecAdapter extends BaseAdapter {
 		holder.rp.setText(String.valueOf(list.get(position).getRp()));
 		holder.qty.setText("数量:"+String.valueOf(list.get(position).getQty())+list.get(position).getUom());
 		holder.manf.setText("厂商:"+list.get(position).getManf());
-		holder.batno.setText("批号/效期:"+list.get(position).getBatno());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
+		holder.batno.setText("批号/效期:"+list.get(position).getBatno()+"/"+list.get(position).getExpDate());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
 		return convertView;
 	}
 	

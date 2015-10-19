@@ -60,10 +60,10 @@ public class MyPost {
 		String result = null;
 		HttpResponse httpResponse = null;
 		HttpPost post = new HttpPost(Constants.HTTPURL + url);
-		Log.i("dhcc", Constants.HTTPURL + url);
+		//Log.i("dhcc", Constants.HTTPURL + url);
 		DefaultHttpClient client = new DefaultHttpClient();
 		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
-		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
+		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 20000);// 连接超时
 
 		// Json字符串拼接
 		nameValuePairs.add(new BasicNameValuePair("requestType", "apk"));
