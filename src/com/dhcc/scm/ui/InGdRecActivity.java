@@ -68,7 +68,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		listview = (ListView) this.findViewById(R.id.ingdrec_itm_scroll_list);
 		inGdRecAdapter=new InGdRecAdapter(this, inGdRecs);
 		listview.setAdapter(inGdRecAdapter);
-		barcodeTxt.setText("8a8081f54dd08c6a014dd0905fad0004");
+		barcodeTxt.setText("2c939386507df40d01507efed84f0001");
 	}
 
 	@Override
@@ -119,7 +119,8 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	/**
 	 * 回调句柄
 	 * 111
-	 */
+	 * 222
+    */
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
