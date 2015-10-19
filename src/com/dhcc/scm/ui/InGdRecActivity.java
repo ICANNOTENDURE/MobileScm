@@ -120,6 +120,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	 * 回调句柄
 	 * 111
 	 * 222
+	 * 333
     */
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
