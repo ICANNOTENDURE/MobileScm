@@ -3,6 +3,7 @@ package com.dhcc.scm.http.net;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -55,23 +56,24 @@ public class MyPost {
 		return result;
 	}
 
-	public String doPost(String url, String value) {
+	public String doPost(String url, List<NameValuePair> nameValuePairs) {
 		String result = null;
 		HttpResponse httpResponse = null;
 		HttpPost post = new HttpPost(Constants.HTTPURL + url);
+		Log.i("dhcc", Constants.HTTPURL + url);
 		DefaultHttpClient client = new DefaultHttpClient();
 		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
 		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
-		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
 		// Json字符串拼接
-		nameValuePairs.add(new BasicNameValuePair("value", value));
+		nameValuePairs.add(new BasicNameValuePair("requestType", "apk"));
 		try {
 			post.setEntity(new UrlEncodedFormEntity(nameValuePairs, "utf-8"));
 			httpResponse = client.execute(post);
-			Log.e("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
+			Log.i("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				result = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
-				Log.e("HTTP", "result:" + result);
+				Log.i("HTTP", "result:" + result);
 			} else {
 				result = null;
 			}

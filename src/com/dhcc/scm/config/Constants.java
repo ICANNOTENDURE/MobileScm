@@ -86,7 +86,9 @@ public class Constants {
 	//web工程地址
 	public static final String HTTPURL="http://111.205.100.88/scm/";
 	
+	//public static final String HTTPURL="http://127.0.0.1:1234/scm/";
+	
 	//查询条码明细方法
-	public static final String METHOD_GET_BARCODE_INFO="";
+	public static final String METHOD_GET_BARCODE_INFO="mobile/mobileScmCtrl!getBarCodeInfo.htm";
 	
 }

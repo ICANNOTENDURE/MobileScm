@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.InGdRec;
-import com.dhcc.scm.utils.CommonTools;
 
 public class InGdRecAdapter extends BaseAdapter {
 	
@@ -63,9 +62,9 @@ public class InGdRecAdapter extends BaseAdapter {
 		}
 		holder.desc.setText(list.get(position).getDesc());
 		holder.rp.setText(String.valueOf(list.get(position).getRp()));
-		holder.qty.setText(String.valueOf(list.get(position).getQty())+list.get(position).getUom());
-		holder.manf.setText(list.get(position).getManf());
-		holder.batno.setText(list.get(position).getBatno());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
+		holder.qty.setText("数量:"+String.valueOf(list.get(position).getQty())+list.get(position).getUom());
+		holder.manf.setText("厂商:"+list.get(position).getManf());
+		holder.batno.setText("批号/效期:"+list.get(position).getBatno());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
 		return convertView;
 	}
 	

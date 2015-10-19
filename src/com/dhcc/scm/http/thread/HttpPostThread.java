@@ -1,5 +1,9 @@
 package com.dhcc.scm.http.thread;
 
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+
 import android.os.Handler;
 import android.os.Message;
 
@@ -16,7 +20,8 @@ public class HttpPostThread implements Runnable {
 	private String value;
 	private String img = "";
 	private MyPost myGet = new MyPost();
-
+	private List<NameValuePair> nameValuePairs;
+	
 	public HttpPostThread(Handler hand, String endParamerse, String value, String img) {
 		this.hand = hand;
 		// 拼接访问服务器完整的地址
@@ -25,11 +30,11 @@ public class HttpPostThread implements Runnable {
 		this.img = img;
 	}
 
-	public HttpPostThread(Handler hand, String endParamerse, String value) {
+	public HttpPostThread(Handler hand, String endParamerse, List<NameValuePair> nameValuePairs) {
 		this.hand = hand;
 		// 拼接访问服务器完整的地址
 		url = endParamerse;
-		this.value = value;
+		this.nameValuePairs = nameValuePairs;
 	}
 
 	@Override
@@ -38,7 +43,7 @@ public class HttpPostThread implements Runnable {
 		Message msg = hand.obtainMessage();
 		String result = null;
 		if (img.equalsIgnoreCase("")) {
-			result = myGet.doPost(url, value);
+			result = myGet.doPost(url, nameValuePairs);
 		} else {
 			result = myGet.doPost(url, img, value);
 		}
