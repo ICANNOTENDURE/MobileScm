@@ -54,6 +54,8 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 		case R.id.index_pack_btn:
 			break;
 		case R.id.index_query_btn:
+			Intent nIntent = new Intent(IndexActivity.this, InGdRecSearchActivity.class);
+			startActivity(nIntent);
 			break;	
 		default:
 			break;
