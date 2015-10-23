@@ -92,17 +92,57 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 			saveIngdrec();
 			break;
 		case R.id.ingdrec_search_btn:
-			saveIngdrec();
+			searchBarCode();
 			break;
 		default:
 			break;
 		}
 	}
-
+	
+	/**
+	 * 
+	* @Title: saveIngdrec 
+	* @Description: TODO(保存入库单) 
+	* @param     设定文件 
+	* @return void    返回类型 
+	* @throws 
+	* @author zhouxin   
+	* @date 2015年10月20日 上午11:36:18
+	 */
 	private void saveIngdrec() {
-		List<NameValuePair> barCodeNameValuePairs=new ArrayList<NameValuePair>();
-		barCodeNameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
+		if(inGdRecAdapter.getCount()>0){
+			StringBuffer sb=new StringBuffer();
+			for(InGdRec gdRec:inGdRecs){
+				sb.append(gdRec.getScmId()+"^");
+			}
+			List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
+			nameValuePairs.add(new BasicNameValuePair("value", sb.toString()));
+			ThreadPoolUtils.execute(new HttpPostThread(savehandler, Constants.METHOD_SAVE_BARCODE, nameValuePairs));
+		}else{
+			CommonTools.showShortToast(InGdRecActivity.this, "没有明细,请扫码");
+			return;
+		}
+		
+	}
+	
+	/**
+	 * 
+	* @Title: searchBarCode 
+	* @Description: TODO(查询条码) 
+	* @param     设定文件 
+	* @return void    返回类型 
+	* @throws 
+	* @author zhouxin   
+	* @date 2015年10月20日 上午11:36:37
+	 */
+	private void searchBarCode() {
+		if(inGdRecAdapter.checkExist(barcodeTxt.getText().toString())){
+			CommonTools.showShortToast(InGdRecActivity.this, "列表中已存在,不能重复扫码");
+		}else{
+			List<NameValuePair> barCodeNameValuePairs=new ArrayList<NameValuePair>();
+			barCodeNameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
+			ThreadPoolUtils.execute(new HttpPostThread(searchhandler, Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
+		}
 	}
 
 	@Override
@@ -123,7 +163,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	 * 333
 	 * 444
     */
-	Handler handler = new Handler() {
+	Handler searchhandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			super.handleMessage(msg);
 			if (msg.what == 404) {
@@ -135,19 +175,47 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 				InGdRec gdRec = new InGdRec();
 				try {
 					JSONObject jsonObject=new JSONObject((String)msg.obj);	
-					gdRec.setDesc(jsonObject.getString("desc"));
-					gdRec.setBatno(jsonObject.getString("batno"));
-					gdRec.setExpDate(jsonObject.getString("expDate"));
-					gdRec.setManf(jsonObject.getString("vendor"));
-					gdRec.setQty(Float.valueOf(jsonObject.getString("qty")));
-					gdRec.setUom(jsonObject.getString("uom"));
+					if(jsonObject.getString("result").equals("0")){
+						gdRec.setDesc(jsonObject.getString("desc"));
+						gdRec.setBatno(jsonObject.getString("batno"));
+						gdRec.setExpDate(jsonObject.getString("expDate"));
+						gdRec.setManf(jsonObject.getString("vendor"));
+						gdRec.setQty(Float.valueOf(jsonObject.getString("qty")));
+						gdRec.setUom(jsonObject.getString("uom"));
+						gdRec.setScmId(jsonObject.getString("scmid"));
+						barcodeTxt.setText("");
+					}else{
+						CommonTools.showShortToast(InGdRecActivity.this, "条码错误");
+						return;
+					}
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				inGdRecs.add(gdRec);
 			}
 			inGdRecAdapter.notifyDataSetChanged();
+		};
+	};
+	Handler savehandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			super.handleMessage(msg);
+			if (msg.what == 404) {
+				CommonTools.showShortToast(InGdRecActivity.this, "请求失败，服务器故障");
+			} else if (msg.what == 100) {
+				CommonTools.showShortToast(InGdRecActivity.this, "服务器无响应");
+			} else if (msg.what == 200) {
+				try {
+					JSONObject jsonObject=new JSONObject((String)msg.obj);	
+					if(jsonObject.getString("resultCode").equals("0")){
+						
+					}else{
+						CommonTools.showShortToast(InGdRecActivity.this, jsonObject.getString("resultContent"));
+						return;
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
 		};
 	};
 }
