@@ -1,6 +1,8 @@
 package com.dhcc.scm.adapter;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.view.View;
@@ -18,7 +20,7 @@ public class InGdRecAdapter extends BaseAdapter {
 	
 	private List<InGdRec> list;
 	
-	
+	private  Map<String, String> map=new HashMap<String, String>();
 	
 	public InGdRecAdapter(Context ctx, List<InGdRec> list) {
 		super();
@@ -65,6 +67,7 @@ public class InGdRecAdapter extends BaseAdapter {
 		holder.qty.setText("数量:"+String.valueOf(list.get(position).getQty())+list.get(position).getUom());
 		holder.manf.setText("厂商:"+list.get(position).getManf());
 		holder.batno.setText("批号/效期:"+list.get(position).getBatno()+"/"+list.get(position).getExpDate());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
+		map.put(list.get(position).getScmId(), "1");
 		return convertView;
 	}
 	
@@ -78,4 +81,7 @@ public class InGdRecAdapter extends BaseAdapter {
 		TextView vendor;
 	}
 	
+	public boolean checkExist(String barcode){
+		return map.containsKey(barcode);
+	}
 }

@@ -93,4 +93,7 @@ public class Constants {
 	
 	public static final String METHOD_SEARCH_INGDREC_ITM="mobile/mobileScmCtrl!serachIngdrec.htm";
 	
+	//查询条码明细方法
+	public static final String METHOD_SAVE_BARCODE="mobile/mobileScmCtrl!saveBarCode.htm";
+	
 }

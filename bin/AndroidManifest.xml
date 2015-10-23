@@ -107,6 +107,8 @@
             android:launchMode="singleTop"
             android:theme="@style/Theme.Present"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.dhcc.scm.ui.InGdRecSearchActivity" />
+        <activity android:name="com.dhcc.scm.ui.InGdRecSearchResultActivity" />
     </application>
 
 </manifest>

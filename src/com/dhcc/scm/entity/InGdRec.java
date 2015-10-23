@@ -3,6 +3,8 @@ package com.dhcc.scm.entity;
 
 public class InGdRec {
 	
+	private String scmId;
+	
 	//名称
 	private String desc;
 	
@@ -94,6 +96,14 @@ public class InGdRec {
 
 	public void setUom(String uom) {
 		this.uom = uom;
+	}
+
+	public String getScmId() {
+		return scmId;
+	}
+
+	public void setScmId(String scmId) {
+		this.scmId = scmId;
 	}
 	
 	
