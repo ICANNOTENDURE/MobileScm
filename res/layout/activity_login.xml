@@ -72,7 +72,8 @@
                         android:focusableInTouchMode="true"
                         android:padding="5.0dip"
                         android:textColor="#ff3b3b3b"
-                        android:textSize="16.0sp" >
+                        android:textSize="16.0sp" 
+                        android:hint="test" >  	                             <!-- delete -->
 
                     </EditText>
                       
@@ -112,7 +113,8 @@
                         android:padding="5.0dip"
                         android:textColor="#ff3b3b3b"
                         android:inputType="textPassword"
-                        android:textSize="16.0sp" >
+                        android:textSize="16.0sp" 
+                        android:hint="123">                        <!-- delete -->
 
                     </EditText>
                       <ToggleButton
