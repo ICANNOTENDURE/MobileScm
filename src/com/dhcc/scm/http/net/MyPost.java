@@ -17,8 +17,6 @@ import org.apache.http.util.EntityUtils;
 
 import android.util.Log;
 
-import com.dhcc.scm.config.Constants;
-
 /**
  * 我的post请求方式工具类
  * */
@@ -28,7 +26,7 @@ public class MyPost {
 	public String doPost(String url, String img, String value) {
 		String result = null;
 		HttpResponse httpResponse = null;
-		HttpPost post = new HttpPost(Constants.HTTPURL + url);
+		HttpPost post = new HttpPost(url);
 		DefaultHttpClient client = new DefaultHttpClient();
 		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
 		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);// 连接超时
@@ -59,8 +57,8 @@ public class MyPost {
 	public String doPost(String url, List<NameValuePair> nameValuePairs) {
 		String result = null;
 		HttpResponse httpResponse = null;
-		HttpPost post = new HttpPost(Constants.HTTPURL + url);
-		//Log.i("dhcc", Constants.HTTPURL + url);
+		HttpPost post = new HttpPost(url);
+		//Log.i("dhcc", url);
 		DefaultHttpClient client = new DefaultHttpClient();
 		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, 30000); // 超时设置
 		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 20000);// 连接超时

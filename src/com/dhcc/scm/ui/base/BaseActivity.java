@@ -6,6 +6,7 @@ import java.util.concurrent.Callable;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -312,5 +313,13 @@ public abstract class BaseActivity extends Activity {
 	protected <T> void doAsync(final int pTitleResID, final int pMessageResID, final AsyncCallable<T> pAsyncCallable, final Callback<T> pCallback, final Callback<Exception> pExceptionCallback) {
 		EMobileTask.doAsync(this, pTitleResID, pMessageResID, pAsyncCallable, pCallback, pExceptionCallback);
 	}
+	
 
+	protected String getIpByType(String ... type){
+		
+		SharedPreferences preferences = getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
+		String hisIp= "http://"+preferences.getString("HisUrl", "")+"/dthealth/web/"+Constants.HIS_CSP; // //从内存加载config
+		String scmIp= "http://"+preferences.getString("ScmUrl", "")+"/scm/"; // //从内存加载config
+		return type.length==0?hisIp:scmIp;
+	}
 }

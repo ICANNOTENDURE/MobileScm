@@ -16,6 +16,9 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 	private ImageButton index_trf = null;
 	private ImageButton index_pack = null;
 	private ImageButton index_query = null;
+	private ImageButton index_trfin = null;
+	private ImageButton index_trfbyreq = null;
+	private ImageButton index_stk = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +31,23 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void findViewById() {
 		index_ingdrec = (ImageButton) findViewById(R.id.index_ingdrec_btn);
-		index_ingdrec.setOnClickListener(this);
 		index_trf = (ImageButton) findViewById(R.id.index_trf_btn);
-		index_trf.setOnClickListener(this);
 		index_pack = (ImageButton) findViewById(R.id.index_pack_btn);
-		index_pack.setOnClickListener(this);
 		index_query = (ImageButton) findViewById(R.id.index_query_btn);
-		index_query.setOnClickListener(this);
+		index_trfin = (ImageButton) findViewById(R.id.index_trfByReq_btn);
+		index_trfbyreq = (ImageButton) findViewById(R.id.index_trfin_btn);
+		index_stk= (ImageButton) findViewById(R.id.index_stk_btn);
 	}
 
 	@Override
 	protected void initView() {
-
+		index_ingdrec.setOnClickListener(this);
+		index_trf.setOnClickListener(this);
+		index_pack.setOnClickListener(this);
+		index_query.setOnClickListener(this);
+		index_trfin.setOnClickListener(this);
+		index_trfbyreq.setOnClickListener(this);
+		index_stk.setOnClickListener(this);
 	}
 
 	@Override
@@ -50,10 +58,22 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 			startActivity(mIntent);
 			break;
 		case R.id.index_trf_btn:
+			startActivity(new Intent(IndexActivity.this, TransferOut.class));
 			break;
 		case R.id.index_pack_btn:
+			startActivity(new Intent(IndexActivity.this, UpItmListActivity.class));
+			break;
+		case R.id.index_trfByReq_btn:
+			startActivity(new Intent(IndexActivity.this, TransferOutByReqActivity.class));
+			break;
+		case R.id.index_trfin_btn:
+			startActivity(new Intent(IndexActivity.this, TransferInActivity.class));
 			break;
 		case R.id.index_query_btn:
+			startActivity(new Intent(IndexActivity.this, InGdRecActivity.class));
+			break;
+		case R.id.index_stk_btn:
+			startActivity(new Intent(IndexActivity.this, InStkTkMainActivity.class));
 			break;	
 		default:
 			break;

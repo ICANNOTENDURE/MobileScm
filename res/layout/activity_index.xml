@@ -52,8 +52,8 @@
                 android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="horizontal" >
-
-                <!-- 入库 -->
+				              
+                <!-- 转移入库-->
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -63,19 +63,20 @@
                     android:orientation="vertical" >
 
                     <ImageButton
-                        android:id="@+id/index_ingdrec_btn"
+                        android:id="@+id/index_trfin_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/app_home_shortcuts_button_selector"
-                        android:src="@drawable/shortcuts_icon_barcode" />
+                        android:src="@drawable/shortcuts_icon_promotion" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/index_ingdrec"
+                        android:text="@string/index_trfin"
                         android:textColor="@color/black"
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>
+                
                 <!-- 出库 -->
 
                 <LinearLayout
@@ -99,6 +100,28 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>
+                <!--请求单出库 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/index_trfByReq_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/app_home_shortcuts_button_selector"
+                        android:src="@drawable/shortcuts_icon_collect" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/index_trfByReq"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/micro_text_size" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -109,7 +132,29 @@
                 android:baselineAligned="false"
                 android:gravity="center"
                 android:orientation="horizontal" >
+				<!-- 入库 -->
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/index_ingdrec_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/app_home_shortcuts_button_selector"
+                        android:src="@drawable/shortcuts_icon_barcode" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/index_ingdrec"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/micro_text_size" />
+                </LinearLayout>
                 <!-- 拆包装 -->
 
                 <LinearLayout
@@ -133,6 +178,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>
+  
                 <!-- 订单查询 -->
 
                 <LinearLayout
@@ -157,7 +203,39 @@
                         android:textSize="@dimen/micro_text_size" />
                 </LinearLayout>
             </LinearLayout>
+			  <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="horizontal" >
+				<!-- 盘点 -->
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:id="@+id/index_stk_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/app_home_shortcuts_button_selector"
+                        android:src="@drawable/shortcuts_icon_barcode" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/index_stk"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/micro_text_size" />
+                </LinearLayout>
+
+            </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

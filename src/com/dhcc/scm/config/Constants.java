@@ -81,12 +81,9 @@ public class Constants {
 	/**
 	 ******************************************* 参数设置信息结束 ******************************************
 	 */
-	
-	
-	//web工程地址
-	public static final String HTTPURL="http://111.205.100.88/scm/";
-	
-	//public static final String HTTPURL="http://127.0.0.1:1234/scm/";
+	//his csp 地址
+	public static final String HIS_CSP="csp/dhc.dhcst.androidpda.common.getdata.csp";
+
 	
 	//查询条码明细方法
 	public static final String METHOD_GET_BARCODE_INFO="mobile/mobileScmCtrl!getBarCodeInfo.htm";
@@ -95,5 +92,7 @@ public class Constants {
 	
 	//查询条码明细方法
 	public static final String METHOD_SAVE_BARCODE="mobile/mobileScmCtrl!saveBarCode.htm";
+
+	public static final String HTTPURL = null;
 	
 }

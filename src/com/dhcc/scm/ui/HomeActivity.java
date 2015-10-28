@@ -36,10 +36,6 @@ public class HomeActivity extends TabActivity {
 		super.onCreate(savedInstanceState);
 		AppManager.getInstance().addActivity(this);
 		setContentView(R.layout.activity_home);
-		
-		
-
-		
 		findViewById();
 		initView();
 	}
@@ -53,44 +49,37 @@ public class HomeActivity extends TabActivity {
 		mTabHost = getTabHost();
 
 		Intent i_main = new Intent(this, IndexActivity.class);
-		Intent i_personal = new Intent(this, PersonalActivity.class);
 
-		mTabHost.addTab(mTabHost.newTabSpec(TAB_MAIN).setIndicator(TAB_MAIN)
-				.setContent(i_main));
-		mTabHost.addTab(mTabHost.newTabSpec(TAB_PERSONAL)
-				.setIndicator(TAB_PERSONAL).setContent(i_personal));
-
+		mTabHost.addTab(mTabHost.newTabSpec(TAB_MAIN).setIndicator(TAB_MAIN).setContent(i_main));
 		mTabHost.setCurrentTabByTag(TAB_MAIN);
+		mTabButtonGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				switch (checkedId) {
+				case R.id.home_tab_main:
+					mTabHost.setCurrentTabByTag(TAB_MAIN);
+					break;
 
-		mTabButtonGroup
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-					public void onCheckedChanged(RadioGroup group, int checkedId) {
-						switch (checkedId) {
-						case R.id.home_tab_main:
-							mTabHost.setCurrentTabByTag(TAB_MAIN);
-							break;
+				case R.id.home_tab_search:
+					mTabHost.setCurrentTabByTag(TAB_SEARCH);
+					break;
 
-						case R.id.home_tab_search:
-							mTabHost.setCurrentTabByTag(TAB_SEARCH);
-							break;
+				case R.id.home_tab_category:
+					mTabHost.setCurrentTabByTag(TAB_CATEGORY);
+					break;
 
-						case R.id.home_tab_category:
-							mTabHost.setCurrentTabByTag(TAB_CATEGORY);
-							break;
+				case R.id.home_tab_cart:
+					mTabHost.setCurrentTabByTag(TAB_CART);
+					break;
 
-						case R.id.home_tab_cart:
-							mTabHost.setCurrentTabByTag(TAB_CART);
-							break;
+				case R.id.home_tab_personal:
+					// mTabHost.setCurrentTabByTag(TAB_PERSONAL);
+					break;
 
-						case R.id.home_tab_personal:
-							//mTabHost.setCurrentTabByTag(TAB_PERSONAL);
-							break;
-
-						default:
-							break;
-						}
-					}
-				});
+				default:
+					break;
+				}
+			}
+		});
 	}
 
 	@Override
@@ -152,15 +141,8 @@ public class HomeActivity extends TabActivity {
 	}
 
 	/** 含有标题、内容、两个按钮的对话框 **/
-	protected void showAlertDialog(String title, String message,
-			String positiveText,
-			DialogInterface.OnClickListener onPositiveClickListener,
-			String negativeText,
-			DialogInterface.OnClickListener onNegativeClickListener) {
-		new AlertDialog.Builder(this).setTitle(title).setMessage(message)
-				.setPositiveButton(positiveText, onPositiveClickListener)
-				.setNegativeButton(negativeText, onNegativeClickListener)
-				.show();
+	protected void showAlertDialog(String title, String message, String positiveText, DialogInterface.OnClickListener onPositiveClickListener, String negativeText, DialogInterface.OnClickListener onNegativeClickListener) {
+		new AlertDialog.Builder(this).setTitle(title).setMessage(message).setPositiveButton(positiveText, onPositiveClickListener).setNegativeButton(negativeText, onNegativeClickListener).show();
 	}
 
 }

@@ -13,7 +13,7 @@
 	<TextView 
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:text="@string/configip_webcontent"
+    	android:text="@string/configip_hisip"
     	android:id="@+id/contentTextView"
     	/>
 	<EditText
@@ -21,29 +21,29 @@
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_below="@+id/contentTextView"
-    	android:id="@+id/config_weburl"
+    	android:id="@+id/config_hisurl"
     	android:digits="0123456789."/>
 
 	<TextView
 	    android:layout_marginTop="10dp"
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:text="@string/configip_filecontent"
-    	android:layout_below="@+id/config_weburl"
+    	android:text="@string/configip_scmip"
+    	android:layout_below="@+id/config_hisurl"
     	android:id="@+id/webcontentTextView"
     	/>
 	<EditText
 	    android:hint=""
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:id="@+id/config_fileurl"
+    	android:id="@+id/config_scmurl"
     	android:layout_below="@+id/webcontentTextView"
-    	android:digits="0123456789."/>
+    	/>
 
 	<Button
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/config_fileurl"
+	    android:layout_below="@+id/config_scmurl"
 	    android:layout_marginTop="20dp"
 	    android:background="@drawable/android_title_bg"
 	    android:gravity="center"

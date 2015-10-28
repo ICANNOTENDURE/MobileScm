@@ -68,7 +68,6 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		listview = (ListView) this.findViewById(R.id.ingdrec_itm_scroll_list);
 		inGdRecAdapter=new InGdRecAdapter(this, inGdRecs);
 		listview.setAdapter(inGdRecAdapter);
-		barcodeTxt.setText("2c939386507df40d01507efed84f0001");
 	}
 
 	@Override
@@ -117,7 +116,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 			}
 			List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("value", sb.toString()));
-			ThreadPoolUtils.execute(new HttpPostThread(savehandler, Constants.METHOD_SAVE_BARCODE, nameValuePairs));
+			ThreadPoolUtils.execute(new HttpPostThread(savehandler, getIpByType("scm")+Constants.METHOD_SAVE_BARCODE, nameValuePairs));
 		}else{
 			CommonTools.showShortToast(InGdRecActivity.this, "没有明细,请扫码");
 			return;
@@ -141,7 +140,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		}else{
 			List<NameValuePair> barCodeNameValuePairs=new ArrayList<NameValuePair>();
 			barCodeNameValuePairs.add(new BasicNameValuePair("value", barcodeTxt.getText().toString()));
-			ThreadPoolUtils.execute(new HttpPostThread(searchhandler, Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
+			ThreadPoolUtils.execute(new HttpPostThread(searchhandler, getIpByType("scm")+Constants.METHOD_GET_BARCODE_INFO, barCodeNameValuePairs));
 		}
 	}
 
@@ -175,7 +174,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 				InGdRec gdRec = new InGdRec();
 				try {
 					JSONObject jsonObject=new JSONObject((String)msg.obj);	
-					if(jsonObject.getString("result").equals("0")){
+					if(jsonObject.getString("resultCode").equals("0")){
 						gdRec.setDesc(jsonObject.getString("desc"));
 						gdRec.setBatno(jsonObject.getString("batno"));
 						gdRec.setExpDate(jsonObject.getString("expDate"));
@@ -185,7 +184,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 						gdRec.setScmId(jsonObject.getString("scmid"));
 						barcodeTxt.setText("");
 					}else{
-						CommonTools.showShortToast(InGdRecActivity.this, "条码错误");
+						CommonTools.showShortToast(InGdRecActivity.this, "错误:"+jsonObject.getString("resultMsg"));
 						return;
 					}
 				} catch (JSONException e) {
