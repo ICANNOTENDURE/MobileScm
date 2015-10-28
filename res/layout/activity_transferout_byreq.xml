@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/title_background" >
+
+        <TextView
+            android:id="@+id/xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="请求单查询"
+            android:textColor="@color/result_text"
+            android:textSize="20.0sp" />
+
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="点击查询"
+            android:src="@drawable/lab" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left" >
+
+        <TextView
+            android:id="@+id/daterange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始日期"
+            android:textSize="15.0dp" />
+
+        <EditText
+            android:id="@+id/startdate"
+            android:layout_width="150px"
+            android:layout_height="60px"
+            android:background="@drawable/edit_text"
+            android:ems="6"
+            android:inputType="date"
+            android:paddingLeft="10dp"
+            android:textSize="15.0dp" />
+
+        <TextView
+            android:id="@+id/datespace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15.0dp"
+            android:text="结束日期" />
+
+        <EditText
+            android:id="@+id/enddate"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:background="@drawable/edit_text"
+            android:ems="6"
+            android:inputType="date"
+            android:paddingLeft="10dp"
+            android:textSize="15.0dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/fromloclabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="供给部门"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/fromloc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:paddingLeft="10dp"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/toloclabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15.0dp" 
+                android:text="请求部门" />
+
+            <EditText
+                android:id="@+id/toloc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:paddingLeft="10dp"
+                android:textSize="15.0dp" >
+            </EditText>
+
+            <ImageView
+                android:id="@+id/seekloc_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/seek_btn" />
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gray_background" >
+
+        <ListView
+            android:id="@+id/reqitmlist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+        </ListView>
+    </HorizontalScrollView>
+
+</LinearLayout>

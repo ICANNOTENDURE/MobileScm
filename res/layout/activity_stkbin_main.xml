@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/title_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="货位管理"
+            android:textColor="@color/result_text"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/incidatalabel"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#34495e"
+        android:text="※药品信息※"
+        android:textColor="#f9fafb"
+        android:textSize="15dp" />
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="62dp"
+            android:layout_height="40dp"
+            android:background="#1abc9c"
+            android:text="药品名称"
+            android:textSize="15.0sp"
+            android:gravity="center_vertical"  />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/stkbin_incidesc"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="fill_horizontal"
+            android:text=""
+            android:textSize="15.0sp" />
+    </LinearLayout>
+
+   <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="#1abc9c"
+                android:text="批        号"
+                android:textSize="15.0sp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/stkbin_batno"
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="15.0sp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="#1abc9c"
+                android:text="效        期"
+                android:textSize="15.0sp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/stkbin_expdate"
+                android:layout_width="95dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="15.0sp"
+                android:gravity="center_vertical"  />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+        
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:background="#1abc9c"
+                android:text="批次数量"
+                android:textSize="15.0dp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/stkbin_qty"
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="15.0sp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:background="@drawable/title_background"
+                android:text="单       位"
+                android:textSize="15.0dp"
+                android:gravity="center_vertical"  />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/stkbin_uomdesc"
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="15.0sp"
+                android:gravity="center_vertical" />
+            
+            <TextView
+                android:id="@+id/stkbin_uomrowid"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+            
+            <TextView
+                android:id="@+id/stkbin_inclb"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+            
+            <TextView
+                android:id="@+id/stkbin_inci"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+
+        </TableRow>
+    </TableLayout>
+        
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+   
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="61dp"
+            android:layout_height="40dp"
+            android:background="@drawable/title_background"
+            android:text="包装条码"
+            android:textSize="15.0dp" 
+            android:gravity="center_vertical"  />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <EditText
+            android:id="@+id/stkbin_packlabel"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@drawable/edit_text"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:text=""
+            android:focusable="true"
+			android:focusableInTouchMode="true"
+            android:textSize="12.0dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/linklabellabel"
+            android:layout_width="61dp"
+            android:layout_height="40dp"
+            android:background="@drawable/title_background"
+            android:text="货位条码"
+            android:textSize="15.0dp"
+            android:gravity="center_vertical" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <EditText
+            android:id="@+id/stkbin_linklabel"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@drawable/edit_text"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:text=""
+            android:textSize="12.0dp" />
+        
+        <TextView
+            android:id="@+id/stkbin_stkbincode"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:text=""
+            android:visibility="gone"
+            android:textSize="15.0sp" />
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/stkbin_clear"
+            android:text="清空"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:textSize="18sp"
+            android:textColor="@color/result_text"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_trin_style" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/stkbin_sure"
+            android:text="关联货架"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:textSize="18sp"
+            android:textColor="@color/result_text"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_trin_style_red" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <TextView
+           android:id="@+id/stkbin_stkbindesc"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text=""
+           android:textSize="45.0sp"
+           android:textColor="@color/red"
+           android:gravity="center_vertical|center_horizontal" />
+    </LinearLayout>
+</LinearLayout>

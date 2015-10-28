@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+    
+  <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal">
+	   <TextView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/trIniti"
+            android:visibility="gone"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+       <TextView
+            android:layout_width="195dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/trInciDesc" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/trQty"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+             android:id="@+id/trUom" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/trReqQty" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+	</LinearLayout>
+</LinearLayout>

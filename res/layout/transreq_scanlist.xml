@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_vertical" >
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:gravity="left"
+            android:id="@+id/batno"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+           android:id="@+id/expdate"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/transqty"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+           android:id="@+id/uomdesc"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:gravity="left"
+            android:id="@+id/packlabel"/>
+		<View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:gravity="left"
+           android:id="@+id/linklabel"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:gravity="left"
+            android:id="@+id/inclbrowid"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+			android:id="@+id/uomrowid"/>
+    </LinearLayout>
+
+</LinearLayout>

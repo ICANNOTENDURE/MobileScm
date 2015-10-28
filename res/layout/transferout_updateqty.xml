@@ -1,0 +1,232 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:background="@drawable/title_background" >
+
+        <TextView
+            android:id="@+id/bedTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="修改数量"
+            android:textColor="@color/result_text"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+    <View
+	   android:layout_width="match_parent"
+	   android:layout_height="2dp"
+	   android:background="@color/white"/>
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/upd_inciName_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textSize="15.0dp"
+                android:text="名        称" />
+
+            <EditText
+                android:id="@+id/upd_inciName"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_uomDesc_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="left"
+                android:text="单        位"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/upd_uomDesc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_batNo_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="批        号"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/upd_batNo"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_expdate_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="效        期"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/upd_expdate"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_transqty_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="数        量"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/upd_transqty"
+                android:numeric="integer"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" 
+                android:selectAllOnFocus="true"  >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_inclb_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="inclb:"
+                android:textSize="18.0dp" 
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/upd_inclb"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:textColor="#606060"
+                android:textSize="18.0dp"
+                android:visibility="gone" >
+            </EditText>
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/upd_inclb_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="条        码"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/upd_barcode"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="5dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+    </TableLayout>
+        <View
+		    android:layout_width="match_parent"
+			android:layout_height="30dp"/>
+		<LinearLayout
+		       android:layout_width="fill_parent"
+		       android:layout_height="wrap_content"
+		       android:orientation="horizontal"
+		       android:gravity="center_horizontal" >
+            <Button
+                android:id="@+id/upd_saveItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/save_but" />
+        </LinearLayout>
+</LinearLayout>

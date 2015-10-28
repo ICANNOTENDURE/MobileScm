@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:background="@drawable/title_background" >
+
+        <TextView
+            android:id="@+id/scanTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫码出库"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="20.0sp" 
+            android:textColor="@color/result_text"
+            />
+
+    </RelativeLayout>
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="2dp"
+	    android:background="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal" >
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:text="单    号" 
+		    android:background="#1abc9c"
+		    android:textSize="15.0sp"
+		    android:gravity="center_vertical" />
+	    <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+        <TextView
+            android:id="@+id/TranNo"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:textSize="15.0sp"
+            android:gravity="center_vertical" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+        <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:background="#1abc9c"
+		    android:textSize="15.0sp"
+		    android:text="类    组" 
+		    android:gravity="center_vertical" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+        <TextView
+            android:id="@+id/StkCatGrpDesc"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:textSize="15.0sp" 
+            android:gravity="center_vertical" />
+         <TextView
+            android:id="@+id/StkCatGrpID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15.0sp"
+            
+             />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_query"
+            android:text="查询"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:textSize="18sp"
+            android:textColor="@color/result_text"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_trin_style" />
+       
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/saveItem"
+            android:text="确认出库"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:textSize="18sp"
+            android:textColor="@color/result_text"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_trin_style_red" />
+    </LinearLayout>
+
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="2dp"
+	    android:background="@color/white"/>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gray_background" >
+
+        <ListView
+            android:id="@+id/inciitmlist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+        </ListView>
+    </HorizontalScrollView>
+
+</LinearLayout>

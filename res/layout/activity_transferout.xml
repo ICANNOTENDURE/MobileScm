@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/title_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建出库单"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="20.0sp" 
+            android:textColor="@color/result_text" />
+        
+        <ImageView
+            android:id="@+id/btn_search"
+            android:src="@drawable/lab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="点击查询"
+         	android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+           />
+        
+    </RelativeLayout>
+    <View
+	   android:layout_width="match_parent"
+	   android:layout_height="2dp"
+	   android:background="@color/white"/>
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/createDateView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="建单日期"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/createDate"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/transferNoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="left"
+                android:text="单        号"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/transferNo"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/tvprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="供给部门"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/fromLoc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/toLocView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="请求部门"
+                android:textSize="15.0dp"/>
+
+            <EditText
+                android:id="@+id/toLoc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" 
+                android:selectAllOnFocus="true"/>
+            
+            <ImageView
+	            android:id="@+id/seekloc_btn"
+	            android:src="@drawable/seek_btn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	           />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/stkgrplabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center_vertical|left"
+                android:text="类        组"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/stktypedesc"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/tvprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="建  单  人"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/createUser"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" >
+
+            <TextView
+                android:id="@+id/tvprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="备        注"
+                android:textSize="16.0dp" />
+
+            <EditText
+                android:id="@+id/remark"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_weight="3"
+                android:paddingLeft="10dp"
+                android:background="@drawable/edit_text"
+                android:textSize="15.0dp" 
+                android:selectAllOnFocus="true">
+            </EditText>
+        </TableRow>
+
+    </TableLayout>
+        <View
+		    android:layout_width="match_parent"
+			android:layout_height="20dp"/>
+		<LinearLayout
+		       android:layout_width="fill_parent"
+		       android:layout_height="wrap_content"
+		       android:orientation="horizontal"
+		       android:gravity="center_horizontal" >
+            <Button
+                android:id="@+id/saveMaster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/save_but" />
+             <View
+			    android:layout_width="30dp"
+			    android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/saveDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/barcode_but"
+                 />
+        </LinearLayout>
+</LinearLayout>

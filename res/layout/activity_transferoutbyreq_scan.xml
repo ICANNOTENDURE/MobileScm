@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/title_background" >
+
+        <TextView
+            android:id="@+id/scanforout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="扫描出库"
+            android:textColor="@color/result_text"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/incidatalabel"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#34495e"
+        android:text="※药品信息※"
+        android:textColor="#f9fafb"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/incidesclabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#1abc9c"
+            android:text="药品名称"
+            android:textSize="15.0sp" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/incidesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="15.0sp" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/reqqtylabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="请求数量"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/reqqty"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/transedqtylabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="已转数量"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/transedqty"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/batnolabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="批       号"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/batno"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/expdatelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="效       期"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/expdate"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/inclbqtylabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="批次库存"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/inclbqty"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/inreqitmlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1abc9c"
+                android:text="请求明细"
+                android:textSize="15.0sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/inreqitm"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15.0sp" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/takedatalabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="#34495e"
+            android:text="※操作信息※"
+            android:textColor="#f9fafb"
+            android:textSize="15dp" />
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/transqtylabel"
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:background="#1abc9c"
+                android:text="转移数量"
+                android:textSize="15.0dp"
+                android:gravity="center_vertical"  />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <EditText
+                android:id="@+id/transqty"
+                android:numeric="integer"
+                android:layout_width="90dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="16.0dp"
+                android:selectAllOnFocus="true"  />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/uomdesclabel"
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:background="@drawable/title_background"
+                android:text="单       位"
+                android:textSize="15.0dp"
+                android:gravity="center_vertical" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/uomdesc"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:textSize="15.0sp" />
+            <TextView
+                android:id="@+id/uomrowid"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+            <TextView
+                android:id="@+id/inclbrowid"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+            <TextView
+                android:id="@+id/incirowid"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+            <TextView
+                android:id="@+id/initrowid"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text=""
+                android:visibility="gone"
+                android:textSize="15.0sp" />
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/packlabellabel"
+            android:layout_width="61dp"
+            android:layout_height="40dp"
+            android:background="@drawable/title_background"
+            android:text="包装条码"
+            android:textSize="15.0dp"
+            android:gravity="center_vertical" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <EditText
+            android:id="@+id/packlabel"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@drawable/edit_text"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:text=""
+            android:focusable="true"
+			android:focusableInTouchMode="true"
+            android:textSize="12.0dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/linklabellabel"
+            android:layout_width="61dp"
+            android:layout_height="40dp"
+            android:background="@drawable/title_background"
+            android:text="关联条码"
+            android:textSize="15.0dp"
+            android:gravity="center_vertical" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <EditText
+            android:id="@+id/linklabel"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@drawable/edit_text"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:text=""
+            android:textSize="12.0dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/addtotransbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/addtotrans_style" />
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/transauditbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/transaudit_style" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gray_background" >
+
+        <ListView
+            android:id="@+id/scanitmlist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+        </ListView>
+    </HorizontalScrollView>
+
+</LinearLayout>
