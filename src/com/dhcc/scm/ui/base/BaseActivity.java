@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -315,6 +316,7 @@ public abstract class BaseActivity extends Activity {
 	}
 	
 
+
 	protected String getIpByType(String ... type){
 		
 		SharedPreferences preferences = getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
@@ -322,4 +324,10 @@ public abstract class BaseActivity extends Activity {
 		String scmIp= "http://"+preferences.getString("ScmUrl", "")+"/scm/"; // //从内存加载config
 		return type.length==0?hisIp:scmIp;
 	}
+
+	public void onlick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

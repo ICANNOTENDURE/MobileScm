@@ -1439,7 +1439,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pda=0x7f050004;
     }
     public static final class string {
-        public static final int action_settings=0x7f0b0028;
+        public static final int action_settings=0x7f0b002a;
         public static final int app_name=0x7f0b0000;
         public static final int common_back=0x7f0b0002;
         /**  配置IP 
@@ -1456,6 +1456,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int index_trf=0x7f0b000e;
         public static final int index_trfByReq=0x7f0b000f;
         public static final int index_trfin=0x7f0b0010;
+        public static final int ingdrecSearch_endDate_btn=0x7f0b0028;
+        public static final int ingdrecSearch_startDate_btn=0x7f0b0027;
         /**  扫码入库 
          */
         public static final int ingdrec_itm_batno_exp=0x7f0b0020;
@@ -1484,7 +1486,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  菜单 
          */
         public static final int menu_setting=0x7f0b0004;
-        public static final int menu_settings=0x7f0b0027;
+        public static final int menu_settings=0x7f0b0029;
         public static final int registerfree=0x7f0b001d;
         public static final int scan_retry=0x7f0b0015;
         /**  首页 
@@ -1493,11 +1495,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int scan_tip=0x7f0b0014;
         public static final int scan_title=0x7f0b0016;
         public static final int splash_version_info=0x7f0b0001;
-        public static final int switch_off=0x7f0b002d;
-        public static final int switch_on=0x7f0b002c;
-        public static final int title_activity_chai_bao=0x7f0b0029;
-        public static final int title_activity_main=0x7f0b002b;
-        public static final int title_activity_transfer_in=0x7f0b002a;
+        public static final int switch_off=0x7f0b002f;
+        public static final int switch_on=0x7f0b002e;
+        public static final int title_activity_chai_bao=0x7f0b002b;
+        public static final int title_activity_main=0x7f0b002d;
+        public static final int title_activity_transfer_in=0x7f0b002c;
         /**  拆包装 
          */
         public static final int uppack_title=0x7f0b0024;
