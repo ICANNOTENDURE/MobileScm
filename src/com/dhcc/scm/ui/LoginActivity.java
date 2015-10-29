@@ -121,9 +121,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			DisplayToast("密码不能为空!");
 		}
 		login();
-		if (username.equals("test") && password.equals("123")) {
-
-		}
 
 	}
 

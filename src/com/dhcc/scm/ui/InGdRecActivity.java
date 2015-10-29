@@ -206,8 +206,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 				try {
 					JSONObject jsonObject=new JSONObject((String)msg.obj);	
 					if(jsonObject.getString("resultCode").equals("0")){
-						
-					}else{
+						CommonTools.showShortToast(InGdRecActivity.this, "操作成功");
 						CommonTools.showShortToast(InGdRecActivity.this, jsonObject.getString("resultContent"));
 						return;
 					}

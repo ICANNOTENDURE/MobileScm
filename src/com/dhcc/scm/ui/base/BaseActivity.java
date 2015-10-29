@@ -26,6 +26,7 @@ import com.dhcc.scm.task.AsyncCallable;
 import com.dhcc.scm.task.Callback;
 import com.dhcc.scm.task.EMobileTask;
 import com.dhcc.scm.task.ProgressCallable;
+import com.dhcc.scm.utils.AnnotateUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public abstract class BaseActivity extends Activity {
@@ -41,11 +42,15 @@ public abstract class BaseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		AppManager.getInstance().addActivity(this);
+		
 		if (!ImageLoader.getInstance().isInited()) {
 			ImageLoaderConfig.initImageLoader(this, Constants.BASE_IMAGE_CACHE);
 		}
 		tManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 		imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+		//注解绑定属性
+		AnnotateUtil.initBindView(this);
+		
 	}
 
 	@Override

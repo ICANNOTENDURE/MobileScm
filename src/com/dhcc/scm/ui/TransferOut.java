@@ -20,6 +20,7 @@ import android.widget.ImageView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.LoginUser;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.utils.CommonTools;
 
@@ -35,6 +36,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 	private Button saveDetailBtn; // 保存明细按钮
 	private Button saveMasterBtn; // 扫码出库
 	private ImageView searchBtn; //
+	@FindView(id = R.id.seekloc_btn, click = true)
 	private ImageView seekloc; // 查询科室
 	public String toLocID = "";
 	public String fromLocID = "";
@@ -43,9 +45,9 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_transferout);
+		super.onCreate(savedInstanceState);
 		findViewById();
 		initView();
 	}
@@ -54,7 +56,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 	protected void findViewById() {
 		// TODO Auto-generated method stub
 		toLocTxt = (EditText) findViewById(R.id.toLoc);
-		seekloc = (ImageView) findViewById(R.id.seekloc_btn);
+		//seekloc = (ImageView) findViewById(R.id.seekloc_btn);
 		fromLocTxt = (EditText) findViewById(R.id.fromLoc);
 		stkTypeTxt = (EditText) findViewById(R.id.stktypedesc);
 		saveMasterBtn = (Button) findViewById(R.id.saveMaster);
@@ -69,7 +71,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 	@Override
 	protected void initView() {
 		// TODO Auto-generated method stub
-		seekloc.setOnClickListener(this);
+		//seekloc.setOnClickListener(this);
 		fromLocTxt.setOnClickListener(this);
 		stkTypeTxt.setOnClickListener(this);
 		saveMasterBtn.setOnClickListener(this);
