@@ -26,16 +26,36 @@ import com.dhcc.scm.utils.CommonTools;
 
 public class TransferOut extends BaseActivity implements OnClickListener {
 
+	@FindView(id = R.id.fromLoc, click = true)
 	private EditText fromLocTxt; // 供给科室
+	
+	@FindView(id = R.id.toLoc, click = true)
 	private EditText toLocTxt; // 请求科室
+	
+	@FindView(id = R.id.createUser)
 	private EditText createUserTxt; // 建单人
+	
+	@FindView(id = R.id.createDate)
 	private EditText createDateTxt; // 简单日期
+	
+	@FindView(id = R.id.remark)
 	private EditText remarkTxt; // 备注
+	
+	@FindView(id = R.id.transferNo)
 	private EditText trnasfNoTxt; // 单号
+	
+	@FindView(id = R.id.stktypedesc, click = true)
 	private EditText stkTypeTxt; // 类祖
+	
+	@FindView(id = R.id.saveDetails, click = true)
 	private Button saveDetailBtn; // 保存明细按钮
+	
+	@FindView(id = R.id.saveMaster, click = true)
 	private Button saveMasterBtn; // 扫码出库
+	
+	@FindView(id = R.id.btn_search, click = true)
 	private ImageView searchBtn; //
+	
 	@FindView(id = R.id.seekloc_btn, click = true)
 	private ImageView seekloc; // 查询科室
 	public String toLocID = "";
@@ -54,31 +74,13 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void findViewById() {
-		// TODO Auto-generated method stub
-		toLocTxt = (EditText) findViewById(R.id.toLoc);
-		//seekloc = (ImageView) findViewById(R.id.seekloc_btn);
-		fromLocTxt = (EditText) findViewById(R.id.fromLoc);
-		stkTypeTxt = (EditText) findViewById(R.id.stktypedesc);
-		saveMasterBtn = (Button) findViewById(R.id.saveMaster);
-		saveDetailBtn = (Button) findViewById(R.id.saveDetails);
-		searchBtn = (ImageView) findViewById(R.id.btn_search);
-		remarkTxt = (EditText) findViewById(R.id.remark);
-		createDateTxt = (EditText) findViewById(R.id.createDate);
-		createUserTxt = (EditText) findViewById(R.id.createUser);
-		trnasfNoTxt=(EditText) findViewById(R.id.transferNo);
 	}
 
 	@Override
 	protected void initView() {
 		// TODO Auto-generated method stub
-		//seekloc.setOnClickListener(this);
-		fromLocTxt.setOnClickListener(this);
-		stkTypeTxt.setOnClickListener(this);
-		saveMasterBtn.setOnClickListener(this);
-		searchBtn.setOnClickListener(this);
-		saveDetailBtn.setOnClickListener(this);
 		stkTypeTxt.setInputType(InputType.TYPE_NULL);
-		
+
 		createDateTxt.setText(CommonTools.formatDate(new Date()));
 		createDateTxt.setEnabled(false);
 		fromLocTxt.setText(LoginUser.LocDesc);
@@ -188,7 +190,6 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		startActivityForResult(intent, 3);
 	}
 
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -200,7 +201,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 				resultdesc = data.getExtras().getString("locdesc").toString();
 				resultrowid = data.getExtras().getString("locid").toString();
 				toLocTxt.setText(resultdesc);
-				toLocID = resultrowid; 
+				toLocID = resultrowid;
 				break;
 			case 1:
 				resultdesc = data.getExtras().getString("locdesc").toString();
