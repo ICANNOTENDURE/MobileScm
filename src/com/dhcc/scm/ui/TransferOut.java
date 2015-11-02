@@ -58,6 +58,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 	
 	@FindView(id = R.id.seekloc_btn, click = true)
 	private ImageView seekloc; // 查询科室
+	
 	public String toLocID = "";
 	public String fromLocID = "";
 	public String StkCatGrpId = "";
@@ -107,7 +108,6 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 			startActivity(intent2);
 			break;
 		case R.id.seekloc_btn:
-
 			initToLoc();
 			break;
 		case R.id.fromloc:

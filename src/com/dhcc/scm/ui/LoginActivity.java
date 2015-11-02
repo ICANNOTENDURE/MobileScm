@@ -30,6 +30,7 @@ import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.net.IsNet;
 import com.dhcc.scm.http.net.ThreadPoolUtils;
 import com.dhcc.scm.http.thread.HttpPostThread;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.utils.CommonTools;
 
@@ -43,9 +44,26 @@ import com.dhcc.scm.utils.CommonTools;
  */
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
-	private EditText loginaccount, loginpassword, loginloc;
-	private ToggleButton isShowPassword;
-	private Button loginBtn, config;
+	// hxy auther
+
+	@FindView(id = R.id.login, click = true)
+	private Button loginBtn; // 登陆
+
+	@FindView(id = R.id.loginloc, click = true)
+	private EditText loginloc; // 登录科室
+
+	@FindView(id = R.id.loginaccount)
+	private EditText loginaccount; //
+
+	@FindView(id = R.id.loginpassword)
+	private EditText loginpassword; //
+
+	@FindView(id = R.id.isShowPassword)
+	private ToggleButton isShowPassword; // 密码显示隐藏切换
+
+	@FindView(id = R.id.config)
+	private Button config; //
+	
 	String username;
 	String password;
 	private List<Loc> locs = new ArrayList<Loc>();
@@ -53,7 +71,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		setContentView(R.layout.activity_login);
 		super.onCreate(savedInstanceState);
 		findViewById();
@@ -62,20 +80,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void findViewById() {
-		loginaccount = (EditText) this.findViewById(R.id.loginaccount);
-		loginpassword = (EditText) this.findViewById(R.id.loginpassword);
-		loginloc = (EditText) this.findViewById(R.id.loginloc);
-		isShowPassword = (ToggleButton) this.findViewById(R.id.isShowPassword);
-		loginBtn = (Button) this.findViewById(R.id.login);
-		config = (Button) this.findViewById(R.id.config);
-
+	
 	}
 
 	@Override
 	protected void initView() {
 
-		loginloc.setOnClickListener(this);
-		config.setOnClickListener(this);
 		// 转换显示密码
 		isShowPassword.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -89,8 +99,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				}
 			}
 		});
-
-		loginBtn.setOnClickListener(this);
 
 	}
 
@@ -141,9 +149,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	 * @date 2015年10月27日 上午9:02:13
 	 */
 	private void login() {
-		if(!loginloc.getText().toString().isEmpty()){
-			 openActivity(SplashActivity.class);
-			 LoginActivity.this.finish();
+		if (!loginloc.getText().toString().isEmpty()) {
+			openActivity(SplashActivity.class);
+			LoginActivity.this.finish();
 		}
 		IsNet net = new IsNet(LoginActivity.this);
 		if (!net.IsConnect()) {
@@ -172,8 +180,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 					Log.i("dhcc", (String) msg.obj);
 					JSONObject jsonObject = new JSONObject((String) msg.obj);
 					if (jsonObject.getString("ErrorInfo").isEmpty()) {
-						LoginUser.UserID=jsonObject.getString("UserID");
-						LoginUser.UserName=jsonObject.getString("UserName");
+						LoginUser.UserID = jsonObject.getString("UserID");
+						LoginUser.UserName = jsonObject.getString("UserName");
 						JSONArray locArrays = jsonObject.getJSONArray("Locs");
 						for (int i = 0; i < locArrays.length(); i++) {
 							JSONObject temp = (JSONObject) locArrays.get(i);
@@ -181,9 +189,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 							locs.add(loc);
 						}
 						loginloc.setText(locs.get(0).getName());
-						LoginUser.UserLoc=String.valueOf(locs.get(0).getId());
-						LoginUser.LocDesc=locs.get(0).getName();
-						LoginUser.WebUrl=LoginActivity.this.getIpByType();
+						LoginUser.UserLoc = String.valueOf(locs.get(0).getId());
+						LoginUser.LocDesc = locs.get(0).getName();
+						LoginUser.WebUrl = LoginActivity.this.getIpByType();
 						CommonTools.showShortToast(LoginActivity.this, "登录成功!");
 
 					} else {
@@ -207,8 +215,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			public void onClick(DialogInterface dialog, int which) {
 				Loc loc = (Loc) locAdApter.getItem(which);
 				loginloc.setText(loc.getName());
-				LoginUser.UserLoc=String.valueOf(loc.getId());
-				LoginUser.LocDesc=loc.getName();
+				LoginUser.UserLoc = String.valueOf(loc.getId());
+				LoginUser.LocDesc = loc.getName();
 			}
 		});
 		AlertDialog localAlertDialog = localBuilder.create();
