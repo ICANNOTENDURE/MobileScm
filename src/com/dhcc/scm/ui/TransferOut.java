@@ -237,7 +237,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 			return;
 		}
 		if ((StkCatGrpId.equals("") || StkCatGrpId.equals(""))) {
-			CommonTools.showShortToast(TransferOut.this, "类祖不能为空");
+			CommonTools.showShortToast(TransferOut.this, "类组不能为空");
 			return;
 		}
 		String remarkValue = remarkTxt.getText().toString().trim();

@@ -22,8 +22,9 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_index);
+		super.onCreate(savedInstanceState);
 		findViewById();
 		initView();
 	}
@@ -70,7 +71,7 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 			startActivity(new Intent(IndexActivity.this, TransferInActivity.class));
 			break;
 		case R.id.index_query_btn:
-			startActivity(new Intent(IndexActivity.this, InGdRecActivity.class));
+			startActivity(new Intent(IndexActivity.this, InGdRecSearchActivity.class));
 			break;
 		case R.id.index_stk_btn:
 			startActivity(new Intent(IndexActivity.this, InStkTkMainActivity.class));

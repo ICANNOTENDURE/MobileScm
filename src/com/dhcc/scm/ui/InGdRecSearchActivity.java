@@ -36,9 +36,10 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search);
+		super.onCreate(savedInstanceState);
 		findViewById();
 		initView();
 	}

@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -52,8 +53,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_login);
+		super.onCreate(savedInstanceState);
 		findViewById();
 		initView();
 	}
@@ -154,6 +156,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		paras.add(new BasicNameValuePair("className", "web.DHCST.AndroidCommon"));
 		paras.add(new BasicNameValuePair("methodName", "logon"));
 		paras.add(new BasicNameValuePair("type", "Method"));
+		Log.i("dhcc", getIpByType());
 		ThreadPoolUtils.execute(new HttpPostThread(loginhandler, getIpByType(), paras));
 	}
 
@@ -166,6 +169,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				CommonTools.showShortToast(LoginActivity.this, "服务器无响应");
 			} else if (msg.what == 200) {
 				try {
+					Log.i("dhcc", (String) msg.obj);
 					JSONObject jsonObject = new JSONObject((String) msg.obj);
 					if (jsonObject.getString("ErrorInfo").isEmpty()) {
 						LoginUser.UserID=jsonObject.getString("UserID");

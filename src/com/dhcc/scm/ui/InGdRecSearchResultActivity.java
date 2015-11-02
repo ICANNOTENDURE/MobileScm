@@ -46,9 +46,10 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState);
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search_result);
+		super.onCreate(savedInstanceState);
 		findViewById();
 		initView();
 		getResult();
@@ -62,20 +63,21 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 
 		
 		
-//		InGdRecSearch gdRecSearch=new InGdRecSearch();
-//		gdRecSearch.setHome("dota");
-//		gdRecSearch.setNum("2015");
-//		inGdRecsearchs.add(gdRecSearch);
-		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
-		listview.setAdapter(inGdRecsearchAdapter);
-	
+		InGdRecSearch gdRecSearch=new InGdRecSearch();
+		gdRecSearch.setHome("dota");
+		gdRecSearch.setNum("2015");
+		inGdRecsearchs.add(gdRecSearch);
+//		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
+//		listview.setAdapter(inGdRecsearchAdapter);
+//	
 	}
 
 	private void getResult() {
 		List<NameValuePair> valuePairs=new ArrayList<NameValuePair>();
 		valuePairs.add(new BasicNameValuePair("start", "2"));
 		valuePairs.add(new BasicNameValuePair("end", "2"));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+//		ThreadPoolUtils.execute(new HttpPostThread(handler,getIpByType("scm")+Constants.METHOD_SAVE_BARCODE, valuePairs));
+		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
 	}
 
 	@Override

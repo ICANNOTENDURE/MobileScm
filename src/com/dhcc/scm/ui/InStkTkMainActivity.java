@@ -60,9 +60,10 @@ public class InStkTkMainActivity extends Activity {
 	private int selectedWayIndex = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_instktk_main);
+		super.onCreate(savedInstanceState);
 		
 		istLoc = (EditText) findViewById(R.id.ist_locdesc);
 		istWay=(EditText)findViewById(R.id.ist_way);
