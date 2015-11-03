@@ -50,6 +50,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	@FindView(id = R.id.ingdrec_save_btn, click = true)
 	private Button btnSave;
 	
+	//查询按钮
 	@FindView(id = R.id.ingdrec_search_btn, click = true)
 	private Button btnSearch;
 	
