@@ -24,6 +24,8 @@ import com.dhcc.scm.ui.base.BaseActivity;
  * 
  */
 public class ConfigIpActivity extends BaseActivity implements View.OnClickListener {
+	
+	//
 	private EditText hisUrlConEditText;
 	private EditText scmUrlConEditText;
 	private Button saveButton;
