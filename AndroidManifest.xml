@@ -185,7 +185,7 @@
             android:name="com.dhcc.scm.ui.SystemSetup"
             android:label="@string/title_activity_main" >
         </activity>
-=======
+
             android:name="com.dhcc.scm.ui.SearchActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.Present"

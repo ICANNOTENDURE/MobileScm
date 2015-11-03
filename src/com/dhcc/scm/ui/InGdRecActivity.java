@@ -55,6 +55,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	private Button btnSearch;
 	
 	//777999
+
 	//321
 	//条码框
 	//444
