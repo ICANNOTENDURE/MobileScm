@@ -18,10 +18,20 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 	
 	@FindView(id=R.id.index_trf_btn,click=true)
 	private ImageButton index_trf ;
+	
+	@FindView(id=R.id.index_pack_btn,click=true)
 	private ImageButton index_pack = null;
+	
+	@FindView(id=R.id.index_query_btn,click=true)
 	private ImageButton index_query = null;
+	
+	@FindView(id=R.id.index_trfin_btn,click=true)
 	private ImageButton index_trfin = null;
+	
+	@FindView(id=R.id.index_trfByReq_btn,click=true)
 	private ImageButton index_trfbyreq = null;
+	
+	@FindView(id=R.id.index_stk_btn,click=true)
 	private ImageButton index_stk = null;
 
 	@Override
@@ -35,21 +45,10 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void findViewById() {
-		index_pack = (ImageButton) findViewById(R.id.index_pack_btn);
-		index_query = (ImageButton) findViewById(R.id.index_query_btn);
-		index_trfin = (ImageButton) findViewById(R.id.index_trfByReq_btn);
-		index_trfbyreq = (ImageButton) findViewById(R.id.index_trfin_btn);
-		index_stk= (ImageButton) findViewById(R.id.index_stk_btn);
 	}
 
 	@Override
 	protected void initView() {
-		index_trf.setOnClickListener(this);
-		index_pack.setOnClickListener(this);
-		index_query.setOnClickListener(this);
-		index_trfin.setOnClickListener(this);
-		index_trfbyreq.setOnClickListener(this);
-		index_stk.setOnClickListener(this);
 	}
 
 	@Override
