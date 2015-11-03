@@ -54,7 +54,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	@FindView(id = R.id.ingdrec_search_btn, click = true)
 	private Button btnSearch;
 	
-	//777
+	//777999
 	//321
 	//条码框
 	//444
