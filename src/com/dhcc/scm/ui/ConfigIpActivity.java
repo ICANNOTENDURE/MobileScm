@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.config.Constants;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 /**
@@ -24,30 +25,28 @@ import com.dhcc.scm.ui.base.BaseActivity;
  * 
  */
 public class ConfigIpActivity extends BaseActivity implements View.OnClickListener {
-	
-	//
+
+	@FindView(id = R.id.config_hisurl)
 	private EditText hisUrlConEditText;
+	
+	@FindView(id = R.id.config_scmurl)
 	private EditText scmUrlConEditText;
-	private Button saveButton;
+	
+	@FindView(id = R.id.configip_btn, click = true)
+	private Button saveButton; // 保存明细按钮
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_configip);
 		super.onCreate(savedInstanceState);
-
 		findViewById();
 		initView();
 	}
 
 	@Override
 	protected void findViewById() {
-		// TODO Auto-generated method stub
-		hisUrlConEditText = (EditText) this.findViewById(R.id.config_hisurl);
-		scmUrlConEditText = (EditText) this.findViewById(R.id.config_scmurl);
-		saveButton = (Button) this.findViewById(R.id.configip_btn);
-		saveButton.setOnClickListener(this);
 
 	}
 
