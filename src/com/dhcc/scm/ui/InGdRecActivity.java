@@ -46,6 +46,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	@FindView(id = R.id.ingdrec_barcode_btn, click = true)
 	private Button btnScanCode;// 扫码
 	
+	//保存按钮
 	@FindView(id = R.id.ingdrec_save_btn, click = true)
 	private Button btnSave;
 	
