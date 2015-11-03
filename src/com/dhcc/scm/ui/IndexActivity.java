@@ -7,13 +7,17 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 import com.dhcc.scm.R;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 public class IndexActivity extends BaseActivity implements OnClickListener {
 	public static final String TAG = IndexActivity.class.getSimpleName();
-
-	private ImageButton index_ingdrec = null;
-	private ImageButton index_trf = null;
+	
+	@FindView(id=R.id.index_ingdrec_btn,click=true)
+	private ImageButton index_ingdrec;
+	
+	@FindView(id=R.id.index_trf_btn,click=true)
+	private ImageButton index_trf ;
 	private ImageButton index_pack = null;
 	private ImageButton index_query = null;
 	private ImageButton index_trfin = null;
@@ -31,8 +35,6 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void findViewById() {
-		index_ingdrec = (ImageButton) findViewById(R.id.index_ingdrec_btn);
-		index_trf = (ImageButton) findViewById(R.id.index_trf_btn);
 		index_pack = (ImageButton) findViewById(R.id.index_pack_btn);
 		index_query = (ImageButton) findViewById(R.id.index_query_btn);
 		index_trfin = (ImageButton) findViewById(R.id.index_trfByReq_btn);
@@ -42,7 +44,6 @@ public class IndexActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void initView() {
-		index_ingdrec.setOnClickListener(this);
 		index_trf.setOnClickListener(this);
 		index_pack.setOnClickListener(this);
 		index_query.setOnClickListener(this);
