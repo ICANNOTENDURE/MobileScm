@@ -56,6 +56,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	
 	//321
 	//条码框
+	//444
 	@FindView(id = R.id.ingdrec_barcode_txt)
 	private EditText barcodeTxt;// 条码框
 	
