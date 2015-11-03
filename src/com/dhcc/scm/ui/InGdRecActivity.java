@@ -25,6 +25,7 @@ import com.dhcc.scm.config.Constants;
 import com.dhcc.scm.entity.InGdRec;
 import com.dhcc.scm.http.net.ThreadPoolUtils;
 import com.dhcc.scm.http.thread.HttpPostThread;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.utils.CommonTools;
 import com.dhcc.scm.zxing.CaptureActivity;
@@ -38,20 +39,31 @@ import com.dhcc.scm.zxing.CaptureActivity;
  * 
  */
 public class InGdRecActivity extends BaseActivity implements OnClickListener {
-
-	private ImageView imgBack;// 回退按钮
+	
+	@FindView(id = R.id.ingdrec_back_btn, click = true)
+	private ImageView imgBack; //回退按钮
+	
+	@FindView(id = R.id.ingdrec_barcode_btn, click = true)
 	private Button btnScanCode;// 扫码
+	
+	@FindView(id = R.id.ingdrec_save_btn, click = true)
 	private Button btnSave;
+	
+	@FindView(id = R.id.ingdrec_search_btn, click = true)
 	private Button btnSearch;
-	private EditText barcodeTxt; // 条码框
+	
+	@FindView(id = R.id.ingdrec_barcode_txt)
+	private EditText barcodeTxt;// 条码框
+	
+	@FindView(id = R.id.ingdrec_itm_scroll_list)
 	private ListView listview;
+	
 	private List<InGdRec> inGdRecs=new ArrayList<InGdRec>();
 	private InGdRecAdapter inGdRecAdapter = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec);
 		super.onCreate(savedInstanceState);
@@ -61,22 +73,14 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void findViewById() {
-		imgBack = (ImageView) findViewById(R.id.ingdrec_back_btn);
-		btnScanCode = (Button) this.findViewById(R.id.ingdrec_barcode_btn);
-		barcodeTxt = (EditText) this.findViewById(R.id.ingdrec_barcode_txt);
-		btnSave=(Button) this.findViewById(R.id.ingdrec_save_btn);
-		btnSearch=(Button) this.findViewById(R.id.ingdrec_search_btn);
-		listview = (ListView) this.findViewById(R.id.ingdrec_itm_scroll_list);
+
 		inGdRecAdapter=new InGdRecAdapter(this, inGdRecs);
 		listview.setAdapter(inGdRecAdapter);
 	}
 
 	@Override
 	protected void initView() {
-		imgBack.setOnClickListener(this);
-		btnScanCode.setOnClickListener(this);
-		btnSave.setOnClickListener(this);
-		btnSearch.setOnClickListener(this);
+
 	}
 
 	@Override
