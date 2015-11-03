@@ -25,11 +25,7 @@ import com.dhcc.scm.ui.base.BaseActivity;
  * 
  */
 public class ConfigIpActivity extends BaseActivity implements View.OnClickListener {
-  //<<<<<<< HEAD
-	
-	//his ip 地址 33
- //=======
-  //>>>>>>> branch 'master' of git@github.com:ICANNOTENDURE/MobileScm.git
+
 
 	//his ip 地址22
 	@FindView(id = R.id.config_hisurl)
