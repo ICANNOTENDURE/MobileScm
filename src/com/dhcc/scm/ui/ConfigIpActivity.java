@@ -30,7 +30,8 @@ public class ConfigIpActivity extends BaseActivity implements View.OnClickListen
 	@FindView(id = R.id.config_hisurl)
 	private EditText hisUrlConEditText;
 	
-	//123123
+	//11
+	//12
 	@FindView(id = R.id.config_scmurl)
 	private EditText scmUrlConEditText;
 	
