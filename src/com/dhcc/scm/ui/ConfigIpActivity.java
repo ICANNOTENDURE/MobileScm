@@ -55,6 +55,7 @@ public class ConfigIpActivity extends BaseActivity implements View.OnClickListen
 		SharedPreferences preferences = getSharedPreferences(Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
 		hisUrlConEditText.setText(preferences.getString("HisUrl", "")); // //从内存加载config
 		scmUrlConEditText.setText(preferences.getString("ScmUrl", ""));
+		Toast.makeText(getApplicationContext(), "请输入.或者数字的IP", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
