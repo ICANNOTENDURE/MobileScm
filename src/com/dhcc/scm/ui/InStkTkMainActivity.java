@@ -43,16 +43,24 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InStkTkMainAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
+import com.dhcc.scm.ui.annotation.FindView;
 
 public class InStkTkMainActivity extends Activity {
+	
+//	@FindView(id = R.id.ist_startdate)
 	private EditText istStartDate;
+//	@FindView(id = R.id.ist_enddate)
 	private EditText istEndDate;
+//	@FindView(id = R.id.ist_mainlistview)
 	private ListView istMainList;
+//	@FindView(id = R.id.ist_locdesc)
 	private EditText istLoc;
+//	@FindView(id = R.id.ist_way)
 	private EditText istWay;
+//	@FindView(id = R.id.btn_search)
+	private ImageView istsearch; // ���Ұ�ť
 	private String istLocID = "";
 	private Calendar c = null;
-	private ImageView istsearch; // ���Ұ�ť
 	private ProgressDialog progressDialog = null;
 	private static final int handle_Init = 1;
 	private String ListData = new String();

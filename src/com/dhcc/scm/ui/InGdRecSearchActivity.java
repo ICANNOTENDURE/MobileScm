@@ -18,25 +18,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dhcc.scm.R;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 /**
- * @author huaxiaoying
- *  2015/10/21 15:05
+ * @author huaxiaoying 2015/10/21 15:05
  */
 
 public class InGdRecSearchActivity extends BaseActivity implements OnClickListener {
-    private Button startDateBtn;
+
+	@FindView(id = R.id.ingdrecSearch_startDate_btn, click = true)
+	private Button startDateBtn;
+
+	@FindView(id = R.id.ingdrecSearch_startdate_txt)
 	private TextView startdateTxt;
+
+	@FindView(id = R.id.ingdrecSearch_endDate_btn, click = true)
 	private Button endDateBtn;
+
+	@FindView(id = R.id.ingdrecSearch_enddate_txt)
 	private TextView enddateTxt;
 
-	private ImageView imgBack = null;// 回退按钮
+	@FindView(id = R.id.ingdrecsearch_back_btn, click = true)
+	private ImageView imgBack = null;
+
+	@FindView(id = R.id.ingdrecSearch_endDate_btn, click = true)
 	private Button ingdrecSearch_select = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search);
 		super.onCreate(savedInstanceState);
@@ -46,24 +57,12 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 
 	@Override
 	protected void findViewById() {
-		startDateBtn = (Button) findViewById(R.id.ingdrecSearch_startDate_btn);
-		startdateTxt = (TextView) findViewById(R.id.ingdrecSearch_startdate_txt);
-		endDateBtn = (Button) findViewById(R.id.ingdrecSearch_endDate_btn);
-		enddateTxt = (TextView) findViewById(R.id.ingdrecSearch_enddate_txt);
-
-		imgBack = (ImageView) findViewById(R.id.ingdrecsearch_back_btn);
-		imgBack.setOnClickListener(this);
-		ingdrecSearch_select = (Button) findViewById(R.id.ingdrecSearch_select_btn);
-		ingdrecSearch_select.setOnClickListener(this);
 
 	}
 
 	@Override
 	protected void initView() {
-		startDateBtn.setOnClickListener(this);
-		startdateTxt = (TextView) findViewById(R.id.ingdrecSearch_startdate_txt);
-		endDateBtn.setOnClickListener(this);
-		enddateTxt = (TextView) findViewById(R.id.ingdrecSearch_enddate_txt);
+
 	}
 
 	@Override

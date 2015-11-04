@@ -26,13 +26,9 @@ import com.dhcc.scm.ui.base.BaseActivity;
  */
 public class ConfigIpActivity extends BaseActivity implements View.OnClickListener {
 
-
-	//his ip 地址22
 	@FindView(id = R.id.config_hisurl)
 	private EditText hisUrlConEditText;
 	
-	//11
-	//12
 	@FindView(id = R.id.config_scmurl)
 	private EditText scmUrlConEditText;
 	

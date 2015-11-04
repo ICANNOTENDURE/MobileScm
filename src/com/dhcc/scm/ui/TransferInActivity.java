@@ -42,8 +42,10 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.TransferInMainAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
+import com.dhcc.scm.ui.annotation.FindView;
 
 public class TransferInActivity extends Activity {
+	
 	private EditText trInStartdDate;
 	private EditText trInEndDate;
 	private EditText trInFromLoc;

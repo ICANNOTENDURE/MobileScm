@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.config.Constants;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity {
@@ -20,7 +21,7 @@ public class SplashActivity extends BaseActivity {
 
 	@Override
 	protected void findViewById() {
-		// TODO Auto-generated method stub
+
 		mSplashItem_iv = (ImageView) findViewById(R.id.splash_loading_item);
 	}
 

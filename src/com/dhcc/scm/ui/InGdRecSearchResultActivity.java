@@ -26,6 +26,7 @@ import com.dhcc.scm.config.Constants;
 import com.dhcc.scm.entity.InGdRecSearch;
 import com.dhcc.scm.http.net.ThreadPoolUtils;
 import com.dhcc.scm.http.thread.HttpPostThread;
+import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.utils.CommonTools;
 import com.google.zxing.common.StringUtils;
@@ -37,16 +38,19 @@ import com.google.zxing.common.StringUtils;
  */
 
 public class InGdRecSearchResultActivity extends BaseActivity implements OnClickListener {
-
+	
+	@FindView(id = R.id.ingdrecsearch_result_back, click = true)
 	private ImageView imgBack=null;// 回退按钮
+
+	@FindView(id = R.id.ingdrecsearch_itm_scroll_list, click = true)
 	private ListView listview;
+	
 	private List<InGdRecSearch> inGdRecsearchs = new ArrayList<InGdRecSearch>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search_result);
 		super.onCreate(savedInstanceState);
@@ -57,35 +61,28 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 
 	@Override
 	protected void findViewById() {
-		imgBack=(ImageView) findViewById(R.id.ingdrecsearch_result_back);
-    	imgBack.setOnClickListener(this);
-		listview = (ListView) this.findViewById(R.id.ingdrecsearch_itm_scroll_list);
+		
+//		InGdRecSearch gdRecSearch=new InGdRecSearch();
+//		gdRecSearch.setHome("dota");
+//		gdRecSearch.setNum("2015");
+//		inGdRecsearchs.add(gdRecSearch);
+		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
+		listview.setAdapter(inGdRecsearchAdapter);
 
-		
-		
-		InGdRecSearch gdRecSearch=new InGdRecSearch();
-		gdRecSearch.setHome("dota");
-		gdRecSearch.setNum("2015");
-		inGdRecsearchs.add(gdRecSearch);
-//		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
-//		listview.setAdapter(inGdRecsearchAdapter);
-//	
 	}
 
 	private void getResult() {
 		List<NameValuePair> valuePairs=new ArrayList<NameValuePair>();
 		valuePairs.add(new BasicNameValuePair("start", "2"));
 		valuePairs.add(new BasicNameValuePair("end", "2"));
-//		ThreadPoolUtils.execute(new HttpPostThread(handler,getIpByType("scm")+Constants.METHOD_SAVE_BARCODE, valuePairs));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+//		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
 	}
 
 	@Override
 	protected void initView() {
 		imgBack.setOnClickListener(this);
 	}
-
-	
 
 	@Override
 	public void onClick(View arg0) {
@@ -96,7 +93,6 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 		default:
 			break;
 		}
-
 	}
 
 	/**
