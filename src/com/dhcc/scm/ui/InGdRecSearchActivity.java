@@ -42,7 +42,7 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 	@FindView(id = R.id.ingdrecsearch_back_btn, click = true)
 	private ImageView imgBack = null;
 
-	@FindView(id = R.id.ingdrecSearch_endDate_btn, click = true)
+	@FindView(id = R.id.ingdrecSearch_select_btn, click = true)
 	private Button ingdrecSearch_select = null;
 
 	@Override
