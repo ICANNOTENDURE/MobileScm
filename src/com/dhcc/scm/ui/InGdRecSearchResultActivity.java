@@ -66,8 +66,8 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 //		gdRecSearch.setHome("dota");
 //		gdRecSearch.setNum("2015");
 //		inGdRecsearchs.add(gdRecSearch);
-		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
-		listview.setAdapter(inGdRecsearchAdapter);
+//		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
+//		listview.setAdapter(inGdRecsearchAdapter);
 
 	}
 
@@ -75,8 +75,8 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 		List<NameValuePair> valuePairs=new ArrayList<NameValuePair>();
 		valuePairs.add(new BasicNameValuePair("start", "2"));
 		valuePairs.add(new BasicNameValuePair("end", "2"));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
-//		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+//		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
 	}
 
 	@Override
