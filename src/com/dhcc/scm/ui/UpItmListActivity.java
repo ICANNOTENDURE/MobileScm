@@ -36,8 +36,8 @@ import android.widget.TextView;
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
-import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
 
 public class UpItmListActivity extends BaseActivity {
 	@FindView(id = R.id.mylv)
