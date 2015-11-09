@@ -3,9 +3,6 @@ package com.dhcc.scm;
 import android.app.Application;
 import android.content.res.Configuration;
 
-import com.dhcc.scm.config.Constants;
-import com.dhcc.scm.image.ImageLoaderConfig;
-
 
 public class BaseApplication extends Application {
 
@@ -19,7 +16,6 @@ public class BaseApplication extends Application {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		ImageLoaderConfig.initImageLoader(this, Constants.BASE_IMAGE_CACHE);
 	}
 
 	@Override

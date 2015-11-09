@@ -20,45 +20,51 @@ import android.widget.ImageView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.LoginUser;
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.http.Http;
+import com.dhcc.scm.http.HttpCallBack;
+import com.dhcc.scm.http.HttpConfig;
+import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
+import com.dhcc.scm.ui.base.ViewInject;
 import com.dhcc.scm.utils.CommonTools;
+import com.dhcc.scm.utils.Loger;
 
 public class TransferOut extends BaseActivity implements OnClickListener {
 
 	@FindView(id = R.id.fromLoc, click = true)
 	private EditText fromLocTxt; // 供给科室
-	
+
 	@FindView(id = R.id.toLoc, click = true)
 	private EditText toLocTxt; // 请求科室
-	
+
 	@FindView(id = R.id.createUser)
 	private EditText createUserTxt; // 建单人
-	
+
 	@FindView(id = R.id.createDate)
 	private EditText createDateTxt; // 简单日期
-	
+
 	@FindView(id = R.id.remark)
 	private EditText remarkTxt; // 备注
-	
+
 	@FindView(id = R.id.transferNo)
 	private EditText trnasfNoTxt; // 单号
-	
+
 	@FindView(id = R.id.stktypedesc, click = true)
 	private EditText stkTypeTxt; // 类祖
-	
+
 	@FindView(id = R.id.saveDetails, click = true)
 	private Button saveDetailBtn; // 保存明细按钮
-	
+
 	@FindView(id = R.id.saveMaster, click = true)
 	private Button saveMasterBtn; // 扫码出库
-	
+
 	@FindView(id = R.id.btn_search, click = true)
 	private ImageView searchBtn; //
-	
+
 	@FindView(id = R.id.seekloc_btn, click = true)
 	private ImageView seekloc; // 查询科室
-	
+
 	public String toLocID = "";
 	public String fromLocID = "";
 	public String StkCatGrpId = "";
@@ -248,6 +254,42 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		String MainInfo = fromLocID + "^" + toLocID + "^" + "" + "^" + "" + "^" + "N" + "^" + "10" + "^" + LoginUser.UserDR + "^" + StkCatGrpId + "^" + "G" + "^" + remarkValue;
 		String Params = "&InitId=" + initID + "&MainInfo=" + MainInfo;
 		com.ThreadHttp("web.DHCST.AndroidTransferOut", "Save", Params, "Method", TransferOut.this, 1, handler);
+
+		// test
+		HttpConfig config = new HttpConfig();
+		config.cacheTime = 0;
+		Http http = new Http(config);
+		HttpParams params = new HttpParams();
+		params.put("InitId", initID);
+		params.put("MainInfo", MainInfo);
+		params.put("className", "web.DHCST.AndroidTransferOut");
+		params.put("methodName", "Save");
+		params.put("type", "Method");
+		http.post(getIpByType(), params, new HttpCallBack() {
+			@Override
+			public void onFailure(int errorNo, String strMsg) {
+				super.onFailure(errorNo, strMsg);
+				ViewInject.toast("网络不好" + strMsg);
+			}
+
+			@Override
+			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
+				if (t != null) {
+					String str = new String(t);
+					Loger.debug("登陆网络请求：" + new String(t));
+					String[] strs = str.split(",");
+					String no = strs[0];
+					initID = strs[1];
+					trnasfNoTxt.setText(no);
+					saveDetailBtn.setEnabled(true);
+					AlertDialog.Builder buildsucc = new Builder(TransferOut.this);
+					buildsucc.setIcon(R.drawable.success).setTitle("提示").setMessage("保存成功!").setPositiveButton("确认", null).show();
+
+				}
+			}
+
+			;
+		});
 	}
 
 }

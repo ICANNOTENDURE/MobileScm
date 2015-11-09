@@ -42,7 +42,7 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.TransferInMainAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.ui.base.FindView;
 
 public class TransferInActivity extends Activity {
 	

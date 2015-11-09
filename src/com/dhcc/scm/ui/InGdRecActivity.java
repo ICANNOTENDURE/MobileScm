@@ -21,12 +21,12 @@ import android.widget.ListView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InGdRecAdapter;
-import com.dhcc.scm.config.Constants;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.InGdRec;
 import com.dhcc.scm.http.net.ThreadPoolUtils;
 import com.dhcc.scm.http.thread.HttpPostThread;
-import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
 import com.dhcc.scm.utils.CommonTools;
 import com.dhcc.scm.zxing.CaptureActivity;
 

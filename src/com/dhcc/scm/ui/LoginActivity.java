@@ -3,17 +3,15 @@ package com.dhcc.scm.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,14 +23,19 @@ import android.widget.ToggleButton;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.LocAdApter;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.Loc;
 import com.dhcc.scm.entity.LoginUser;
+import com.dhcc.scm.http.Http;
+import com.dhcc.scm.http.HttpCallBack;
+import com.dhcc.scm.http.HttpConfig;
+import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.http.net.IsNet;
-import com.dhcc.scm.http.net.ThreadPoolUtils;
-import com.dhcc.scm.http.thread.HttpPostThread;
-import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
+import com.dhcc.scm.ui.base.ViewInject;
 import com.dhcc.scm.utils.CommonTools;
+import com.dhcc.scm.utils.Loger;
 
 /**
  * 
@@ -61,7 +64,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	@FindView(id = R.id.config, click = true)
 	private Button config; //
-
+	
+	//进度条
+	private ProgressDialog progressDialog;
 	String username;
 	String password;
 	private List<Loc> locs = new ArrayList<Loc>();
@@ -72,13 +77,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		
 		setContentView(R.layout.activity_login);
 		super.onCreate(savedInstanceState);
-		findViewById();
 		initView();
-	}
-
-	@Override
-	protected void findViewById() {
-
 	}
 
 	@Override
@@ -122,11 +121,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		password = loginpassword.getText().toString().trim();
 
 		if (username.isEmpty()) {
-			DisplayToast("用户名不能为空!");
+			ViewInject.toast("用户名不能为空!");
 		}
 		if (password.isEmpty()) {
-			DisplayToast("密码不能为空!");
+			ViewInject.toast("密码不能为空!");
 		}
+		progressDialog=ViewInject.getprogress(LoginActivity.this, Constants.PRO_WAIT_MESSAGE, false);
 		login();
 
 	}
@@ -152,57 +152,74 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 		IsNet net = new IsNet(LoginActivity.this);
 		if (!net.IsConnect()) {
+			if(progressDialog!=null){
+				progressDialog.dismiss();
+			}
 			CommonTools.showShortToast(LoginActivity.this, "网络异常");
 			return;
 		}
-		List<NameValuePair> paras = new ArrayList<NameValuePair>();
-		paras.add(new BasicNameValuePair("userName", username));
-		paras.add(new BasicNameValuePair("password", password));
-		paras.add(new BasicNameValuePair("className", "web.DHCST.AndroidCommon"));
-		paras.add(new BasicNameValuePair("methodName", "logon"));
-		paras.add(new BasicNameValuePair("type", "Method"));
-		Log.i("dhcc", getIpByType());
-		ThreadPoolUtils.execute(new HttpPostThread(loginhandler, getIpByType(), paras));
-	}
+		
+		
+	
+		HttpConfig config = new HttpConfig();
+		config.cacheTime = 0;
+		Http http = new Http(config);
+		HttpParams params = new HttpParams();
+		params.put("requestType", "apk");
+		params.put("userName", username);
+		params.put("password", password);
+		params.put("className", "web.DHCST.AndroidCommon");
+		params.put("methodName", "logon");
+		params.put("type", "Method");
+		http.post(getIpByType(), params, new HttpCallBack() {
+			@Override
+			public void onFailure(int errorNo, String strMsg) {
+				super.onFailure(errorNo, strMsg);
+				if(progressDialog!=null){
+					progressDialog.dismiss();
+				}
+				ViewInject.toast("网络不好" + strMsg);
+			}
 
-	Handler loginhandler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			super.handleMessage(msg);
-			if (msg.what == 404) {
-				CommonTools.showShortToast(LoginActivity.this, "请求失败，服务器故障");
-			} else if (msg.what == 100) {
-				CommonTools.showShortToast(LoginActivity.this, "服务器无响应");
-			} else if (msg.what == 200) {
-				try {
-					Log.i("dhcc", (String) msg.obj);
-					JSONObject jsonObject = new JSONObject((String) msg.obj);
-					if (jsonObject.getString("ErrorInfo").isEmpty()) {
-						LoginUser.UserID=jsonObject.getString("UserID");
-						LoginUser.UserName=jsonObject.getString("UserName");
-						JSONArray locArrays = jsonObject.getJSONArray("Locs");
-						for (int i = 0; i < locArrays.length(); i++) {
-							JSONObject temp = (JSONObject) locArrays.get(i);
-							Loc loc = new Loc(Long.valueOf(temp.getString("LocID")), temp.getString("LocDesc"));
-							locs.add(loc);
+			@Override
+			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
+				if(progressDialog!=null){
+					progressDialog.dismiss();
+				}
+				if (t != null) {
+					String str = new String(t);
+					Loger.debug("登陆网络请求：" + new String(t));
+					try {
+						Log.i("dhcc", str);
+						JSONObject jsonObject = new JSONObject(str);
+						if (jsonObject.getString("ErrorInfo").isEmpty()) {
+							LoginUser.UserID=jsonObject.getString("UserID");
+							LoginUser.UserName=jsonObject.getString("UserName");
+							JSONArray locArrays = jsonObject.getJSONArray("Locs");
+							for (int i = 0; i < locArrays.length(); i++) {
+								JSONObject temp = (JSONObject) locArrays.get(i);
+								Loc loc = new Loc(Long.valueOf(temp.getString("LocID")), temp.getString("LocDesc"));
+								locs.add(loc);
+							}
+							loginloc.setText(locs.get(0).getName());
+							LoginUser.UserLoc=String.valueOf(locs.get(0).getId());
+							LoginUser.LocDesc=locs.get(0).getName();
+							LoginUser.WebUrl=LoginActivity.this.getIpByType();
+							CommonTools.showShortToast(LoginActivity.this, "登录成功!");
+
+						} else {
+							CommonTools.showShortToast(LoginActivity.this, "错误:" + jsonObject.getString("ErrorInfo"));
+							return;
 						}
-						loginloc.setText(locs.get(0).getName());
-						LoginUser.UserLoc=String.valueOf(locs.get(0).getId());
-						LoginUser.LocDesc=locs.get(0).getName();
-						LoginUser.WebUrl=LoginActivity.this.getIpByType();
-						CommonTools.showShortToast(LoginActivity.this, "登录成功!");
-
-					} else {
-						CommonTools.showShortToast(LoginActivity.this, "错误:" + jsonObject.getString("ErrorInfo"));
-						return;
+					} catch (JSONException e) {
+						e.printStackTrace();
 					}
-				} catch (JSONException e) {
-					e.printStackTrace();
 				}
 			}
-		}
 
-	};
-
+			;
+		});
+	}
 	// 弹出科室选择
 	private void showLoc() {
 		AlertDialog.Builder localBuilder = new AlertDialog.Builder(LoginActivity.this);

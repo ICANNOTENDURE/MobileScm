@@ -1,4 +1,4 @@
-package com.dhcc.scm.config;
+package com.dhcc.scm.entity;
 
 import android.os.Environment;
 
@@ -94,5 +94,7 @@ public class Constants {
 	public static final String METHOD_SAVE_BARCODE="mobile/mobileScmCtrl!saveBarCode.htm";
 
 	public static final String HTTPURL = null;
+	
+	public static final String PRO_WAIT_MESSAGE="请等待......";
 	
 }

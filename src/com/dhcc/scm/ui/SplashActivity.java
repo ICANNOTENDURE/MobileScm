@@ -9,8 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.config.Constants;
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.ui.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity {

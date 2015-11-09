@@ -8,7 +8,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.ui.base.FindView;
 
 /**
  * 

@@ -43,7 +43,7 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InStkTkMainAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.ui.base.FindView;
 
 public class InStkTkMainActivity extends Activity {
 	
