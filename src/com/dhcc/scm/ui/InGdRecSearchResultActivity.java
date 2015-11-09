@@ -34,13 +34,13 @@ import com.dhcc.scm.utils.CommonTools;
  */
 
 public class InGdRecSearchResultActivity extends BaseActivity implements OnClickListener {
-	
+
 	@FindView(id = R.id.ingdrecsearch_result_back, click = true)
-	private ImageView imgBack=null;// 回退按钮
+	private ImageView imgBack = null;// 回退按钮
 
 	@FindView(id = R.id.ingdrecsearch_itm_scroll_list, click = true)
 	private ListView listview;
-	
+
 	private List<InGdRecSearch> inGdRecsearchs = new ArrayList<InGdRecSearch>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
 
@@ -57,22 +57,23 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 
 	@Override
 	protected void findViewById() {
-		
-//		InGdRecSearch gdRecSearch=new InGdRecSearch();
-//		gdRecSearch.setHome("dota");
-//		gdRecSearch.setNum("2015");
-//		inGdRecsearchs.add(gdRecSearch);
-//		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
-//		listview.setAdapter(inGdRecsearchAdapter);
+		// InGdRecSearch gdRecSearch=new InGdRecSearch();
+		// gdRecSearch.setHome("dota");
+		// gdRecSearch.setNum("2015");
+		// inGdRecsearchs.add(gdRecSearch);
+		// inGdRecsearchAdapter = new InGdRecSearchAdapter(this,
+		// inGdRecsearchs);
+		// listview.setAdapter(inGdRecsearchAdapter);
 
 	}
 
 	private void getResult() {
-		List<NameValuePair> valuePairs=new ArrayList<NameValuePair>();
+		List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
 		valuePairs.add(new BasicNameValuePair("start", "2"));
 		valuePairs.add(new BasicNameValuePair("end", "2"));
-//		ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm")+Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+		// ThreadPoolUtils.execute(new HttpPostThread(handler,
+		// Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
 	}
 
 	@Override
@@ -106,19 +107,19 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 				InGdRecSearch gdRec = new InGdRecSearch();
 				try {
 					JSONObject jsonObject = new JSONObject((String) msg.obj);
-					String resultCode=jsonObject.get("resultCode").toString();
-					if(resultCode.equals("0")){
-						JSONArray array=jsonObject.getJSONArray("dataList");
+					String resultCode = jsonObject.get("resultCode").toString();
+					if (resultCode.equals("0")) {
+						JSONArray array = jsonObject.getJSONArray("dataList");
 						for (int i = 0; i < array.length(); i++) {
 							JSONObject jo = (JSONObject) array.get(i);
-							InGdRecSearch gdRecSearch=new InGdRecSearch();
+							InGdRecSearch gdRecSearch = new InGdRecSearch();
 							gdRecSearch.setHome(jo.get("name").toString());
 							gdRecSearch.setNum(jo.get("name").toString());
 							inGdRecsearchs.add(gdRecSearch);
 						}
 						inGdRecsearchAdapter.notifyDataSetChanged();
-						
-					}else{
+
+					} else {
 						CommonTools.showShortToast(getApplication(), jsonObject.get("resultContent").toString());
 					}
 				} catch (JSONException e) {
