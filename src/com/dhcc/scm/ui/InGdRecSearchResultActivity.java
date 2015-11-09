@@ -9,27 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InGdRecSearchAdapter;
-import com.dhcc.scm.config.Constants;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.InGdRecSearch;
 import com.dhcc.scm.http.net.ThreadPoolUtils;
 import com.dhcc.scm.http.thread.HttpPostThread;
-import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
 import com.dhcc.scm.utils.CommonTools;
-import com.google.zxing.common.StringUtils;
 
 /**
  * 

@@ -7,8 +7,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.ui.annotation.FindView;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
 
 public class IndexActivity extends BaseActivity implements OnClickListener {
 	public static final String TAG = IndexActivity.class.getSimpleName();

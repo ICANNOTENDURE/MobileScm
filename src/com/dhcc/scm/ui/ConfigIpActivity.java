@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.config.Constants;
-import com.dhcc.scm.ui.annotation.FindView;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
 
 /**
  * 

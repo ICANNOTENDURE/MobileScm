@@ -7,7 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import android.os.Handler;
 import android.os.Message;
 
-import com.dhcc.scm.config.Constants;
+import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.http.net.MyGet;
 
 /**
