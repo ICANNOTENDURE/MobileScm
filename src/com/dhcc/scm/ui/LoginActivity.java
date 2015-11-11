@@ -205,14 +205,15 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 							LoginUser.UserLoc=String.valueOf(locs.get(0).getId());
 							LoginUser.LocDesc=locs.get(0).getName();
 							LoginUser.WebUrl=LoginActivity.this.getIpByType();
-							CommonTools.showShortToast(LoginActivity.this, "登录成功!");
+							ViewInject.toast("登录成功!");
 
 						} else {
-							CommonTools.showShortToast(LoginActivity.this, "错误:" + jsonObject.getString("ErrorInfo"));
+							ViewInject.toast("错误:" + jsonObject.getString("ErrorInfo"));
 							return;
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
+						ViewInject.toast(e.getMessage());
 					}
 				}
 			}

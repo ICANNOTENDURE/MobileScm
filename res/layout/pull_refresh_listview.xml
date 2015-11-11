@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/android_title_bg" 
+        android:id="@+id/layout_top">
+		<!-- 
+        <ImageView
+            android:id="@+id/ingdrec_back_btn"
+            style="@style/title_right_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_action_bar_back_normal" />
+		 -->
+        <TextView
+            android:id="@+id/pull_refresh_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <com.dhcc.scm.widgets.listview.PullToRefreshList
+        android:id="@+id/pull_refresh_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@null"
+        android:scrollingCache="true" 
+        android:layout_below="@id/layout_top"/>
+
+    <com.dhcc.scm.widgets.EmptyLayout
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_top" />
+
+</RelativeLayout>

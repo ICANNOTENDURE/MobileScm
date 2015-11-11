@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/LocDesc"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
+	    android:layout_width="0dp"
+	    android:layout_height="36dp"
 	    android:minHeight="?android:attr/listPreferredItemHeight"
 	    android:textAppearance="?android:attr/textAppearanceLarge"
 	    android:gravity="center_vertical"
-	    android:paddingLeft="14dip"
-	    android:paddingRight="15dip"
+	    android:paddingStart="14dip"
+	    android:paddingEnd="15dip"
 	    android:ellipsize="marquee"
 	    android:layout_weight="1"
 	    android:textColor="#ff000000"

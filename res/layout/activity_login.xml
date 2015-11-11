@@ -73,7 +73,8 @@
                         android:padding="5.0dip"
                         android:textColor="#ff3b3b3b"
                         android:textSize="16.0sp" 
-                        android:hint="demo" >  	                             <!-- delete -->
+                        android:hint="" 
+                        android:text="demo">  	                             <!-- delete -->
 
                     </EditText>
                       
@@ -114,7 +115,8 @@
                         android:textColor="#ff3b3b3b"
                         android:inputType="textPassword"
                         android:textSize="16.0sp" 
-                        android:hint="1">                        <!-- delete -->
+                        android:hint=""
+                        android:text="1">                        <!-- delete -->
 
                     </EditText>
                       <ToggleButton

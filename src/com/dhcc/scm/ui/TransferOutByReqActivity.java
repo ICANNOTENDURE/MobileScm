@@ -204,7 +204,7 @@ public class TransferOutByReqActivity extends Activity {
 		bundle.putString("flag", "to");
 		bundle.putString("inputtext", locinputtext);
 		intent.putExtras(bundle);
-		intent.setClass(TransferOutByReqActivity.this, TransferOutLocList.class);
+		intent.setClass(TransferOutByReqActivity.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 0);
 	}
 	/**

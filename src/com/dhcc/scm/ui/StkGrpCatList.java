@@ -8,82 +8,47 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dhcc.scm.R;
+import com.dhcc.scm.http.Http;
+import com.dhcc.scm.http.HttpCallBack;
+import com.dhcc.scm.http.HttpConfig;
+import com.dhcc.scm.http.HttpParams;
+import com.dhcc.scm.ui.base.BaseActivity;
+import com.dhcc.scm.ui.base.FindView;
+import com.dhcc.scm.ui.base.ViewInject;
+import com.dhcc.scm.utils.Loger;
 
-public class StkGrpCatList extends Activity implements OnClickListener {
+public class StkGrpCatList extends BaseActivity {
+
+	@FindView(id = R.id.stkgrpcatlistview)
 	private ListView grpcatlistview;
+
 	public static TextView titleview = null;
-	mobilecom com = new mobilecom();
 	public static final int hand_grpcat = 1;
-	@SuppressLint("HandlerLeak")
-	Handler handler = new Handler() {
-		public void handleMessage(Message paramMessage) {
 
-			if (com.RetData.indexOf("error") != -1) {
-				Toast.makeText(getApplicationContext(), "�������!",
-						Toast.LENGTH_LONG).show();
-				return;
-			}
-			if (paramMessage.what == 0) {
-				if (!com.RetData.equals("")) {
-					try {
-						ArrayList<HashMap<String, String>> grpcatlistitem = new ArrayList<HashMap<String, String>>();
-						JSONObject retString = new JSONObject(com.RetData);
-						String jsonarr1 = retString.getString("rows");
-						JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
-						for (int g = 0; g < jsonArrayinfo.length(); g++) {
-
-							JSONObject locsobj = jsonArrayinfo.getJSONObject(g);
-							HashMap<String, String> map = new HashMap<String, String>();
-							String CatGrpDesc = locsobj.getString("Description");
-							String CatGrpRowid = locsobj.getString("RowId");
-							map.put("Description", CatGrpDesc);
-							map.put("RowId", CatGrpRowid);
-							grpcatlistitem.add(map);
-						}
-						SimpleAdapter catgrpAdapter = new SimpleAdapter(
-								StkGrpCatList.this, grpcatlistitem,
-								R.layout.stkgrpcat_list, new String[] {
-										"Description", "RowId" }, new int[] {
-										R.id.Description, R.id.RowId });
-						grpcatlistview.setAdapter(catgrpAdapter);
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
-	};
-
-	@SuppressLint({ "NewApi", "ResourceAsColor" })
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.stkgrpcat_common);
+		super.onCreate(savedInstanceState);
+
 		initCatGrp();
-		// �����б���ӵ����¼�
-		grpcatlistview = (ListView) findViewById(R.id.stkgrpcatlistview);
 		grpcatlistview.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				@SuppressWarnings("unchecked")
 				HashMap<String, String> map = (HashMap<String, String>) grpcatlistview.getItemAtPosition(arg2);
 				String catgrpdesc = map.get("Description");
 				String catgrprowid = map.get("RowId");
@@ -96,14 +61,58 @@ public class StkGrpCatList extends Activity implements OnClickListener {
 			}
 		});
 	}
-	//��ʼ������
+
+	// ��ʼ������
 	@SuppressLint("CutPasteId")
 	public void initCatGrp() {
-		String Param="&Start=0&Limit=99&Type=G";
-		com.ThreadHttp("web.DHCST.Util.DrugUtil", "GetStkCatGroup", Param,"Method", StkGrpCatList.this, 0, handler);
+		Http http = new Http(new HttpConfig());
+		HttpParams params = new HttpParams();
+		params.put("Start", 0);
+		params.put("Limit", 100);
+		params.put("Type", "G");
+		params.put("className", "web.DHCST.Util.OrgUtil");
+		params.put("methodName", "GetStkCatGroup");
+		params.put("type", "Method");
+		http.post(getIpByType(), params, new HttpCallBack() {
+			@Override
+			public void onFailure(int errorNo, String strMsg) {
+				super.onFailure(errorNo, strMsg);
+				ViewInject.toast("网络不好" + strMsg);
+			}
+
+			@Override
+			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
+				if (t != null) {
+					String str = new String(t);
+					Loger.debug(str);
+					try {
+						ArrayList<HashMap<String, String>> grpcatlistitem = new ArrayList<HashMap<String, String>>();
+						JSONObject retString = new JSONObject(str);
+						String jsonarr1 = retString.getString("rows");
+						JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
+						for (int g = 0; g < jsonArrayinfo.length(); g++) {
+
+							JSONObject locsobj = jsonArrayinfo.getJSONObject(g);
+							HashMap<String, String> map = new HashMap<String, String>();
+							String CatGrpDesc = locsobj.getString("Description");
+							String CatGrpRowid = locsobj.getString("RowId");
+							map.put("Description", CatGrpDesc);
+							map.put("RowId", CatGrpRowid);
+							grpcatlistitem.add(map);
+						}
+						SimpleAdapter catgrpAdapter = new SimpleAdapter(StkGrpCatList.this, grpcatlistitem, R.layout.stkgrpcat_list, new String[] { "Description", "RowId" }, new int[] { R.id.Description, R.id.RowId });
+						grpcatlistview.setAdapter(catgrpAdapter);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			;
+		});
 	}
 
-	//������¼�,�������κ����
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -117,12 +126,5 @@ public class StkGrpCatList extends Activity implements OnClickListener {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-}
 
+}

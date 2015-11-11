@@ -105,7 +105,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.dhcc.scm.ui.TransferOutLocList"
+            android:name="com.dhcc.scm.ui.TransferOutLocListActivity"
             android:label="TransferOutLocList"
             android:screenOrientation="portrait" >
         </activity>
