@@ -34,34 +34,24 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 
 	@FindView(id = R.id.fromLoc, click = true)
 	private EditText fromLocTxt; // 供给科室
-
 	@FindView(id = R.id.toLoc, click = true)
 	private EditText toLocTxt; // 请求科室
-
 	@FindView(id = R.id.createUser)
 	private EditText createUserTxt; // 建单人
-
 	@FindView(id = R.id.createDate)
 	private EditText createDateTxt; // 简单日期
-
 	@FindView(id = R.id.remark)
 	private EditText remarkTxt; // 备注
-
 	@FindView(id = R.id.transferNo)
 	private EditText trnasfNoTxt; // 单号
-
 	@FindView(id = R.id.stktypedesc, click = true)
 	private EditText stkTypeTxt; // 类祖
-
 	@FindView(id = R.id.saveDetails, click = true)
 	private Button saveDetailBtn; // 保存明细按钮
-
 	@FindView(id = R.id.saveMaster, click = true)
 	private Button saveMasterBtn; // 扫码出库
-
 	@FindView(id = R.id.btn_search, click = true)
 	private ImageView searchBtn; //
-
 	@FindView(id = R.id.seekloc_btn, click = true)
 	private ImageView seekloc; // 查询科室
 
@@ -75,12 +65,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_transferout);
 		super.onCreate(savedInstanceState);
-		findViewById();
 		initView();
-	}
-
-	@Override
-	protected void findViewById() {
 	}
 
 	@Override
@@ -171,7 +156,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		bundle.putString("flag", "to");
 		bundle.putString("inputtext", locinputtext);
 		intent.putExtras(bundle);
-		intent.setClass(TransferOut.this, TransferOutLocList.class);
+		intent.setClass(TransferOut.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 0);
 	}
 
@@ -181,7 +166,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		bundle.putString("flag", "from");
 		intent.putExtras(bundle);
 
-		intent.setClass(TransferOut.this, TransferOutLocList.class);
+		intent.setClass(TransferOut.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 1);
 	}
 

@@ -194,7 +194,7 @@ public class TransferInActivity extends Activity {
 		bundle.putString("flag", "to");
 		bundle.putString("inputtext", locinputtext);
 		intent.putExtras(bundle);
-		intent.setClass(TransferInActivity.this, TransferOutLocList.class);
+		intent.setClass(TransferInActivity.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 0);
 	}
 	

@@ -316,5 +316,7 @@
 	<color name="result_text">#ffffffff</color>
 	
 	<color name="light_gray">#ff757575</color>
-	 <color name="gray_background">#fff7f7f7</color>
+	<color name="gray_background">#fff7f7f7</color>
+	 
+	<color name="window_background">#EBEBEB</color>
 </resources>

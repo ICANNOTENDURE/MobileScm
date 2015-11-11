@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -84,6 +85,23 @@ public abstract class BaseActivity extends Activity {
 	 * 初始化控件
 	 */
 	protected  void initView(){};
+	
+    /**
+     * 初始化数据
+     */
+	protected void initData(){};
+
+
+
+    /**
+     * 初始化控件
+     */
+    void initWidget(){};
+
+    /**
+     * 点击事件回调方法
+     */
+    void widgetClick(View v){};
 
 	/**
 	 * 通过类名启动Activity

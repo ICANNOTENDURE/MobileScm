@@ -84,5 +84,6 @@
     <string name="title_activity_chai_bao">ChaiBaoActivity</string>
     <string name="title_activity_transfer_in">TransferInActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="loclist_title">科室列表</string>
 
 </resources>

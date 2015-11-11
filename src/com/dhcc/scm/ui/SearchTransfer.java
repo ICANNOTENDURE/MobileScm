@@ -175,7 +175,7 @@ public class SearchTransfer extends Activity {
 		bundle.putString("flag", "from");
 		bundle.putString("inputtext", locinputtext);
 		intent.putExtras(bundle);
-		intent.setClass(SearchTransfer.this, TransferOutLocList.class);
+		intent.setClass(SearchTransfer.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 0);
 	}
 	
