@@ -27,6 +27,7 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.dhcc.scm.utils.Loger;
 import com.dhcc.scm.widgets.listview.ILoadingLayout.State;
 
 /**
@@ -40,7 +41,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	/**
 	 * 定义了下拉刷新和上拉加载更多的接口。
 	 * 
-	 * @author kymjs (https://github.com/kymjs)
+	 * @author 阿姨不可以
 	 * @since 2015-3
 	 */
 	public interface OnRefreshListener<V extends View> {
@@ -216,10 +217,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	@Override
 	public final boolean onInterceptTouchEvent(MotionEvent event) {
+
 		if (!isInterceptTouchEventEnabled()) {
 			return false;
 		}
-
 		if (!isPullLoadEnabled() && !isPullRefreshEnabled()) {
 			return false;
 		}
@@ -304,16 +305,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			if (mIsHandledTouchEvent) {
 				mIsHandledTouchEvent = false;
 				// 当第一个显示出来时
-				if (isReadyForPullDown()) {
+				if (isPullRefreshEnabled() && isReadyForPullDown()) {
 					// 调用刷新
 					if (mPullRefreshEnabled && (mPullDownState == State.RELEASE_TO_REFRESH)) {
 						startRefreshing();
 						handled = true;
 					}
 					resetHeaderLayout();
-				} else if (isReadyForPullUp()) {
+				} else if (isPullLoadEnabled() && isReadyForPullUp()) {
+					Loger.debug("mPullUpState:"+mPullUpState);
 					// 加载更多
-					if (isPullLoadEnabled() && (mPullUpState == State.RELEASE_TO_REFRESH)) {
+					if (mPullUpState == State.RELEASE_TO_REFRESH) {
 						startLoading();
 						handled = true;
 					}
@@ -842,7 +844,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		if (post) {
 			if (delayMillis > 0) {
 				postDelayed(mSmoothScrollRunnable, delayMillis);
-			} else {
+			} else { 
 				post(mSmoothScrollRunnable);
 			}
 		}
@@ -870,8 +872,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	/**
 	 * 实现了平滑滚动的Runnable
 	 * 
-	 * @author Li Hong
-	 * @since 2013-8-22
 	 */
 	final class SmoothScrollRunnable implements Runnable {
 		/** 动画效果 */

@@ -1,14 +1,12 @@
 package com.dhcc.scm.ui;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,7 +27,6 @@ import com.dhcc.scm.http.HttpConfig;
 import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
-import com.dhcc.scm.ui.base.ViewInject;
 import com.dhcc.scm.utils.Loger;
 import com.dhcc.scm.widgets.EmptyLayout;
 import com.dhcc.scm.widgets.listview.PullToRefreshBase;
@@ -54,8 +51,8 @@ public class TransferOutLocListActivity extends BaseActivity {
 	private HttpParams httpParams = new HttpParams();
 	private static String flag;
 	private final List<CommonItem> items = new ArrayList<CommonItem>();
-	private static int totalnum=0;
-	private static int curpage=0;
+	private static int totalnum = 0;
+	private static int curpage = 0;
 	String loctext = "";
 
 	@Override
@@ -101,7 +98,7 @@ public class TransferOutLocListActivity extends BaseActivity {
 				CommonItem commonItem = (CommonItem) arg0.getItemAtPosition(arg2);
 				Intent intent = new Intent();
 				intent.setClass(TransferOutLocListActivity.this, TransferOut.class);
-				intent.putExtra("locid", String.valueOf(commonItem.getRowId() ));
+				intent.putExtra("locid", String.valueOf(commonItem.getRowId()));
 				intent.putExtra("locdesc", commonItem.getDescription());
 				if (flag.equals("to")) {
 					setResult(0, intent);
@@ -109,21 +106,20 @@ public class TransferOutLocListActivity extends BaseActivity {
 					setResult(1, intent);
 				}
 				finish();
-
 			}
 		});
-		mListView.setDivider(new ColorDrawable(0x00000000));
-		mListView.setSelector(new ColorDrawable(0x00000000));
-		//mRefreshLayout.setPullRefreshEnabled(false);
-		mRefreshLayout.setPullRefreshEnabled(true);
+
+		mRefreshLayout.setPullLoadEnabled(true);
+		mRefreshLayout.setPullRefreshEnabled(false);
 		mRefreshLayout.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				refresh();
+				
 			}
 
 			@Override
 			public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+				refresh();
 			}
 		});
 		refresh(0);
@@ -131,17 +127,19 @@ public class TransferOutLocListActivity extends BaseActivity {
 	}
 
 	private void refresh() {
-		int totalpage = (int)totalnum / Constants.PAGE_SIZE;
-		if((curpage>0)&&(totalpage<=curpage)){
+		int totalpage = (int) totalnum / Constants.PAGE_SIZE;
+		if (curpage == totalpage) {
+			mRefreshLayout.setHasMoreData(false);
 			return;
 		}
 		curpage++;
 		refresh(curpage);
+
 	}
 
 	private void refresh(int page) {
 
-		httpParams.put("Start", page*Constants.PAGE_SIZE);
+		httpParams.put("Start", page * Constants.PAGE_SIZE);
 		http.get(super.getIpByType(), httpParams, new HttpCallBack() {
 			@Override
 			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
@@ -149,11 +147,9 @@ public class TransferOutLocListActivity extends BaseActivity {
 				Loger.debug(TAG + "网络请求" + str);
 				try {
 					JSONObject retString = new JSONObject(str);
-					totalnum=retString.getInt("results");
-					String locs = retString.getString("rows");
-					List<CommonItem> datas = JSON.parseArray(locs, CommonItem.class);
+					totalnum = retString.getInt("results");
+					List<CommonItem> datas = JSON.parseArray(retString.getString("rows"), CommonItem.class);
 					items.addAll(datas);
-					Collections.reverse(items);
 					if (adapter == null) {
 						adapter = new CommonAdapter(mListView, items, R.layout.item_list_common);
 						mListView.setAdapter(adapter);
@@ -199,4 +195,11 @@ public class TransferOutLocListActivity extends BaseActivity {
 		return super.onKeyDown(keyCode, event);
 	}
 
+	@Override
+	public void finish() {
+		mRefreshLayout.setHasMoreData(true);
+		super.finish();
+	}
+	
+	
 }

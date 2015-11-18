@@ -10,14 +10,7 @@
         android:layout_height="50dp"
         android:background="@drawable/android_title_bg" 
         android:id="@+id/layout_top">
-		<!-- 
-        <ImageView
-            android:id="@+id/ingdrec_back_btn"
-            style="@style/title_right_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/base_action_bar_back_normal" />
-		 -->
+
         <TextView
             android:id="@+id/pull_refresh_title"
             android:layout_width="wrap_content"
@@ -33,7 +26,6 @@
         android:id="@+id/pull_refresh_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="@null"
         android:scrollingCache="true" 
         android:layout_below="@id/layout_top"/>
 
