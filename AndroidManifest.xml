@@ -153,7 +153,7 @@
             android:label="TransferOutByReqScanActivity" >
         </activity>
         <activity
-            android:name="com.dhcc.scm.ui.StkGrpCatList"
+            android:name="com.dhcc.scm.ui.StkGrpCatListActivity"
             android:label="StkGrpCatList"
             android:screenOrientation="portrait" >
         </activity>

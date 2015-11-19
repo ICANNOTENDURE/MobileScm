@@ -65,13 +65,20 @@ public class PullToRefreshList extends PullToRefreshBase<ListView> implements On
 	 *            true表示还有更多的数据，false表示没有更多数据了
 	 */
 	public void setHasMoreData(boolean hasMoreData) {
-		if (!hasMoreData) {
-			if (null != mLoadMoreFooterLayout) {
+		
+		if (null != mLoadMoreFooterLayout) {
+			if(hasMoreData){
+				mLoadMoreFooterLayout.setState(State.RESET);
+			}else{
 				mLoadMoreFooterLayout.setState(State.NO_MORE_DATA);
 			}
+		}
 
-			LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
-			if (null != footerLoadingLayout) {
+		LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
+		if (null != footerLoadingLayout) {
+			if(hasMoreData){
+				footerLoadingLayout.setState(State.RESET);
+			}else{
 				footerLoadingLayout.setState(State.NO_MORE_DATA);
 			}
 		}
@@ -114,7 +121,6 @@ public class PullToRefreshList extends PullToRefreshBase<ListView> implements On
 	@Override
 	public void setScrollLoadEnabled(boolean scrollLoadEnabled) {
 		super.setScrollLoadEnabled(scrollLoadEnabled);
-
 		if (scrollLoadEnabled) {
 			// 设置Footer
 			if (null == mLoadMoreFooterLayout) {
@@ -208,11 +214,10 @@ public class PullToRefreshList extends PullToRefreshBase<ListView> implements On
 	 */
 	private boolean isLastItemVisible() {
 		final Adapter adapter = mfakeListView.getAdapter();
-
+		
 		if (null == adapter || adapter.isEmpty()) {
 			return true;
 		}
-
 		final int lastItemPosition = adapter.getCount() - 1;
 		final int lastVisiblePosition = mfakeListView.getLastVisiblePosition();
 
