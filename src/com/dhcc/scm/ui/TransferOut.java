@@ -95,7 +95,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.btn_search:
 			Intent intent2 = new Intent();
-			intent2.setClass(TransferOut.this, SearchTransfer.class);
+			intent2.setClass(TransferOut.this, SearchTransferActivity.class);
 			startActivity(intent2);
 			break;
 		case R.id.seekloc_btn:
