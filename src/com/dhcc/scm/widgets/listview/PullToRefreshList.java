@@ -68,7 +68,7 @@ public class PullToRefreshList extends PullToRefreshBase<ListView> implements On
 		
 		if (null != mLoadMoreFooterLayout) {
 			if(hasMoreData){
-				mLoadMoreFooterLayout.setState(State.RELEASE_TO_REFRESH);
+				mLoadMoreFooterLayout.setState(State.RESET);
 			}else{
 				mLoadMoreFooterLayout.setState(State.NO_MORE_DATA);
 			}
@@ -77,7 +77,7 @@ public class PullToRefreshList extends PullToRefreshBase<ListView> implements On
 		LoadingLayout footerLoadingLayout = getFooterLoadingLayout();
 		if (null != footerLoadingLayout) {
 			if(hasMoreData){
-				footerLoadingLayout.setState(State.RELEASE_TO_REFRESH);
+				footerLoadingLayout.setState(State.RESET);
 			}else{
 				footerLoadingLayout.setState(State.NO_MORE_DATA);
 			}

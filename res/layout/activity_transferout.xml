@@ -172,6 +172,13 @@
                 android:paddingLeft="10dp"
                 android:background="@drawable/edit_text"
                 android:textSize="15.0dp" />
+            <ImageView
+	            android:id="@+id/seekstk_btn"
+	            android:src="@drawable/seek_btn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	           />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow2"

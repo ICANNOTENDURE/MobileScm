@@ -1,15 +1,12 @@
 package com.dhcc.scm.ui;
 
 import java.util.Date;
-import java.util.Locale;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,28 +30,30 @@ import com.dhcc.scm.utils.Loger;
 public class TransferOut extends BaseActivity implements OnClickListener {
 
 	@FindView(id = R.id.fromLoc, click = true)
-	private EditText fromLocTxt; // 供给科室
+	EditText fromLocTxt; // 供给科室
 	@FindView(id = R.id.toLoc, click = true)
-	private EditText toLocTxt; // 请求科室
+	EditText toLocTxt; // 请求科室
 	@FindView(id = R.id.createUser)
-	private EditText createUserTxt; // 建单人
+	EditText createUserTxt; // 建单人
 	@FindView(id = R.id.createDate)
-	private EditText createDateTxt; // 简单日期
+	EditText createDateTxt; // 简单日期
 	@FindView(id = R.id.remark)
-	private EditText remarkTxt; // 备注
+	EditText remarkTxt; // 备注
 	@FindView(id = R.id.transferNo)
-	private EditText trnasfNoTxt; // 单号
+	EditText trnasfNoTxt; // 单号
 	@FindView(id = R.id.stktypedesc, click = true)
-	private EditText stkTypeTxt; // 类祖
+	EditText stkTypeTxt; // 类祖
 	@FindView(id = R.id.saveDetails, click = true)
-	private Button saveDetailBtn; // 保存明细按钮
+	Button saveDetailBtn; // 保存明细按钮
 	@FindView(id = R.id.saveMaster, click = true)
-	private Button saveMasterBtn; // 扫码出库
+	Button saveMasterBtn; // 扫码出库
 	@FindView(id = R.id.btn_search, click = true)
-	private ImageView searchBtn; //
+	ImageView searchBtn; //
 	@FindView(id = R.id.seekloc_btn, click = true)
-	private ImageView seekloc; // 查询科室
-
+	ImageView seekloc; // 查询科室
+	@FindView(id = R.id.seekstk_btn, click = true)
+	ImageView seekstk; // 查询类祖
+	
 	public String toLocID = "";
 	public String fromLocID = "";
 	public String StkCatGrpId = "";
@@ -68,6 +67,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		initView();
 	}
 
+	
 	@Override
 	protected void initView() {
 		// TODO Auto-generated method stub
@@ -104,10 +104,10 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		case R.id.fromloc:
 			initFromLoc();
 			break;
-		case R.id.stktypedesc:
+		case R.id.seekstk_btn:
 			initStkGrp();
 			break;
-
+			
 		}
 	}
 
@@ -122,31 +122,6 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		intent.setClass(TransferOut.this, ScanForTransfer.class);
 		startActivity(intent);
 	}
-
-	mobilecom com = new mobilecom();
-
-	Handler handler = new Handler() {
-		public void handleMessage(Message paramMessage) {
-
-			if (com.RetData.toLowerCase(Locale.ENGLISH).indexOf("error") != -1) {
-				CommonTools.showShortToast(TransferOut.this, "系统错误!");
-				return;
-			}
-			if (paramMessage.what == 1) {
-				if (!com.RetData.equals("")) {
-					String str = com.RetData.toString().trim();
-					String[] strs = str.split(",");
-					String no = strs[0];
-					initID = strs[1];
-					trnasfNoTxt.setText(no);
-					saveDetailBtn.setEnabled(true);
-					AlertDialog.Builder buildsucc = new Builder(TransferOut.this);
-					buildsucc.setIcon(R.drawable.success).setTitle("提示").setMessage("保存成功!").setPositiveButton("确认", null).show();
-
-				}
-			}
-		}
-	};
 
 	public void initToLoc() {
 		String locinputtext = "";
@@ -177,7 +152,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		Bundle bundle = new Bundle();
 		bundle.putString("flag", "from");
 		intent.putExtras(bundle);
-		intent.setClass(TransferOut.this, StkGrpCatList.class);
+		intent.setClass(TransferOut.this, StkGrpCatListActivity.class);
 		startActivityForResult(intent, 3);
 	}
 
@@ -219,28 +194,25 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 
 		String fromLocValue = fromLocTxt.getText().toString().trim();
 		if ((fromLocValue.equals("")) || (fromLocID.equals(""))) {
-			CommonTools.showShortToast(TransferOut.this, "供给科室不能为空");
+			ViewInject.toast("供给科室不能为空");
 			return;
 		}
 
 		String toLocValue = toLocTxt.getText().toString().trim();
 		if ((toLocValue.equals("") || toLocID.equals(""))) {
-			CommonTools.showShortToast(TransferOut.this, "请求科室不能为空");
+			ViewInject.toast("请求科室不能为空");
 			return;
 		}
 		if ((StkCatGrpId.equals("") || StkCatGrpId.equals(""))) {
-			CommonTools.showShortToast(TransferOut.this, "类组不能为空");
+			ViewInject.toast("类组不能为空");
 			return;
 		}
 		String remarkValue = remarkTxt.getText().toString().trim();
 		if (remarkValue.equals("")) {
-			remarkValue = "PDA[JD]";
+			remarkValue = "PDA";
 		}
 		String MainInfo = fromLocID + "^" + toLocID + "^" + "" + "^" + "" + "^" + "N" + "^" + "10" + "^" + LoginUser.UserDR + "^" + StkCatGrpId + "^" + "G" + "^" + remarkValue;
-		String Params = "&InitId=" + initID + "&MainInfo=" + MainInfo;
-		com.ThreadHttp("web.DHCST.AndroidTransferOut", "Save", Params, "Method", TransferOut.this, 1, handler);
-
-		// test
+		Loger.debug(MainInfo);
 		HttpConfig config = new HttpConfig();
 		config.cacheTime = 0;
 		Http http = new Http(config);
@@ -262,13 +234,18 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 				if (t != null) {
 					String str = new String(t);
 					Loger.debug("登陆网络请求：" + new String(t));
-					String[] strs = str.split(",");
-					String no = strs[0];
-					initID = strs[1];
-					trnasfNoTxt.setText(no);
-					saveDetailBtn.setEnabled(true);
-					AlertDialog.Builder buildsucc = new Builder(TransferOut.this);
-					buildsucc.setIcon(R.drawable.success).setTitle("提示").setMessage("保存成功!").setPositiveButton("确认", null).show();
+					try {
+						String[] strs = str.split(",");
+						String no = strs[0];
+						initID = strs[1];
+						trnasfNoTxt.setText(no);
+						saveDetailBtn.setEnabled(true);
+						AlertDialog.Builder buildsucc = new Builder(TransferOut.this);
+						buildsucc.setIcon(R.drawable.success).setTitle("提示").setMessage("保存成功!").setPositiveButton("确认", null).show();
+					} catch (Exception e) {
+						ViewInject.toast(e.getMessage());
+						e.printStackTrace();
+					}
 
 				}
 			}

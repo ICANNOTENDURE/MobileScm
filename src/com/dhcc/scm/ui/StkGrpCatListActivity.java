@@ -33,10 +33,10 @@ import com.dhcc.scm.widgets.listview.PullToRefreshBase;
 import com.dhcc.scm.widgets.listview.PullToRefreshBase.OnRefreshListener;
 import com.dhcc.scm.widgets.listview.PullToRefreshList;
 
-public class TransferOutLocListActivity extends BaseActivity {
-
-	public static final String TAG = TransferOutLocListActivity.class.getSimpleName();
-
+public class StkGrpCatListActivity extends BaseActivity {
+	
+	public static final String TAG = StkGrpCatListActivity.class.getSimpleName();
+	
 	ListView mListView;
 	@FindView(id = R.id.pull_refresh_listview)
 	PullToRefreshList mRefreshLayout;
@@ -48,11 +48,9 @@ public class TransferOutLocListActivity extends BaseActivity {
 	private CommonAdapter adapter;
 	private Http http;
 	private HttpParams httpParams = new HttpParams();
-	private static String flag;
 	private final List<CommonItem> items = new ArrayList<CommonItem>();
 	private static int totalnum = 0;
 	private static int curpage = 0;
-	String loctext = "";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,29 +64,20 @@ public class TransferOutLocListActivity extends BaseActivity {
 
 	@Override
 	protected void initData() {
-
-		Bundle bundle = this.getIntent().getExtras();
-		flag = bundle.getString("flag");
-		loctext = bundle.getString("inputtext");
 		HttpConfig config = new HttpConfig();
 		config.cacheTime = 0;
 		config.useDelayCache = false;
 		http = new Http(config);
 		httpParams.put("Limit", Constants.PAGE_SIZE);
-		httpParams.put("Desc", loctext.trim());
-		if (flag.equals("to")) {
-			httpParams.put("className", "web.DHCST.AndroidCommon");
-			httpParams.put("methodName", "GetDeptLoc");
-		} else {
-			httpParams.put("className", "web.DHCST.Util.OrgUtil");
-			httpParams.put("methodName", "GetGroupDept");
-		}
+		httpParams.put("Type", "G");
+		httpParams.put("className", "web.DHCST.Util.DrugUtil");
+		httpParams.put("methodName", "GetStkCatGroup");
 		httpParams.put("type", "Method");
 	}
 
 	@Override
 	protected void initView() {
-		titleTxt.setText("科室列表");
+		titleTxt.setText("类祖");
 
 		mListView = mRefreshLayout.getRefreshView();
 		mListView.setOnItemClickListener(new OnItemClickListener() {
@@ -96,14 +85,10 @@ public class TransferOutLocListActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				CommonItem commonItem = (CommonItem) arg0.getItemAtPosition(arg2);
 				Intent intent = new Intent();
-				intent.setClass(TransferOutLocListActivity.this, TransferOut.class);
-				intent.putExtra("locid", String.valueOf(commonItem.getRowId()));
-				intent.putExtra("locdesc", commonItem.getDescription());
-				if (flag.equals("to")) {
-					setResult(0, intent);
-				} else {
-					setResult(1, intent);
-				}
+				intent.setClass(StkGrpCatListActivity.this, TransferOut.class);
+				intent.putExtra("stkgrprowid", String.valueOf(commonItem.getRowId()));
+				intent.putExtra("stkgrpdesc", commonItem.getDescription());
+				setResult(3, intent);
 				finish();
 			}
 		});
@@ -113,7 +98,7 @@ public class TransferOutLocListActivity extends BaseActivity {
 		mRefreshLayout.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				
+
 			}
 
 			@Override
@@ -184,21 +169,18 @@ public class TransferOutLocListActivity extends BaseActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			Intent intent = new Intent();
-			intent.setClass(TransferOutLocListActivity.this, TransferOut.class);
-			intent.putExtra("locdesc", "");
-			intent.putExtra("locid", "");
-			setResult(2, intent);
+			intent.setClass(StkGrpCatListActivity.this, TransferOut.class);
+			intent.putExtra("stkgrpdesc", "");
+			intent.putExtra("stkgrprowid", "");
+			setResult(3, intent);
 			finish();
 			return false;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-
 	@Override
 	public void finish() {
 		curpage=0;
 		super.finish();
 	}
-	
-	
 }

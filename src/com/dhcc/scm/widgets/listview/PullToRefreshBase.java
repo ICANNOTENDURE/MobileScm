@@ -749,7 +749,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 		mPullUpState = State.REFRESHING;
 		onStateChanged(State.REFRESHING, false);
-
 		if (null != mFooterLayout) {
 			mFooterLayout.setState(State.REFRESHING);
 		}

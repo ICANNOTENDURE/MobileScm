@@ -194,6 +194,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 						JSONObject jsonObject = new JSONObject(str);
 						if (jsonObject.getString("ErrorInfo").isEmpty()) {
 							LoginUser.UserID=jsonObject.getString("UserID");
+							LoginUser.UserDR=jsonObject.getString("UserID");
 							LoginUser.UserName=jsonObject.getString("UserName");
 							JSONArray locArrays = jsonObject.getJSONArray("Locs");
 							for (int i = 0; i < locArrays.length(); i++) {
