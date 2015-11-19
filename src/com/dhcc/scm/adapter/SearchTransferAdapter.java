@@ -1,22 +1,21 @@
 package com.dhcc.scm.adapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.dhcc.scm.R;
+import com.dhcc.scm.entity.TransferOut;
 
 public class SearchTransferAdapter extends BaseAdapter {
-	private ArrayList<HashMap<String,Object>> ListData;
+	private ArrayList<TransferOut> ListData;
 	private LayoutInflater mInflater;
 	
-	public SearchTransferAdapter(Context context , ArrayList<HashMap<String,Object>> InListData){
+	public SearchTransferAdapter(Context context , ArrayList<TransferOut> InListData){
 		this.mInflater = LayoutInflater.from(context);
 		ListData = InListData;
 	}
@@ -39,6 +38,7 @@ public class SearchTransferAdapter extends BaseAdapter {
 		return 0;
 	}
 
+	@SuppressLint("InflateParams")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
@@ -58,13 +58,13 @@ public class SearchTransferAdapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();  //ȡ��ViewHolder����  
 		}
 		//Ȼ��������
-		viewHolder.stransferno.setText(ListData.get(position).get("trInNo").toString());
-		viewHolder.screateDate.setText(ListData.get(position).get("trDate").toString());
-		viewHolder.stoloc.setText(ListData.get(position).get("toLocDesc").toString());
-		viewHolder.screateuser.setText(ListData.get(position).get("trUser").toString());
-		viewHolder.sinitID.setText(ListData.get(position).get("trInit").toString());
-		viewHolder.sStkGrpID.setText(ListData.get(position).get("StkGrpID").toString());
-		viewHolder.sStkGrpDesc.setText(ListData.get(position).get("StkGrpDesc").toString());
+		viewHolder.stransferno.setText(ListData.get(position).getTrNo());
+		viewHolder.screateDate.setText(ListData.get(position).getTrDate());
+		viewHolder.stoloc.setText(ListData.get(position).getLocDesc());
+		viewHolder.screateuser.setText(ListData.get(position).getUser());
+		viewHolder.sinitID.setText(ListData.get(position).getInit());
+		viewHolder.sStkGrpID.setText(ListData.get(position).getStkGrpID());
+		viewHolder.sStkGrpDesc.setText(ListData.get(position).getStkGrpDesc());
 		return convertView;
 	}
 

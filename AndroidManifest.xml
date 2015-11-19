@@ -120,7 +120,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.dhcc.scm.ui.SearchTransfer"
+            android:name="com.dhcc.scm.ui.SearchTransferActivity"
             android:label="SearchTransfer"
             android:screenOrientation="portrait" >
         </activity>
