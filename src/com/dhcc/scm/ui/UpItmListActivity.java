@@ -175,7 +175,7 @@ public class UpItmListActivity extends BaseActivity {
 						// �������б���ݣ���رնԻ���
 						progressDialog.dismiss();
 						AlertDialog.Builder build = new Builder(UpItmListActivity.this);
-						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��ȡ��ݴ���,�����������ӣ�").setPositiveButton("ȷ��", null).show();
+						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��ȡ��ݴ���,�����������ӣ�").setPositiveButton("确定", null).show();
 						return;
 					}
 					JSONObject retString = new JSONObject(RetData);

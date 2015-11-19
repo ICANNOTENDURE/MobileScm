@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -36,10 +37,9 @@ import com.dhcc.scm.utils.CommonTools;
 public class InGdRecSearchResultActivity extends BaseActivity implements OnClickListener {
 
 	@FindView(id = R.id.ingdrecsearch_result_back, click = true)
-	private ImageView imgBack = null;// 回退按钮
-
-	@FindView(id = R.id.ingdrecsearch_itm_scroll_list, click = true)
-	private ListView listview;
+	ImageView imgBack;// 回退按钮
+	@FindView(id = R.id.ingdrecsearch_itm_scroll_list)
+	ListView listview;
 
 	private List<InGdRecSearch> inGdRecsearchs = new ArrayList<InGdRecSearch>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
@@ -61,9 +61,9 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 		// gdRecSearch.setHome("dota");
 		// gdRecSearch.setNum("2015");
 		// inGdRecsearchs.add(gdRecSearch);
-		// inGdRecsearchAdapter = new InGdRecSearchAdapter(this,
-		// inGdRecsearchs);
-		// listview.setAdapter(inGdRecsearchAdapter);
+		 inGdRecsearchAdapter = new InGdRecSearchAdapter(this,
+		 inGdRecsearchs);
+		 listview.setAdapter(inGdRecsearchAdapter);
 
 	}
 
@@ -105,6 +105,7 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 
 				InGdRecSearch gdRec = new InGdRecSearch();
 				try {
+					Log.i("dhcc", "msf:"+(String) msg.obj);
 					JSONObject jsonObject = new JSONObject((String) msg.obj);
 					String resultCode = jsonObject.get("resultCode").toString();
 					if (resultCode.equals("0")) {

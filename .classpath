@@ -6,6 +6,6 @@
 	<classpathentry exported="true" kind="lib" path="libs/nineoldandroids.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="D:/git/MobileScm/libs/fastjson-1.1.43.android.jar"/>
+	<classpathentry kind="lib" path="libs/fastjson-1.1.43.android.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

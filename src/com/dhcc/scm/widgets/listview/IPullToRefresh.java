@@ -26,7 +26,7 @@ import com.dhcc.scm.widgets.listview.PullToRefreshBase.OnRefreshListener;
  * 定义了拉动刷新的接口
  * 
  * @param <T>
- * @author 阿姨不可以
+ * @author zhouxin
  * @since 2015-11
  */
 public interface IPullToRefresh<T extends View> {

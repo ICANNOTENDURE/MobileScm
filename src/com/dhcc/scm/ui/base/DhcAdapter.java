@@ -33,7 +33,7 @@ import com.dhcc.scm.widgets.AdapterHolder;
  * 对ViewHolder的封装，以及更方便的控制ListView滑动过程中不加载图片
  * 
  * @param <T>
- * @author 阿姨不可以
+ * @author zhouxin
  */
 public abstract class DhcAdapter<T> extends BaseAdapter implements AbsListView.OnScrollListener{
 
