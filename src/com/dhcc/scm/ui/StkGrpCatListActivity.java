@@ -77,7 +77,7 @@ public class StkGrpCatListActivity extends BaseActivity {
 
 	@Override
 	protected void initView() {
-		titleTxt.setText("类祖");
+		titleTxt.setText("类组");
 
 		mListView = mRefreshLayout.getRefreshView();
 		mListView.setOnItemClickListener(new OnItemClickListener() {

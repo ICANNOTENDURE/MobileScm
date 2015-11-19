@@ -185,14 +185,11 @@
             android:name="com.dhcc.scm.ui.SystemSetup"
             android:label="@string/title_activity_main" >
         </activity>
-
-            android:name="com.dhcc.scm.ui.SearchActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.Present"
-            android:windowSoftInputMode="adjustPan" />
+        
         <activity android:name="com.dhcc.scm.ui.InGdRecSearchActivity" />
         <activity android:name="com.dhcc.scm.ui.InGdRecSearchResultActivity" />
->>>>>>> branch 'master' of git@github.com:ICANNOTENDURE/MobileScm.git
+        <activity android:name="com.dhcc.scm.ui.PersonalActivity" />
+
     </application>
 
 </manifest>
