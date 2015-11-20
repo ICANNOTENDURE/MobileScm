@@ -3,75 +3,91 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center_vertical" >
-	<LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="35dp"
         android:orientation="horizontal" >
+
         <TextView
+            android:id="@+id/batno"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:gravity="left"
-            android:id="@+id/batno"/>
+            android:gravity="left" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/expdate"
             android:layout_width="80dp"
-            android:layout_height="45dp"
-           android:id="@+id/expdate"/>
+            android:layout_height="45dp" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/transqty"
             android:layout_width="70dp"
             android:layout_height="45dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:id="@+id/transqty"/>
+            android:gravity="center_vertical|center_horizontal" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/uomdesc"
             android:layout_width="70dp"
-            android:layout_height="30dp"
-           android:id="@+id/uomdesc"/>
+            android:layout_height="30dp" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/packlabel"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:gravity="left"
-            android:id="@+id/packlabel"/>
-		<View
-            android:layout_width="1dp"
-            android:layout_height="45dp"
-            android:background="#34495e" />
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:gravity="left"
-           android:id="@+id/linklabel"/>
+            android:gravity="left" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/linklabel"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:gravity="left"
-            android:id="@+id/inclbrowid"/>
+            android:gravity="left" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/inclbrowid"
             android:layout_width="80dp"
             android:layout_height="45dp"
-			android:id="@+id/uomrowid"/>
+            android:gravity="left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#34495e" />
+
+        <TextView
+            android:id="@+id/uomrowid"
+            android:layout_width="80dp"
+            android:layout_height="45dp" />
     </LinearLayout>
 
 </LinearLayout>

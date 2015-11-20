@@ -57,8 +57,8 @@
             android:id="@+id/datespace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15.0dp"
-            android:text="结束日期" />
+            android:text="结束日期"
+            android:textSize="15.0dp" />
 
         <EditText
             android:id="@+id/enddate"
@@ -118,8 +118,8 @@
                 android:id="@+id/toloclabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15.0dp" 
-                android:text="请求部门" />
+                android:text="请求部门"
+                android:textSize="15.0dp" />
 
             <EditText
                 android:id="@+id/toloc"

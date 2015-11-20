@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-  <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="35dp"
         android:background="#1abc9c"
@@ -19,7 +19,7 @@
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="单号"/>
+            android:text="单号" />
 
         <View
             android:layout_width="1dp"
@@ -30,7 +30,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="建单日期"/>
+            android:text="建单日期" />
 
         <View
             android:layout_width="1dp"
@@ -41,7 +41,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="请求部门"/>
+            android:text="请求部门" />
 
         <View
             android:layout_width="1dp"
@@ -52,7 +52,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="创建人"/>
+            android:text="创建人" />
 
         <View
             android:layout_width="1dp"
@@ -63,28 +63,29 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="s_initID"/>
+            android:text="s_initID" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/blue" />
-                <TextView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="s_catgrpid"/>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/blue" />
-        
         <TextView
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="类组"/>
+            android:text="s_catgrpid" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="类组" />
 
         <View
             android:layout_width="1dp"

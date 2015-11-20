@@ -14,69 +14,76 @@
             android:id="@+id/scanTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="扫码出库"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="20.0sp" 
+            android:text="扫码出库"
             android:textColor="@color/result_text"
-            />
-
+            android:textSize="20.0sp" />
     </RelativeLayout>
-	<View
-	    android:layout_width="match_parent"
-	    android:layout_height="2dp"
-	    android:background="@color/white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal" >
-		<TextView
-		    android:layout_width="wrap_content"
-		    android:layout_height="match_parent"
-		    android:text="单    号" 
-		    android:background="#1abc9c"
-		    android:textSize="15.0sp"
-		    android:gravity="center_vertical" />
-	    <View
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#1abc9c"
+            android:gravity="center_vertical"
+            android:text="单    号"
+            android:textSize="15.0sp" />
+
+        <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
             android:background="@color/white" />
+
         <TextView
             android:id="@+id/TranNo"
             android:layout_width="170dp"
             android:layout_height="match_parent"
-            android:textSize="15.0sp"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            android:textSize="15.0sp" />
+
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
             android:background="@color/white" />
+
         <TextView
-		    android:layout_width="wrap_content"
-		    android:layout_height="match_parent"
-		    android:background="#1abc9c"
-		    android:textSize="15.0sp"
-		    android:text="类    组" 
-		    android:gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#1abc9c"
+            android:gravity="center_vertical"
+            android:text="类    组"
+            android:textSize="15.0sp" />
+
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
             android:background="@color/white" />
+
         <TextView
             android:id="@+id/StkCatGrpDesc"
             android:layout_width="100dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
-            android:textSize="15.0sp" 
-            android:gravity="center_vertical" />
-         <TextView
+            android:gravity="center_vertical"
+            android:textSize="15.0sp" />
+
+        <TextView
             android:id="@+id/StkCatGrpID"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="15.0sp"
-            
-             />
+            android:textSize="15.0sp" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -90,33 +97,33 @@
 
         <Button
             android:id="@+id/btn_query"
-            android:text="查询"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:textSize="18sp"
-            android:textColor="@color/result_text"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_trin_style" />
-       
+            android:layout_weight="3"
+            android:background="@drawable/btn_trin_style"
+            android:text="查询"
+            android:textColor="@color/result_text"
+            android:textSize="18sp" />
+
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/saveItem"
-            android:text="确认出库"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:textSize="18sp"
-            android:textColor="@color/result_text"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_trin_style_red" />
+            android:layout_weight="3"
+            android:background="@drawable/btn_trin_style_red"
+            android:text="确认出库"
+            android:textColor="@color/result_text"
+            android:textSize="18sp" />
     </LinearLayout>
 
-	<View
-	    android:layout_width="match_parent"
-	    android:layout_height="2dp"
-	    android:background="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView1"
@@ -127,8 +134,7 @@
         <ListView
             android:id="@+id/inciitmlist"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
+            android:layout_height="fill_parent" >
         </ListView>
     </HorizontalScrollView>
 

@@ -10,8 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="7"
-        android:gravity="center_horizontal"
-        />
+        android:gravity="center_horizontal" />
+
     <TextView
         android:id="@+id/RowId"
         android:layout_width="0dp"

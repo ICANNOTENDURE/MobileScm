@@ -35,7 +35,7 @@
     <item
         android:drawable="@drawable/loading_11"
         android:duration="50"/>
-     <item
+    <item
         android:drawable="@drawable/loading_12"
         android:duration="50"/>
 

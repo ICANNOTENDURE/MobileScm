@@ -12,11 +12,11 @@
         android:background="@drawable/android_title_bg" >
 
         <ImageView
-        android:id="@+id/barcode_back"
-        style="@style/title_right_button"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/base_action_bar_back_normal" />
+            android:id="@+id/barcode_back"
+            style="@style/title_right_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_action_bar_back_normal" />
 
         <TextView
             android:id="@+id/textview_title"
@@ -28,7 +28,6 @@
             android:text="扫描结果"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -52,8 +51,7 @@
             android:layout_below="@+id/scan_result"
             android:layout_marginBottom="50dp"
             android:background="#b0b0b0"
-            android:padding="10dp"
-             />
+            android:padding="10dp" />
 
         <RelativeLayout
             android:id="@+id/layout_bottom"
@@ -91,9 +89,7 @@
                 android:layout_marginRight="40dp"
                 android:background="@drawable/openmapstroe"
                 android:paddingLeft="40dp" />
-            
         </RelativeLayout>
-
     </RelativeLayout>
-    
+
 </LinearLayout>

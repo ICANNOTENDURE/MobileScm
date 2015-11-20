@@ -250,9 +250,9 @@
                 android:layout_width="61dp"
                 android:layout_height="40dp"
                 android:background="#1abc9c"
+                android:gravity="center_vertical"
                 android:text="转移数量"
-                android:textSize="15.0dp"
-                android:gravity="center_vertical"  />
+                android:textSize="15.0dp" />
 
             <View
                 android:layout_width="2dp"
@@ -261,17 +261,17 @@
 
             <EditText
                 android:id="@+id/transqty"
-                android:numeric="integer"
                 android:layout_width="90dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="3"
                 android:background="@drawable/edit_text"
+                android:numeric="integer"
                 android:paddingLeft="10dp"
+                android:selectAllOnFocus="true"
                 android:singleLine="true"
                 android:text=""
-                android:textSize="16.0dp"
-                android:selectAllOnFocus="true"  />
+                android:textSize="16.0dp" />
 
             <View
                 android:layout_width="2dp"
@@ -283,9 +283,9 @@
                 android:layout_width="61dp"
                 android:layout_height="40dp"
                 android:background="@drawable/title_background"
+                android:gravity="center_vertical"
                 android:text="单       位"
-                android:textSize="15.0dp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0dp" />
 
             <View
                 android:layout_width="2dp"
@@ -298,34 +298,38 @@
                 android:layout_height="40dp"
                 android:text=""
                 android:textSize="15.0sp" />
+
             <TextView
                 android:id="@+id/uomrowid"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text=""
-                android:visibility="gone"
-                android:textSize="15.0sp" />
+                android:textSize="15.0sp"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/inclbrowid"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text=""
-                android:visibility="gone"
-                android:textSize="15.0sp" />
+                android:textSize="15.0sp"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/incirowid"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text=""
-                android:visibility="gone"
-                android:textSize="15.0sp" />
+                android:textSize="15.0sp"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/initrowid"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text=""
-                android:visibility="gone"
-                android:textSize="15.0sp" />
+                android:textSize="15.0sp"
+                android:visibility="gone" />
         </TableRow>
     </TableLayout>
 
@@ -345,9 +349,9 @@
             android:layout_width="61dp"
             android:layout_height="40dp"
             android:background="@drawable/title_background"
+            android:gravity="center_vertical"
             android:text="包装条码"
-            android:textSize="15.0dp"
-            android:gravity="center_vertical" />
+            android:textSize="15.0dp" />
 
         <View
             android:layout_width="2dp"
@@ -361,11 +365,11 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="3"
             android:background="@drawable/edit_text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:paddingLeft="5dp"
             android:singleLine="true"
             android:text=""
-            android:focusable="true"
-			android:focusableInTouchMode="true"
             android:textSize="12.0dp" />
     </LinearLayout>
 
@@ -385,9 +389,9 @@
             android:layout_width="61dp"
             android:layout_height="40dp"
             android:background="@drawable/title_background"
+            android:gravity="center_vertical"
             android:text="关联条码"
-            android:textSize="15.0dp"
-            android:gravity="center_vertical" />
+            android:textSize="15.0dp" />
 
         <View
             android:layout_width="2dp"

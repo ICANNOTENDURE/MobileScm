@@ -3,74 +3,90 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center_vertical" >
-	<LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:background="#1abc9c"
         android:orientation="horizontal" >
+
         <TextView
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="批号" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="效期" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="数量" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="单位" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:gravity="left"
             android:text="inclblabel" />
-		<View
+
+        <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:gravity="left"
             android:text="linklabel" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:gravity="left"
             android:text="inclbrowid" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="45dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="80dp"
             android:layout_height="45dp"

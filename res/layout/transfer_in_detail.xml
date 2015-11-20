@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    
+    android:orientation="vertical" >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/title_background">
+        android:background="@drawable/title_background" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,6 +20,7 @@
             android:textColor="@color/result_text"
             android:textSize="20.0sp" />
     </RelativeLayout>
+
     <TextView
         android:id="@+id/incidatalabel"
         android:layout_width="match_parent"
@@ -39,9 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#1abc9c"
+            android:gravity="center_vertical"
             android:text="药品名称"
-            android:textSize="15.0sp"
-            android:gravity="center_vertical" />
+            android:textSize="15.0sp" />
 
         <View
             android:layout_width="2dp"
@@ -52,12 +53,12 @@
             android:id="@+id/trin_incidesc"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:text=""
-            android:textSize="15.0sp"
-            android:gravity="center_vertical" />
+            android:textSize="15.0sp" />
     </LinearLayout>
 
-   <TableLayout
+    <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -78,9 +79,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="#1abc9c"
+                android:gravity="center_vertical"
                 android:text="转移数量"
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -91,9 +92,9 @@
                 android:id="@+id/trin_qty"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text=""
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -104,9 +105,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="#1abc9c"
+                android:gravity="center_vertical"
                 android:text="单        位"
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -117,9 +118,9 @@
                 android:id="@+id/trin_uom"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text=""
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
         </TableRow>
 
         <View
@@ -136,9 +137,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="#1abc9c"
+                android:gravity="center_vertical"
                 android:text="批        号"
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -149,9 +150,9 @@
                 android:id="@+id/trin_batno"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text=""
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -162,9 +163,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="#1abc9c"
+                android:gravity="center_vertical"
                 android:text="效        期"
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
 
             <View
                 android:layout_width="2dp"
@@ -175,12 +176,12 @@
                 android:id="@+id/trin_expdate"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text=""
-                android:textSize="15.0sp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0sp" />
         </TableRow>
-
     </TableLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -194,13 +195,13 @@
 
         <Button
             android:id="@+id/btn_unreciverr"
-            android:text="未接收"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:textSize="18sp"
-            android:textColor="@color/result_text"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_trin_style" />
+            android:layout_weight="3"
+            android:background="@drawable/btn_trin_style"
+            android:text="未接收"
+            android:textColor="@color/result_text"
+            android:textSize="18sp" />
 
         <View
             android:layout_width="2dp"
@@ -208,43 +209,46 @@
 
         <Button
             android:id="@+id/btn_recive"
-            android:text="已接收"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:textSize="18sp"
-            android:textColor="@color/result_text"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_trin_style" />
-       
+            android:layout_weight="3"
+            android:background="@drawable/btn_trin_style"
+            android:text="已接收"
+            android:textColor="@color/result_text"
+            android:textSize="18sp" />
+
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/btn_sure"
-            android:text="确认接收"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:textSize="18sp"
-            android:textColor="@color/result_text"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_trin_style_red" />
+            android:layout_weight="3"
+            android:background="@drawable/btn_trin_style_red"
+            android:text="确认接收"
+            android:textColor="@color/result_text"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/white" />
-	<HorizontalScrollView
-	        android:id="@+id/horizontalScrollView1"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:background="@color/gray_background" >
-	    <ListView
-	        android:id="@+id/trin_itemlistview"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:cacheColorHint="#00000000">
-	    </ListView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gray_background" >
+
+        <ListView
+            android:id="@+id/trin_itemlistview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000" >
+        </ListView>
     </HorizontalScrollView>
+
 </LinearLayout>

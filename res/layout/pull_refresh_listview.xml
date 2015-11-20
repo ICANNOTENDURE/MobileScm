@@ -6,10 +6,10 @@
     android:background="@android:color/white" >
 
     <RelativeLayout
+        android:id="@+id/layout_top"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="@drawable/android_title_bg" 
-        android:id="@+id/layout_top">
+        android:background="@drawable/android_title_bg" >
 
         <TextView
             android:id="@+id/pull_refresh_title"
@@ -26,8 +26,8 @@
         android:id="@+id/pull_refresh_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollingCache="true" 
-        android:layout_below="@id/layout_top"/>
+        android:layout_below="@id/layout_top"
+        android:scrollingCache="true" />
 
     <com.dhcc.scm.widgets.EmptyLayout
         android:id="@+id/empty_layout"

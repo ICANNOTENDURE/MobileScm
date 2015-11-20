@@ -67,7 +67,6 @@
         <item name="thumbTextPadding">12dip</item>
         <item name="switchMinWidth">96dip</item>
         <item name="switchPadding">16dip</item>
- 
     </style>
 
     <string name="switch_on"></string>

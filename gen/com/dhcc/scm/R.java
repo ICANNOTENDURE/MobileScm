@@ -483,7 +483,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  苍紫罗兰色 
          */
         public static final int goldenrod=0x7f07003a;
-        /**      金黄色 
+        /**  金黄色 
          */
         public static final int goldyellow=0x7f070014;
         /**  天蓝色 
@@ -1193,7 +1193,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ist_user=0x7f06005a;
         public static final int ist_way=0x7f060055;
         public static final int italic=0x7f06001b;
-        public static final int keshi=0x7f060087;
         public static final int launch_product_query=0x7f060013;
         public static final int layout_bottom=0x7f0600f2;
         public static final int layout_login=0x7f060071;
@@ -1231,6 +1230,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int parbarcode=0x7f060113;
         public static final int personal_detials=0x7f06007f;
         public static final int personal_layout=0x7f060082;
+        public static final int personal_loc=0x7f060087;
         public static final int personal_top_layout=0x7f060070;
         public static final int preoutbtn=0x7f0600c3;
         public static final int preview_view=0x7f060109;

@@ -2,45 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal">
-    
-  <LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="35dp"
-	    android:orientation="horizontal">
-	   <TextView
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/ist_rowid"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:id="@+id/ist_rowid"
-            android:visibility="gone"/>
+            android:visibility="gone" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#34495e" />
-       <TextView
+
+        <TextView
+            android:id="@+id/ist_no"
             android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:id="@+id/ist_no" />
+            android:layout_height="match_parent" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/ist_time"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:id="@+id/ist_time"/>
+            android:layout_height="match_parent" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/ist_user"
             android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:id="@+id/ist_user" />
+            android:layout_height="match_parent" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#34495e" />
-	</LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
