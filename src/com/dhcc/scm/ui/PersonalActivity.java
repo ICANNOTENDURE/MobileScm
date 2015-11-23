@@ -47,7 +47,7 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 	private TextView personalloc;
 	@FindView(id = R.id.security_group)
 	private TextView securitygroup;
-	String myname;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
