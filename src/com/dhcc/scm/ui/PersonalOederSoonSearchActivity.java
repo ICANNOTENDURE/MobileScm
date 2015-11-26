@@ -77,8 +77,14 @@ public class PersonalOederSoonSearchActivity extends BaseActivity{
 						for (int i = 0; i < array.length(); i++) {
 							JSONObject jo = (JSONObject) array.get(i);
 							PersonalAllOrder gdRecSearch = new PersonalAllOrder();
-							gdRecSearch.setHome(jo.get("name").toString());
-							gdRecSearch.setNum(jo.get("name").toString());
+//							gdRecSearch.setHome(jo.get("name").toString());
+//							gdRecSearch.setNum(jo.get("name").toString());
+							gdRecSearch.setBatno(jo.get("batno").toString());
+						    gdRecSearch.setHopincname(jsonObject.getString("name"));
+						    gdRecSearch.setRp(jsonObject.getString("rp"));
+						    gdRecSearch.setHisqty((jsonObject.getString("qty")));
+							gdRecSearch.setManf(jsonObject.getString("vendor"));
+							gdRecSearch.setExpdate(jsonObject.getString("expdate"));
 							personalAllOrders.add(gdRecSearch);
 						}
 						personalAllOrderAdapter.notifyDataSetChanged();

@@ -23,7 +23,11 @@ import com.dhcc.scm.http.thread.HttpPostThread;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
 import com.dhcc.scm.utils.CommonTools;
-
+/**
+ * 全部订单
+ * @author hxy
+ *
+ */
 public class PersonalAllOrderActivity extends BaseActivity {
 
 	@FindView(id = R.id.all_order_itm_scroll_list)
@@ -52,6 +56,7 @@ public class PersonalAllOrderActivity extends BaseActivity {
 	private void getResult() {
 		List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
 		valuePairs.add(new BasicNameValuePair("start", "2"));
+//		valuePairs.add(new BasicNameValuePair("start", "2015-01-01%20"));
 		valuePairs.add(new BasicNameValuePair("end", "2"));
 		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
 	}
@@ -76,10 +81,15 @@ public class PersonalAllOrderActivity extends BaseActivity {
 					if (resultCode.equals("0")) {
 						JSONArray array = jsonObject.getJSONArray("dataList");
 						for (int i = 0; i < array.length(); i++) {
-							JSONObject jo = (JSONObject) array.get(i);
+//							JSONObject jo = (JSONObject) array.get(i);
 							PersonalAllOrder gdRecSearch = new PersonalAllOrder();
-							gdRecSearch.setHome(jo.get("name").toString());
-							gdRecSearch.setNum(jo.get("name").toString());
+						    gdRecSearch.setBatno(jsonObject.getString("batno"));
+						    gdRecSearch.setHopincname(jsonObject.getString("name"));
+						    gdRecSearch.setRp(jsonObject.getString("rp"));
+						    gdRecSearch.setHisqty((jsonObject.getString("qty")));
+							gdRecSearch.setManf(jsonObject.getString("manf"));
+							gdRecSearch.setExpdate(jsonObject.getString("expdate"));
+							
 							personalAllOrders.add(gdRecSearch);
 						}
 						personalAllOrderAdapter.notifyDataSetChanged();

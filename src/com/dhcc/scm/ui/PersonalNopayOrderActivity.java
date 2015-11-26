@@ -46,7 +46,6 @@ public class PersonalNopayOrderActivity extends BaseActivity {
 	protected void findViewById() {
 		personalAllOrderAdapter = new PersonalAllOrderAdapter(this, personalAllOrders);
 		listview.setAdapter(personalAllOrderAdapter);
-
 	}
 
 	private void getResult() {
@@ -78,8 +77,12 @@ public class PersonalNopayOrderActivity extends BaseActivity {
 						for (int i = 0; i < array.length(); i++) {
 							JSONObject jo = (JSONObject) array.get(i);
 							PersonalAllOrder gdRecSearch = new PersonalAllOrder();
-							gdRecSearch.setHome(jo.get("name").toString());
-							gdRecSearch.setNum(jo.get("name").toString());
+							gdRecSearch.setBatno(jo.get("batno").toString());
+							gdRecSearch.setHopincname(jo.get("name").toString());
+							gdRecSearch.setRp(jo.get("rp").toString());
+							gdRecSearch.setHisqty(jo.get("qty").toString());
+							gdRecSearch.setManf(jo.get("manf").toString());
+							gdRecSearch.setExpdate(jo.get("expdate").toString());
 							personalAllOrders.add(gdRecSearch);
 						}
 						personalAllOrderAdapter.notifyDataSetChanged();

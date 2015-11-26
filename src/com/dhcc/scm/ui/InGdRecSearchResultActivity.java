@@ -113,8 +113,8 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 						for (int i = 0; i < array.length(); i++) {
 							JSONObject jo = (JSONObject) array.get(i);
 							InGdRecSearch gdRecSearch = new InGdRecSearch();
-							gdRecSearch.setHome(jo.get("name").toString());
-							gdRecSearch.setNum(jo.get("name").toString());
+							gdRecSearch.setHopincname(jo.get("name").toString());
+							gdRecSearch.setRp(jo.get("name").toString());
 							inGdRecsearchs.add(gdRecSearch);
 						}
 						inGdRecsearchAdapter.notifyDataSetChanged();

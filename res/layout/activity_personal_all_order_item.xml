@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical" >
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -19,13 +19,13 @@
             android:orientation="vertical"
             android:weightSum="7" >
 
-            <LinearLayout
+                        <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/ingdre_search_itm_batno"
+                    android:id="@+id/all_order_itm_batno"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -40,7 +40,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/ingdre_search_itm_name"
+                    android:id="@+id/all_order_itm_name"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -55,7 +55,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/ingdrec_search_itm_rp"
+                    android:id="@+id/all_order_itm_rp"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -64,7 +64,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/ingdrec_search_itm_qty"
+                    android:id="@+id/all_order_itm_qty"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -79,7 +79,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/ingdrec_search_itm_manf"
+                    android:id="@+id/all_order_itm_manf"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -94,7 +94,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/ingdrec_search_itm_expdate"
+                    android:id="@+id/all_order_itm_expdate"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,5 +104,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
