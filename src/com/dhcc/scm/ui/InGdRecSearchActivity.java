@@ -78,8 +78,15 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 			finish();
 			break;
 		case R.id.ingdrecSearch_select_btn:
-			Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
-			startActivity(nIntent);
+			String startdateValue = startdateTxt.getText().toString().trim();
+			String enddateTxtValue = enddateTxt.getText().toString().trim();
+			if ((startdateValue.equals("") || enddateTxtValue.equals(""))) {
+				ViewInject.toast("日期不能为空");
+			} else {
+				Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
+				startActivity(nIntent);
+			}
+			return;
 		default:
 			break;
 		}
