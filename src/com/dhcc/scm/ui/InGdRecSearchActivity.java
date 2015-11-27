@@ -83,8 +83,19 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 			if ((startdateValue.equals("") || enddateTxtValue.equals(""))) {
 				ViewInject.toast("日期不能为空");
 			} else {
-				Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
-				startActivity(nIntent);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+					Date dt1 = sdf.parse(startdateValue);
+					Date dt2 = sdf.parse(enddateTxtValue);
+					if (dt1.getTime() > dt2.getTime()) {
+						ViewInject.toast("结束日期不能早于开始日期");
+					} else {
+						Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
+						startActivity(nIntent);
+					}
+				} catch (Exception exception) {
+					exception.printStackTrace();
+				}
 			}
 			return;
 		default:
