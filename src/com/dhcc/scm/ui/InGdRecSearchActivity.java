@@ -3,9 +3,10 @@
  */
 package com.dhcc.scm.ui;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.dhcc.scm.R;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
@@ -88,8 +90,8 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 			} else {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				try {
-					Date dt1 = (Date) sdf.parse(startdateValue);
-					Date dt2 = (Date) sdf.parse(enddateTxtValue);
+					Date dt1 = sdf.parse(startdateValue);
+					Date dt2 = sdf.parse(enddateTxtValue);
 					if (dt1.getTime() > dt2.getTime()) {
 						ViewInject.toast("结束日期不能早于开始日期");
 					} else {
