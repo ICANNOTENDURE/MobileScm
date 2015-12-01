@@ -9,16 +9,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.entity.PersonalAllOrder;
+import com.dhcc.scm.entity.PersonalAllOrderItem;
 
 public class PersonalAllOrderAdapter extends BaseAdapter{
 	
 
 		private Context ctx;
 		
-		private List<PersonalAllOrder> list;
+		private List<PersonalAllOrderItem> list;
 		
-		public PersonalAllOrderAdapter(Context ctx, List<PersonalAllOrder> list) {
+		public PersonalAllOrderAdapter(Context ctx, List<PersonalAllOrderItem> list) {
 			super();
 			this.ctx = ctx;
 			this.list = list;

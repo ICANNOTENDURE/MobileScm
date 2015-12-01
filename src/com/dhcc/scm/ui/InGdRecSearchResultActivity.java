@@ -3,30 +3,26 @@ package com.dhcc.scm.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.alibaba.fastjson.JSON;
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InGdRecSearchAdapter;
 import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.InGdRecSearch;
-import com.dhcc.scm.http.net.ThreadPoolUtils;
-import com.dhcc.scm.http.thread.HttpPostThread;
+import com.dhcc.scm.entity.InGdRecSearchItm;
+import com.dhcc.scm.http.Http;
+import com.dhcc.scm.http.HttpCallBack;
+import com.dhcc.scm.http.HttpConfig;
+import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
-import com.dhcc.scm.utils.CommonTools;
+import com.dhcc.scm.ui.base.ViewInject;
 
 /**
  * 
@@ -41,7 +37,7 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 	@FindView(id = R.id.ingdrecsearch_itm_scroll_list)
 	ListView listview;
 
-	private List<InGdRecSearch> inGdRecsearchs = new ArrayList<InGdRecSearch>();
+	private List<InGdRecSearchItm> inGdRecsearchs = new ArrayList<InGdRecSearchItm>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
 
 	@Override
@@ -61,18 +57,66 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 		// gdRecSearch.setHome("dota");
 		// gdRecSearch.setNum("2015");
 		// inGdRecsearchs.add(gdRecSearch);
-		 inGdRecsearchAdapter = new InGdRecSearchAdapter(this,
-		 inGdRecsearchs);
-		 listview.setAdapter(inGdRecsearchAdapter);
-
+		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
+		listview.setAdapter(inGdRecsearchAdapter);
 	}
 
 	private void getResult() {
-		List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
-		valuePairs.add(new BasicNameValuePair("start", "2"));
-		valuePairs.add(new BasicNameValuePair("end", "2"));
-		// ThreadPoolUtils.execute(new HttpPostThread(handler, Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
+		// List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
+		// valuePairs.add(new BasicNameValuePair("start", "2015-01-01"));
+		// valuePairs.add(new BasicNameValuePair("end", "2"));
+		// ThreadPoolUtils.execute(new HttpPostThread(handler,
+		// getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM,
+		// valuePairs));
+
+		HttpConfig config = new HttpConfig();
+		config.cacheTime = 0;
+		Http http = new Http(config);
+		HttpParams params = new HttpParams();
+		params.put("start", "2015-01-01");
+		params.put("end", "2");
+		params.put("requestType", "apk");
+		http.post(getIpByType("scm") + "/" + Constants.METHOD_SEARCH_INGDREC_ITM, params, new HttpCallBack() {
+			@Override
+			public void onFailure(int errorNo, String strMsg) {
+				super.onFailure(errorNo, strMsg);
+				ViewInject.toast("网络不好" + strMsg);
+			}
+
+			@Override
+			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
+				if (t != null) {
+					String str = new String(t);
+					InGdRecSearch gdRecSearch = JSON.parseObject(str, InGdRecSearch.class);
+					if (gdRecSearch.getResultCode().equals("0")) {
+						inGdRecsearchs.clear();
+						inGdRecsearchs.addAll(gdRecSearch.getDataList());
+						inGdRecsearchAdapter.notifyDataSetChanged();
+					} else {
+						ViewInject.toast(gdRecSearch.getResultContent());
+					}
+					// InGdRecSearchItm gdRec = new InGdRecSearchItm();
+					// try {
+					// JSONObject jsonObject = new JSONObject(str);
+					// String resultCode =
+					// jsonObject.get("resultCode").toString();
+					// if (resultCode.equals("0")) {
+					// List<InGdRecSearchItm>
+					// gdRecSearchs=JSON.parseArray(jsonObject.getString("dataList"),InGdRecSearchItm.class);
+					// inGdRecsearchs.clear();
+					// inGdRecsearchs.addAll(gdRecSearchs);
+					// inGdRecsearchAdapter.notifyDataSetChanged();
+					// } else {
+					// ViewInject.toast(jsonObject.get("resultContent").toString());
+					// }
+					// } catch (JSONException e) {
+					// e.printStackTrace();
+					// ViewInject.toast(e.getMessage());
+					// }
+					// inGdRecsearchs.add(gdRec);
+				}
+			};
+		});
 	}
 
 	@Override
@@ -90,45 +134,4 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 			break;
 		}
 	}
-
-	/**
-	 * 回调句柄
-	 */
-	Handler handler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			super.handleMessage(msg);
-			if (msg.what == 404) {
-				CommonTools.showShortToast(InGdRecSearchResultActivity.this, "请求失败，服务器故障");
-			} else if (msg.what == 100) {
-				CommonTools.showShortToast(InGdRecSearchResultActivity.this, "服务器无响应");
-			} else if (msg.what == 200) {
-
-				InGdRecSearch gdRec = new InGdRecSearch();
-				try {
-					Log.i("dhcc", "msf:"+(String) msg.obj);
-					JSONObject jsonObject = new JSONObject((String) msg.obj);
-					String resultCode = jsonObject.get("resultCode").toString();
-					if (resultCode.equals("0")) {
-						JSONArray array = jsonObject.getJSONArray("dataList");
-						for (int i = 0; i < array.length(); i++) {
-							JSONObject jo = (JSONObject) array.get(i);
-							InGdRecSearch gdRecSearch = new InGdRecSearch();
-							gdRecSearch.setHopincname(jo.get("name").toString());
-							gdRecSearch.setRp(jo.get("name").toString());
-							inGdRecsearchs.add(gdRecSearch);
-						}
-						inGdRecsearchAdapter.notifyDataSetChanged();
-
-					} else {
-						CommonTools.showShortToast(getApplication(), jsonObject.get("resultContent").toString());
-					}
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				inGdRecsearchs.add(gdRec);
-			}
-			inGdRecsearchAdapter.notifyDataSetChanged();
-		};
-	};
 }

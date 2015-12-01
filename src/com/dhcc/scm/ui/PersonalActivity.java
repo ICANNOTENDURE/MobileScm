@@ -1,23 +1,13 @@
 package com.dhcc.scm.ui;
 
-import java.util.List;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.adapter.LocAdApter;
-import com.dhcc.scm.entity.Loc;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;

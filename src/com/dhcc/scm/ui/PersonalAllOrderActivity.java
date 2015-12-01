@@ -2,38 +2,39 @@ package com.dhcc.scm.ui;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.widget.ListView;
+import com.alibaba.fastjson.JSON;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.PersonalAllOrderAdapter;
 import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.PersonalAllOrder;
-import com.dhcc.scm.http.net.ThreadPoolUtils;
-import com.dhcc.scm.http.thread.HttpPostThread;
+import com.dhcc.scm.entity.PersonalAllOrderItem;
+import com.dhcc.scm.http.Http;
+import com.dhcc.scm.http.HttpCallBack;
+import com.dhcc.scm.http.HttpConfig;
+import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
-import com.dhcc.scm.utils.CommonTools;
+import com.dhcc.scm.ui.base.ViewInject;
+
 /**
- * 全部订单
- * @author hxy
- *
+ * 
+ * @Title:
+ * @Description: 个人信息全部订单
+ * @param 设定文件
+ * @return void 返回类型
+ * @throws
+ * @author huaxiaoying
+ * @date 2015年11月23日
  */
 public class PersonalAllOrderActivity extends BaseActivity {
 
 	@FindView(id = R.id.all_order_itm_scroll_list)
 	ListView listview;
 
-	private List<PersonalAllOrder> personalAllOrders = new ArrayList<PersonalAllOrder>();
+	private List<PersonalAllOrderItem> personalAllOrders = new ArrayList<PersonalAllOrderItem>();
 	private PersonalAllOrderAdapter personalAllOrderAdapter = null;
 
 	@Override
@@ -50,60 +51,37 @@ public class PersonalAllOrderActivity extends BaseActivity {
 	protected void findViewById() {
 		personalAllOrderAdapter = new PersonalAllOrderAdapter(this, personalAllOrders);
 		listview.setAdapter(personalAllOrderAdapter);
-
 	}
 
 	private void getResult() {
-		List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
-		valuePairs.add(new BasicNameValuePair("start", "2"));
-//		valuePairs.add(new BasicNameValuePair("start", "2015-01-01%20"));
-		valuePairs.add(new BasicNameValuePair("end", "2"));
-		ThreadPoolUtils.execute(new HttpPostThread(handler, getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM, valuePairs));
-	}
-
-	/**
-	 * 回调句柄
-	 */
-	Handler handler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			super.handleMessage(msg);
-			if (msg.what == 404) {
-				CommonTools.showShortToast(PersonalAllOrderActivity.this, "请求失败，服务器故障");
-			} else if (msg.what == 100) {
-				CommonTools.showShortToast(PersonalAllOrderActivity.this, "服务器无响应");
-			} else if (msg.what == 200) {
-
-				PersonalAllOrder gdRec = new PersonalAllOrder();
-				try {
-					Log.i("dhcc", "msf:" + (String) msg.obj);
-					JSONObject jsonObject = new JSONObject((String) msg.obj);
-					String resultCode = jsonObject.get("resultCode").toString();
-					if (resultCode.equals("0")) {
-						JSONArray array = jsonObject.getJSONArray("dataList");
-						for (int i = 0; i < array.length(); i++) {
-//							JSONObject jo = (JSONObject) array.get(i);
-							PersonalAllOrder gdRecSearch = new PersonalAllOrder();
-						    gdRecSearch.setBatno(jsonObject.getString("batno"));
-						    gdRecSearch.setHopincname(jsonObject.getString("name"));
-						    gdRecSearch.setRp(jsonObject.getString("rp"));
-						    gdRecSearch.setHisqty((jsonObject.getString("qty")));
-							gdRecSearch.setManf(jsonObject.getString("manf"));
-							gdRecSearch.setExpdate(jsonObject.getString("expdate"));
-							
-							personalAllOrders.add(gdRecSearch);
-						}
-						personalAllOrderAdapter.notifyDataSetChanged();
-
-					} else {
-						CommonTools.showShortToast(getApplication(), jsonObject.get("resultContent").toString());
-					}
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				personalAllOrders.add(gdRec);
+		HttpConfig config = new HttpConfig();
+		config.cacheTime = 0;
+		Http http = new Http(config);
+		HttpParams params = new HttpParams();
+		params.put("start", "2015-01-01");
+		params.put("end", "2");
+		params.put("requestType", "apk");
+		http.post(getIpByType("scm") + "/" + Constants.METHOD_SEARCH_INGDREC_ITM, params, new HttpCallBack() {
+			@Override
+			public void onFailure(int errorNo, String strMsg) {
+				super.onFailure(errorNo, strMsg);
+				ViewInject.toast("网络不好" + strMsg);
 			}
-			personalAllOrderAdapter.notifyDataSetChanged();
-		};
-	};
+
+			@Override
+			public void onSuccess(java.util.Map<String, String> headers, byte[] t) {
+				if (t != null) {
+					String str = new String(t);
+					PersonalAllOrder personalAllOrder = JSON.parseObject(str, PersonalAllOrder.class);
+					if (personalAllOrder.getResultCode().equals("0")) {
+						personalAllOrders.clear();
+						personalAllOrders.addAll(personalAllOrder.getDataList());
+						personalAllOrderAdapter.notifyDataSetChanged();
+					} else {
+						ViewInject.toast(personalAllOrder.getResultContent());
+					}
+				}
+			};
+		});
+	}
 }

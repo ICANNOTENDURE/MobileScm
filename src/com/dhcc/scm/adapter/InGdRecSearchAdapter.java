@@ -9,15 +9,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dhcc.scm.R;
-import com.dhcc.scm.entity.InGdRecSearch;
+import com.dhcc.scm.entity.InGdRecSearchItm;
 
 public class InGdRecSearchAdapter extends BaseAdapter {
 
 	private Context ctx;
 
-	private List<InGdRecSearch> list;
+	private List<InGdRecSearchItm> list;
 
-	public InGdRecSearchAdapter(Context ctx, List<InGdRecSearch> list) {
+	public InGdRecSearchAdapter(Context ctx, List<InGdRecSearchItm> list) {
 		super();
 		this.ctx = ctx;
 		this.list = list;

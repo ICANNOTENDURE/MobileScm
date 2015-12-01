@@ -1,58 +1,35 @@
 package com.dhcc.scm.entity;
 
+import java.util.List;
+
 public class PersonalAllOrder {
+	 private String resultCode;
+	 private String resultContent;
+	 private int count;
+	 private List<PersonalAllOrderItem> dataList;
+	public String getResultCode() {
+		return resultCode;
+	}
+	public void setResultCode(String resultCode) {
+		this.resultCode = resultCode;
+	}
+	public String getResultContent() {
+		return resultContent;
+	}
+	public void setResultContent(String resultContent) {
+		this.resultContent = resultContent;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public List<PersonalAllOrderItem> getDataList() {
+		return dataList;
+	}
+	public void setDataList(List<PersonalAllOrderItem> dataList) {
+		this.dataList = dataList;
+	}
 
-	    // 商品名称
-		private String hopincname;
-		// 金額
-		private String rp;
-		// 批號
-		private String batno;
-		// 有效期
-		private String expdate;
-		// 廠家
-		private String manf;
-		// 數量
-		private String hisqty;
-		
-		public String getHopincname() {
-			return hopincname;
-		}
-		public void setHopincname(String hopincname) {
-			this.hopincname = hopincname;
-		}
-		public String getRp() {
-			return rp;
-		}
-		public void setRp(String rp) {
-			this.rp = rp;
-		}
-		public String getBatno() {
-			return batno;
-		}
-		public void setBatno(String batno) {
-			this.batno = batno;
-		}
-		public String getExpdate() {
-			return expdate;
-		}
-		public void setExpdate(String expdate) {
-			this.expdate = expdate;
-		}
-		public String getManf() {
-			return manf;
-		}
-		public void setManf(String manf) {
-			this.manf = manf;
-		}
-		public String getHisqty() {
-			return hisqty;
-		}
-		public void setHisqty(String hisqty) {
-			this.hisqty = hisqty;
-		}
-	
-		
-
-		
 }
