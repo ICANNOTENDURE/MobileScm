@@ -64,7 +64,7 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.order_soon_search:
-			Intent oIntent = new Intent(PersonalActivity.this, PersonalOederSoonSearchActivity.class);
+			Intent oIntent = new Intent(PersonalActivity.this, PersonalOrderSoonSearchActivity.class);
 			startActivity(oIntent);
 			break;
 		case R.id.nopay_order:
