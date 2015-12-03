@@ -72,6 +72,8 @@ public class HomeActivity extends TabActivity {
 					break;
 
 				case R.id.home_tab_personal:
+					Intent mIntent = new Intent(HomeActivity.this, PersonalActivity.class);
+					startActivity(mIntent);
 					// mTabHost.setCurrentTabByTag(TAB_PERSONAL);
 					break;
 

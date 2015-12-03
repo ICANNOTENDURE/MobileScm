@@ -13,7 +13,7 @@
     <string name="picture_load_image_failed">点击屏幕，重新加载</string>
     <!-- 加载中提示 -->
     <string name="picture_image_loading">正在加载…</string>
-    
+
     <!-- 下拉刷新和上拉加载更多的文本 -->
     <string name="pull_to_refresh_header_hint_normal">上拉可以刷新</string>
     <string name="pull_to_refresh_header_hint_ready">松开后刷新</string>
@@ -23,11 +23,11 @@
     <string name="pull_to_refresh_refreshing_label">@string/pull_to_refresh_header_hint_loading</string>
     <string name="pull_to_refresh_no_more_data">@string/pushmsg_center_no_more_msg</string>
     <string name="pull_to_refresh_network_error">网络不给力，请检查网络</string>
-    
+
     <!-- 图片保存的文字 -->
     <string name="picture_save_succeed">图片已保存到相册</string>
     <string name="picture_save_fail">保存图片失败</string>
     <string name="picture_next_album">下一组：</string>
     <string name="picture_previous_album">上一组：</string>
-    
+
 </resources>

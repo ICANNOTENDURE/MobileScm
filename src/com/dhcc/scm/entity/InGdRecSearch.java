@@ -1,22 +1,39 @@
 package com.dhcc.scm.entity;
 
+import java.util.List;
+
 public class InGdRecSearch {
-	private String num;
-	private String home;
-
-	public String getNum() {
-		return num;
+	
+	 private String resultCode;
+	 private String resultContent;
+	 private int count;
+	 private List<InGdRecSearchItm> dataList;
+	public String getResultCode() {
+		return resultCode;
 	}
-
-	public void setNum(String num) {
-		this.num = num;
+	public void setResultCode(String resultCode) {
+		this.resultCode = resultCode;
 	}
-
-	public String getHome() {
-		return home;
+	public String getResultContent() {
+		return resultContent;
 	}
-
-	public void setHome(String home) {
-		this.home = home;
+	public void setResultContent(String resultContent) {
+		this.resultContent = resultContent;
 	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public List<InGdRecSearchItm> getDataList() {
+		return dataList;
+	}
+	public void setDataList(List<InGdRecSearchItm> dataList) {
+		this.dataList = dataList;
+	}
+	
+	 
+	 
+
 }

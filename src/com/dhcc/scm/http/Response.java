@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Http响应封装类，包含了本次响应的全部信息
  *
- * @author kymjs (http://www.kymjs.com/) .
+ * @author
  */
 public class Response<T> {
     /**

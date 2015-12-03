@@ -28,7 +28,7 @@ import com.dhcc.scm.widgets.listview.ILoadingLayout.State;
 /**
  * @see {@link #PullToRefreshListView} 这个类实现了ListView下拉刷新，上加载更多和滑到底部自动加载
  * 
- * @author 阿姨不可以
+ * @author 周鑫
  * @since 2015-11
  */
 public class PullToRefreshList extends PullToRefreshBase<ListView> implements OnScrollListener {

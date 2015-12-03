@@ -5,31 +5,31 @@
     android:orientation="vertical" >
 
     <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/android_title_bg" >
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/android_title_bg" >
 
-            <ImageView
-                android:id="@+id/ingdrecsearch_back_btn"
-                style="@style/title_right_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/base_action_bar_back_normal" />
+        <ImageView
+            android:id="@+id/ingdrecsearch_back_btn"
+            style="@style/title_right_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/base_action_bar_back_normal" />
 
-            <TextView
-                android:id="@+id/textview_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_horizontal"
-                android:text="订单查询"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    
-	
+        <TextView
+            android:id="@+id/textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:text="订单查询"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
     <!-- start date line -->
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -47,40 +47,40 @@
         <TextView
             android:id="@+id/ingdrecSearch_startdate_txt"
             android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:layout_weight="3"
-            android:layout_height="fill_parent" 
-            android:textSize="30sp"
-            android:gravity="">
+            android:gravity=""
+            android:textSize="30sp" >
 
             <requestFocus />
         </TextView>
     </LinearLayout>
-	<!-- end -->
-	<!-- end date line -->
-	<LinearLayout
+    <!-- end -->
+    <!-- end date line -->
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="1dp" >
-    
-    <Button
-        android:id="@+id/ingdrecSearch_endDate_btn"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.38"
-        android:onClick="showendDate"
-        android:text="@string/ingdrecSearch_endDate_btn" />
 
-    <TextView
-        android:id="@+id/ingdrecSearch_enddate_txt"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="3"
-        android:textSize="30sp" />
-    
+        <Button
+            android:id="@+id/ingdrecSearch_endDate_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.38"
+            android:onClick="showendDate"
+            android:text="@string/ingdrecSearch_endDate_btn" />
+
+        <TextView
+            android:id="@+id/ingdrecSearch_enddate_txt"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:textSize="30sp" />
     </LinearLayout>
     <!-- end -->
-    
+
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
@@ -112,7 +112,6 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/android_title_bg"
-        
         android:text="查询" />
 
 </LinearLayout>

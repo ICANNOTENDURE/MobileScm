@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/personal_detials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/android_title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:text="我的东华供应链平台"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_one"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/current_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:text="hi~~" />
+        <!-- delete -->
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_user_icon_bg"
+            android:src="@drawable/login_user_default_icon" />
+
+        <RelativeLayout
+            android:id="@+id/personal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/android_layout_bg" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:text="订单中心"
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium_text_size" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/android_layout_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/more_activity_item_selector_bottom_corners"
+                    android:orientation="horizontal"
+                    android:padding="10sp" >
+
+                    <TextView
+                        android:id="@+id/order_soon_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  订单状态速查          >"
+                        android:textColor="@android:color/black"
+                        android:textSize="18.0sp" />
+                </LinearLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/more_activity_item_selector_bottom_corners"
+                    android:orientation="horizontal"
+                    android:padding="10sp" >
+
+                    <TextView
+                        android:id="@+id/nopay_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  待付款订单          >"
+                        android:textColor="@android:color/black"
+                        android:textSize="18.0sp" />
+                </LinearLayout>
+
+                <View style="@style/PersonalLine" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/more_activity_item_selector_bottom_corners"
+                    android:orientation="horizontal"
+                    android:padding="10sp" >
+
+                    <TextView
+                        android:id="@+id/all_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  全部订单          >"
+                        android:textColor="@android:color/black"
+                        android:textSize="18.0sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/Warm_prompt"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/android_layout_bg" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="温馨提示:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/medium_text_size" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/android_layout_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout style="@style/PersonalMainLayoutStyle" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/more_activity_item_selector_bottom_corners"
+                        android:orientation="horizontal"
+                        android:padding="10sp" >
+
+                        <TextView
+                            android:id="@+id/personal_loc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textSize="17.0sp" />
+                        <!-- android:text="您所在科室为" -->
+
+                    </LinearLayout>
+
+                    <View style="@style/PersonalLine" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/more_activity_item_selector_bottom_corners"
+                        android:orientation="horizontal"
+                        android:padding="10sp" >
+
+                        <TextView
+                            android:id="@+id/security_group"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="当前安全组为"
+                            android:textColor="@android:color/black"
+                            android:textSize="17.0sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

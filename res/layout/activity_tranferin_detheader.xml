@@ -3,53 +3,64 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-	<LinearLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:background="#1abc9c"
         android:orientation="horizontal" >
+
         <TextView
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="Initi"
-            android:visibility="gone"/>
+            android:visibility="gone" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="195dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="名称" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="55dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="数量" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="单位" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="请求数量" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="30dp"

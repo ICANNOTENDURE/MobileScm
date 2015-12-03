@@ -4,141 +4,122 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="30dp"
-	    android:orientation="horizontal"
-	    android:background="#1abc9c">
-	    
-	    <View
-			android:layout_width="1dp"
-			android:layout_height="match_parent"
-			android:background="#34495e" 
-			/>
-	    
-		<TextView
-		    android:layout_width="30dp"
-		    android:layout_height="match_parent"
-		    android:text="序号"
-		    android:gravity="center_vertical|center_horizontal"
-		    />
-		
-	    <View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e" 
-		    />
-	         
-		<TextView
-		    android:layout_width="200dp"
-		    android:layout_height="30dp"
-		    android:text="名    称"
-		    android:gravity="center_vertical|center_horizontal"
-		    />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    /> 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:background="#1abc9c"
+        android:orientation="horizontal" >
 
-		<TextView 
-		    android:layout_width="100dp"
-		    android:layout_height="30dp"
-		    android:text="批号"
-		    android:gravity="center_vertical|center_horizontal"
-		    />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    /> 
-		
-		<TextView
-		    android:layout_width="100dp"
-		    android:layout_height="30dp"
-		    android:text="效期"
-		    android:gravity="center_vertical|center_horizontal"
-		  />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    /> 
-		
-		<TextView 
-		    android:layout_width="80dp"
-		    android:layout_height="30dp"
-		    android:text="包装单位"
-		    android:gravity="center_vertical|center_horizontal"
-		    />
-		  
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e" 
-		    />
-		
-   		<TextView 
-		    android:layout_width="80dp"
-		    android:layout_height="30dp"
-		    android:text="状态"
-		    android:gravity="center_vertical|center_horizontal"
-		    />
-		  
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    />
-		
-	   <TextView 
-		    android:layout_width="80dp"
-		    android:layout_height="match_parent"
-		    android:text="ID"
-		    android:textSize="18sp"
-		    android:gravity="center_vertical|center_horizontal"
-		    android:visibility="gone"
-		    />
-		  
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    android:visibility="gone"
-		    />
-		
-       <TextView 
-		    android:layout_width="80dp"
-		    android:layout_height="30dp"
-		    android:text="barcode"
-		    android:gravity="center_vertical|center_horizontal"
-		    android:visibility="gone"
-		    />
-		  
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    android:visibility="gone"
-		    /> 
-		
-       <TextView 
-		    android:layout_width="80dp"
-		    android:layout_height="30dp"
-		    android:text="inclb"
-		    android:gravity="center_vertical|center_horizontal"
-		    android:visibility="gone"
-		    />
-		  
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="#34495e"
-		    android:visibility="gone"
-		    /> 
-	</LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="序号" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="名    称" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="批号" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="效期" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="包装单位" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="状态" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="ID"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="barcode"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="inclb"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#34495e"
+            android:visibility="gone" />
+    </LinearLayout>
+
 </LinearLayout>

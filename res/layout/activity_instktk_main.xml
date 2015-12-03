@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/title_background">
+        android:background="@drawable/title_background" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,22 +19,21 @@
             android:text="盘点"
             android:textColor="@color/result_text"
             android:textSize="20.0sp" />
-        
-         <ImageView
+
+        <ImageView
             android:id="@+id/btn_search"
-            android:src="@drawable/lab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="点击查询"
-         	android:layout_alignParentRight="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-           />
+            android:contentDescription="点击查询"
+            android:src="@drawable/lab" />
     </RelativeLayout>
-    
+
     <View
-	   android:layout_width="match_parent"
-	   android:layout_height="2dp"/>
-   
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -49,48 +48,21 @@
             <TextView
                 android:layout_width="61dp"
                 android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text="起始日期"
-                android:textSize="15.0dp"
-                android:gravity="center_vertical" />
+                android:textSize="15.0dp" />
 
             <EditText
                 android:id="@+id/ist_startdate"
-	            android:layout_width="250dp"
-	            android:layout_height="35dp"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
                 android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
                 android:text=""
-            	android:focusable="true"
-				android:focusableInTouchMode="true"
-                android:background="@drawable/edit_text"
-                android:textSize="15.0dp" >
-            </EditText>
-        </TableRow>
-
-         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
-
-            <TextView
-                android:layout_width="61dp"
-                android:layout_height="40dp"
-                android:text="截止日期"
-                android:textSize="15.0dp"
-                android:gravity="center_vertical" />
-
-            <EditText
-                android:id="@+id/ist_enddate"
-	            android:layout_width="250dp"
-	            android:layout_height="35dp"
-                android:layout_weight="3"
-                android:paddingLeft="10dp"
-                android:singleLine="true"
-            	android:text=""
-            	android:focusable="true"
-				android:focusableInTouchMode="true"
-                android:background="@drawable/edit_text"
                 android:textSize="15.0dp" >
             </EditText>
         </TableRow>
@@ -103,29 +75,57 @@
             <TextView
                 android:layout_width="61dp"
                 android:layout_height="40dp"
-                android:gravity="center_vertical" 
+                android:gravity="center_vertical"
+                android:text="截止日期"
+                android:textSize="15.0dp" />
+
+            <EditText
+                android:id="@+id/ist_enddate"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="15.0dp" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
                 android:text="盘点科室"
                 android:textSize="15.0dp" />
 
             <EditText
                 android:id="@+id/ist_locdesc"
-	            android:layout_width="250dp"
-	            android:layout_height="35dp"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
                 android:layout_weight="3"
+                android:background="@drawable/edit_text"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
-            	android:text=""
-            	android:focusable="true"
-				android:focusableInTouchMode="true"
-                android:background="@drawable/edit_text"
+                android:text=""
                 android:textSize="15.0dp" >
             </EditText>
         </TableRow>
+
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:visibility="gone">
+            android:visibility="gone" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -140,19 +140,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="60px"
                 android:layout_weight="3"
-                android:paddingLeft="10dp"
                 android:background="@drawable/edit_text"
-                android:textSize="15.0dp">
+                android:paddingLeft="10dp"
+                android:textSize="15.0dp" >
             </EditText>
         </TableRow>
     </TableLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp" />
-    
+
     <ListView
         android:id="@+id/ist_mainlistview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
     </ListView>
+
 </LinearLayout>

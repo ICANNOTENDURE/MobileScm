@@ -19,8 +19,7 @@
             android:layout_centerVertical="true"
             android:text="科室列表"
             android:textColor="@color/result_text"
-            android:textSize="20.0sp" 
-            />
+            android:textSize="20.0sp" />
     </RelativeLayout>
 
     <ListView

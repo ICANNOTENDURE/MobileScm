@@ -76,17 +76,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
-		<Button
+
+        <Button
             android:id="@+id/ingdrec_search_btn"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"          
+            android:layout_weight="1"
             android:text="查询" />
+
         <Button
             android:id="@+id/ingdrec_save_btn"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"  
+            android:layout_weight="1"
             android:text="保存" />
     </LinearLayout>
 

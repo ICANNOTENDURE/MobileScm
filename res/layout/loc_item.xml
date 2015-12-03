@@ -8,17 +8,16 @@
 
     <TextView
         android:id="@+id/LocDesc"
-	    android:layout_width="0dp"
-	    android:layout_height="36dp"
-	    android:minHeight="?android:attr/listPreferredItemHeight"
-	    android:textAppearance="?android:attr/textAppearanceLarge"
-	    android:gravity="center_vertical"
-	    android:paddingStart="14dip"
-	    android:paddingEnd="15dip"
-	    android:ellipsize="marquee"
-	    android:layout_weight="1"
-	    android:textColor="#ff000000"
-         />
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:ellipsize="marquee"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:paddingEnd="15dip"
+        android:paddingStart="14dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff000000" />
 
     <TextView
         android:id="@+id/LocID"

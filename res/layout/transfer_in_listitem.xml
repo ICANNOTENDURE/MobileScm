@@ -3,166 +3,150 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="horizontal">
-    
-    <LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="35dp"
-	    android:descendantFocusability="blocksDescendants"
-	    android:orientation="horizontal">
-	    
-    	<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-	    	/>
-    	
-		<TextView
-			android:id="@+id/transin_xh"
-			android:layout_width="50dp"
-			android:layout_height="fill_parent" 
-			android:gravity="center_vertical|center_horizontal"
-			/>
+    android:orientation="horizontal" >
 
-		<View
-			android:layout_width="1dp"
-			android:layout_height="match_parent"
-			android:background="@color/blue"
-			/> 
-     
-		<TextView
-		    android:id="@+id/transin_incidesc"
-		    android:layout_width="200dp"
-		    android:layout_height="fill_parent" 
-		    android:gravity="center_vertical|left"
-		    />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    /> 
-		
-		<TextView
-		    android:id="@+id/transin_qty"
-	        android:layout_width="100dp"
-	        android:layout_height="fill_parent"
-	       android:gravity="center_vertical|center_horizontal"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    /> 
-		
-		<TextView
-		    android:id="@+id/transin_batno"
-	        android:layout_width="100dp"
-	        android:layout_height="fill_parent"
-	        android:gravity="center_vertical|left"
-	        />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    /> 
-		
-		<TextView
-			android:id="@+id/transin_expdate"
-			android:layout_width="100dp"
-			android:layout_height="fill_parent" 
-			android:gravity="center_vertical|left"
-			/>
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    /> 
-		
-		<TextView
-		    android:id="@+id/transin_packuom"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent"
-	        android:gravity="center_vertical|left"
-	        />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-		
-		<TextView
-		    android:id="@+id/transin_state"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|left"
-	        />
-		
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-		
-		<TextView
-		    android:id="@+id/transin_inci"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|center_horizontal"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-				
-		<TextView
-		    android:id="@+id/transin_barcode"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|left"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-						
-		<TextView
-		    android:id="@+id/transin_inclb"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|left"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-		<TextView
-		    android:id="@+id/transin_initi"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|left"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-		<TextView
-		    android:id="@+id/transin_uom"
-	        android:layout_width="80dp"
-	        android:layout_height="fill_parent" 
-	        android:gravity="center_vertical|left"
-	        />
-		<View
-		    android:layout_width="1dp"
-		    android:layout_height="match_parent"
-		    android:background="@color/blue"
-		    />
-	</LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_xh"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_incidesc"
+            android:layout_width="200dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_qty"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_batno"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_expdate"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_packuom"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_state"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_inci"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_barcode"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_inclb"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_initi"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+
+        <TextView
+            android:id="@+id/transin_uom"
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical|left" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue" />
+    </LinearLayout>
+
 </LinearLayout>

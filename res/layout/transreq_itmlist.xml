@@ -2,51 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal">
-    
-  <LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="35dp"
-	    android:orientation="horizontal">
-	    <View
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal" >
+
+        <View
             android:layout_width="1dp"
             android:layout_height="30dp"
             android:background="#34495e" />
-       <TextView
+
+        <TextView
+            android:id="@+id/reqNo"
             android:layout_width="140dp"
             android:layout_height="30dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:id="@+id/reqNo" />"
+            android:gravity="center_vertical|center_horizontal" />
+"
+
         <View
             android:layout_width="1dp"
             android:layout_height="35dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/toLocDesc"
             android:layout_width="100dp"
             android:layout_height="30dp"
-            android:gravity="center_vertical|center_horizontal"
-             android:id="@+id/toLocDesc"/>
+            android:gravity="center_vertical|center_horizontal" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="35dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/StkTypeDesc"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:gravity="center_vertical|center_horizontal"
-             android:id="@+id/StkTypeDesc"/>
+            android:gravity="center_vertical|center_horizontal" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="35dp"
             android:background="#34495e" />
+
         <TextView
+            android:id="@+id/userName"
             android:layout_width="60dp"
             android:layout_height="30dp"
-            android:gravity="center_vertical|center_horizontal"
-             android:id="@+id/userName" />
+            android:gravity="center_vertical|center_horizontal" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="35dp"
             android:background="#34495e" />
-	</LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

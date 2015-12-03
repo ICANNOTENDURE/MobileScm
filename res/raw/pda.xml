@@ -1,54 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration>
-  <Hospital fullscreen="true">南通大学附属医院</Hospital>
-  <DefaultVarTyp>0@Default</DefaultVarTyp>
-  <DownLoadAddress url="http://192.168.49.20/dthealth/web/DHCNur.CAB">http://192.168.49.20/dthealth/web/DHCNur.CAB</DownLoadAddress>  
-  <ServerIp url="http://192.168.1.1/dthealth/web/">192.168.49.14</ServerIp>  
-  <RegNoLength>8</RegNoLength>
-  <Version>1.0.0.2</Version>
-  <DHCNURXHnewrypg txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNURXHnewrypg_pda.1/>
-  <DHCNURXHnewrypg_pda.2/>
-  <DHCNURXHnewrypg_pda.3/>
-  <DHCNURXHnewrypg_pda.4/>
-  <DHCNURXHnewrypg_pda.5/>
-  </DHCNURXHnewrypg>
-  <DHCNUR10 txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNUR10_pda.1/>
-  <DHCNUR10_pda.2/>
-  <DHCNUR10_pda.3/>
-  <DHCNUR10_pda.4/>
-  <DHCNUR10_pda.5/>
-  </DHCNUR10>
-  <DHCNUR11 txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNUR11_pda.1/>
-  <DHCNUR11_pda.2/>
-  <DHCNUR11_pda.3/>
-  <DHCNUR11_pda.4/>
-  <DHCNUR11_pda.5/>
-  </DHCNUR11>
-  <DHCNUR4 txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNUR4_pda.1/>
-  <DHCNUR4_pda.2/>
-  <DHCNUR4_pda.3/>
-  <DHCNUR4_pda.4/>
-  <DHCNUR4_pda.5/>
-  </DHCNUR4>
-  <DHCNUR6 txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNUR6_pda.1/>
-  <DHCNUR6_pda.2/>
-  <DHCNUR6_pda.3/>
-  <DHCNUR6_pda.4/>
-  <DHCNUR6_pda.5/>
-  </DHCNUR6>
-  <DHCNUR13 txt="护理" Mth="web.DHCPdaNurRec:GetCommRec" SaveMth="Nur.DHCNurseRecSub:Save" QueryMth="web.DHCNurseRecordComm:GetCareRecComm">
-  <DHCNUR13_pda.1/>
-  <DHCNUR13_pda.2/>
-  <DHCNUR13_pda.3/>
-  <DHCNUR13_pda.4/>
-  <DHCNUR13_pda.5/>
-  </DHCNUR13>
 
+    <Hospital fullscreen="true" >
+南通大学附属医院
+    </Hospital>
+
+    <DefaultVarTyp>
+0@Default
+    </DefaultVarTyp>
+
+    <DownLoadAddress url="http://192.168.49.20/dthealth/web/DHCNur.CAB" >
+http://192.168.49.20/dthealth/web/DHCNur.CAB
+    </DownLoadAddress>
+
+    <ServerIp url="http://192.168.1.1/dthealth/web/" >
+192.168.49.14
+    </ServerIp>
+
+    <RegNoLength>
+8
+    </RegNoLength>
+
+    <Version>
+1.0.0.2
+    </Version>
+
+    <DHCNURXHnewrypg
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNURXHnewrypg_pda.1 />
+
+        <DHCNURXHnewrypg_pda.2 />
+
+        <DHCNURXHnewrypg_pda.3 />
+
+        <DHCNURXHnewrypg_pda.4 />
+
+        <DHCNURXHnewrypg_pda.5 />
+    </DHCNURXHnewrypg>
+
+    <DHCNUR10
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNUR10_pda.1 />
+
+        <DHCNUR10_pda.2 />
+
+        <DHCNUR10_pda.3 />
+
+        <DHCNUR10_pda.4 />
+
+        <DHCNUR10_pda.5 />
+    </DHCNUR10>
+
+    <DHCNUR11
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNUR11_pda.1 />
+
+        <DHCNUR11_pda.2 />
+
+        <DHCNUR11_pda.3 />
+
+        <DHCNUR11_pda.4 />
+
+        <DHCNUR11_pda.5 />
+    </DHCNUR11>
+
+    <DHCNUR4
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNUR4_pda.1 />
+
+        <DHCNUR4_pda.2 />
+
+        <DHCNUR4_pda.3 />
+
+        <DHCNUR4_pda.4 />
+
+        <DHCNUR4_pda.5 />
+    </DHCNUR4>
+
+    <DHCNUR6
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNUR6_pda.1 />
+
+        <DHCNUR6_pda.2 />
+
+        <DHCNUR6_pda.3 />
+
+        <DHCNUR6_pda.4 />
+
+        <DHCNUR6_pda.5 />
+    </DHCNUR6>
+
+    <DHCNUR13
+        Mth="web.DHCPdaNurRec:GetCommRec"
+        QueryMth="web.DHCNurseRecordComm:GetCareRecComm"
+        SaveMth="Nur.DHCNurseRecSub:Save"
+        txt="护理" >
+        <DHCNUR13_pda.1 />
+
+        <DHCNUR13_pda.2 />
+
+        <DHCNUR13_pda.3 />
+
+        <DHCNUR13_pda.4 />
+
+        <DHCNUR13_pda.5 />
+    </DHCNUR13>
 
 </configuration>
-

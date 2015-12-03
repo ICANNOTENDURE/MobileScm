@@ -3,8 +3,11 @@
  */
 package com.dhcc.scm.ui;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Intent;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 import com.dhcc.scm.R;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
+import com.dhcc.scm.ui.base.ViewInject;
 
 /**
  * @author huaxiaoying 2015/10/21 15:05
@@ -65,6 +69,7 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 
 	}
 
+	@SuppressLint("SimpleDateFormat")
 	@Override
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
@@ -78,8 +83,26 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 			finish();
 			break;
 		case R.id.ingdrecSearch_select_btn:
-			Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
-			startActivity(nIntent);
+			String startdateValue = startdateTxt.getText().toString().trim();
+			String enddateTxtValue = enddateTxt.getText().toString().trim();
+			if ((startdateValue.equals("") || enddateTxtValue.equals(""))) {
+				ViewInject.toast("日期不能为空");
+			} else {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+					Date dt1 = sdf.parse(startdateValue);
+					Date dt2 = sdf.parse(enddateTxtValue);
+					if (dt1.getTime() > dt2.getTime()) {
+						ViewInject.toast("结束日期不能早于开始日期");
+					} else {
+						Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
+						startActivity(nIntent);
+					}
+				} catch (Exception exception) {
+					exception.printStackTrace();
+				}
+			}
+			return;
 		default:
 			break;
 		}

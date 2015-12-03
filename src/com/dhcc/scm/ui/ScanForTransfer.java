@@ -362,9 +362,10 @@ public class ScanForTransfer extends Activity {
 	@SuppressLint({ "NewApi", "ResourceAsColor" })
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+//		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.scanfor_transferout_list);
+		super.onCreate(savedInstanceState);
 		StkCatGrpDescView = (TextView) findViewById(R.id.StkCatGrpDesc);
 		StkCatGrpRowIdView = (TextView) findViewById(R.id.StkCatGrpID);
 		// ��ҳ��������
