@@ -48,7 +48,7 @@ import com.dhcc.scm.http.thread.HttpGetPostCls;
 public class ScanForTransfer extends Activity {
 
 	private TextView no;
-	private Integer scanselectindex=0;
+	private Integer scanselectindex = 0;
 	private SimpleAdapter mAdapter;
 	private EditText barcode;
 	private TextView StkCatGrpDescView = null;
@@ -92,11 +92,8 @@ public class ScanForTransfer extends Activity {
 				try {
 					if (RetData.indexOf("-10") != -1) {
 						progressDialog.dismiss();
-						AlertDialog.Builder build = new Builder(
-								ScanForTransfer.this);
-						build.setIcon(R.drawable.warning).setTitle("����")
-								.setMessage("�����ӦҩƷ����ⵥ���鲻��Ӧ!")
-								.setPositiveButton("ȷ��", null).show();
+						AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+						build.setIcon(R.drawable.warning).setTitle("����").setMessage("�����ӦҩƷ����ⵥ���鲻��Ӧ!").setPositiveButton("ȷ��", null).show();
 						queryTransferDetails(initID);
 						return;
 
@@ -105,11 +102,8 @@ public class ScanForTransfer extends Activity {
 					if (RetData.indexOf("error") != -1) {
 						// �������б���ݣ���رնԻ���
 						progressDialog.dismiss();
-						AlertDialog.Builder build = new Builder(
-								ScanForTransfer.this);
-						build.setIcon(R.drawable.warning).setTitle("����")
-								.setMessage("��ȡ��ݴ���,�����������ӣ�")
-								.setPositiveButton("ȷ��", null).show();
+						AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+						build.setIcon(R.drawable.warning).setTitle("����").setMessage("��ȡ��ݴ���,�����������ӣ�").setPositiveButton("ȷ��", null).show();
 						return;
 					}
 					JSONObject retString = new JSONObject(RetData);
@@ -118,11 +112,8 @@ public class ScanForTransfer extends Activity {
 						// �������б���ݣ���رնԻ���
 
 						progressDialog.dismiss();
-						AlertDialog.Builder build = new Builder(
-								ScanForTransfer.this);
-						build.setIcon(R.drawable.add).setTitle("��ʾ")
-								.setMessage("��ݿ��޶�Ӧ����,��˶Ժ����ԣ�")
-								.setPositiveButton("ȷ��", null).show();
+						AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��ݿ��޶�Ӧ����,��˶Ժ����ԣ�").setPositiveButton("ȷ��", null).show();
 						// ��ѯ������ϸ
 						queryTransferDetails(initID);
 						return;
@@ -136,11 +127,8 @@ public class ScanForTransfer extends Activity {
 					if (jsonArrayinfo.length() > 1) {
 						// �������б���ݣ���رնԻ���
 						progressDialog.dismiss();
-						AlertDialog.Builder build = new Builder(
-								ScanForTransfer.this);
-						build.setIcon(R.drawable.add).setTitle("��ʾ")
-								.setMessage("�����Ӧ��¼�����2��,���Ƚ��в��װ,Ȼ�����ԣ�")
-								.setPositiveButton("ȷ��", null).show();
+						AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("�����Ӧ��¼�����2��,���Ƚ��в��װ,Ȼ�����ԣ�").setPositiveButton("ȷ��", null).show();
 						return;
 					}
 					JSONObject itemsobj = jsonArrayinfo.getJSONObject(0);
@@ -148,32 +136,21 @@ public class ScanForTransfer extends Activity {
 					// ��BundleЯ�����
 					Bundle bundle2 = new Bundle();
 					// ����name����Ϊtinyphp
-					bundle2.putString("incidesc", itemsobj
-							.getString("incidesc").toString().trim());
-					bundle2.putString("batno", itemsobj.getString("batno")
-							.toString().trim());
-					bundle2.putString("expdate", itemsobj.getString("expdate")
-							.toString().trim());
-					bundle2.putString("packuom", itemsobj.getString("uomdesc")
-							.toString().trim());
+					bundle2.putString("incidesc", itemsobj.getString("incidesc").toString().trim());
+					bundle2.putString("batno", itemsobj.getString("batno").toString().trim());
+					bundle2.putString("expdate", itemsobj.getString("expdate").toString().trim());
+					bundle2.putString("packuom", itemsobj.getString("uomdesc").toString().trim());
 					bundle2.putString("initID", initID);
 					bundle2.putString("initi", "");
 					bundle2.putString("transferNo", transferNo);
-					bundle2.putString("inclb", itemsobj.getString("inclb")
-							.toString().trim());
-					bundle2.putString("transqty", itemsobj.getString("trqty")
-							.toString().trim());
-					bundle2.putString("uom", itemsobj.getString("puomdr")
-							.toString().trim());
-					bundle2.putString("parbarcode",
-							itemsobj.getString("barcode").toString().trim());
-					bundle2.putString("stkcatgrpdesc",
-							StkCatGrpDescView.getText().toString().trim());
-					bundle2.putString("stkcatgrprowid",
-							StkCatGrpRowIdView.getText().toString().trim());
+					bundle2.putString("inclb", itemsobj.getString("inclb").toString().trim());
+					bundle2.putString("transqty", itemsobj.getString("trqty").toString().trim());
+					bundle2.putString("uom", itemsobj.getString("puomdr").toString().trim());
+					bundle2.putString("parbarcode", itemsobj.getString("barcode").toString().trim());
+					bundle2.putString("stkcatgrpdesc", StkCatGrpDescView.getText().toString().trim());
+					bundle2.putString("stkcatgrprowid", StkCatGrpRowIdView.getText().toString().trim());
 					intent2.putExtras(bundle2);
-					intent2.setClass(ScanForTransfer.this,
-							ScanForUpdateQty.class);
+					intent2.setClass(ScanForTransfer.this, ScanForUpdateQty.class);
 					onDestroy();
 					// �������б���ݣ���رնԻ���
 					progressDialog.dismiss();
@@ -190,8 +167,9 @@ public class ScanForTransfer extends Activity {
 					 * else { ListData = ListData + Delim + "^" +
 					 * itemsobj.getString("inclb").toString() .trim() + "^1^" +
 					 * itemsobj.getString("puomdr").toString() .trim() + "^^"; }
-					 * } // ��ϸid^���id^����^��λ^������ϸid^��ע����ϸid^���id^����^��λ^������ϸid^��ע
-					 * // ���������ϸ progressDialog.dismiss();
+					 * } //
+					 * ��ϸid^���id^����^��λ^������ϸid^��ע����ϸid^���id^����^
+					 * ��λ^������ϸid^��ע // ���������ϸ progressDialog.dismiss();
 					 * saveTransferDetails(ListData);
 					 */
 				} catch (JSONException e) {
@@ -206,12 +184,10 @@ public class ScanForTransfer extends Activity {
 				} else {
 
 					// �Զ���Toast
-					Toast toast = Toast.makeText(getApplicationContext(),
-							"��ݱ���ʧ��!" + RetData, Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(getApplicationContext(), "��ݱ���ʧ��!" + RetData, Toast.LENGTH_SHORT);
 					toast.setGravity(Gravity.CENTER, 0, 0);
 					LinearLayout toastView = (LinearLayout) toast.getView();
-					ImageView imageCodeProject = new ImageView(
-							getApplicationContext());
+					ImageView imageCodeProject = new ImageView(getApplicationContext());
 					imageCodeProject.setImageResource(R.drawable.android_ok);
 					toastView.addView(imageCodeProject, 0);
 					toast.show();
@@ -222,11 +198,8 @@ public class ScanForTransfer extends Activity {
 				try {
 					if (RetData.indexOf("error") != -1) {
 						// �������б���ݣ���رնԻ���
-						AlertDialog.Builder build = new Builder(
-								ScanForTransfer.this);
-						build.setIcon(R.drawable.add).setTitle("��ʾ")
-								.setMessage("��ȡ��ݴ���,�����������ӣ�")
-								.setPositiveButton("ȷ��", null).show();
+						AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��ȡ��ݴ���,�����������ӣ�").setPositiveButton("ȷ��", null).show();
 						return;
 					}
 
@@ -252,16 +225,7 @@ public class ScanForTransfer extends Activity {
 						mylistItem.add(map);
 
 					}
-					mAdapter = new SimpleAdapter(
-							ScanForTransfer.this, mylistItem,
-							R.layout.scanfor_transferout_item, new String[] {
-									"序号", "名称", "数量", "批号", "效期", "单位", "ID",
-									"barcode", "parbarcode", "inclb", "initi",
-									"uom" }, new int[] { R.id.xh,
-									R.id.incidesc, R.id.transqty, R.id.batno,
-									R.id.expdate, R.id.packuom, R.id.inci,
-									R.id.barcode, R.id.parbarcode, R.id.inclb,
-									R.id.initi, R.id.uom });
+					mAdapter = new SimpleAdapter(ScanForTransfer.this, mylistItem, R.layout.scanfor_transferout_item, new String[] { "序号", "名称", "数量", "批号", "效期", "单位", "ID", "barcode", "parbarcode", "inclb", "initi", "uom" }, new int[] { R.id.xh, R.id.incidesc, R.id.transqty, R.id.batno, R.id.expdate, R.id.packuom, R.id.inci, R.id.barcode, R.id.parbarcode, R.id.inclb, R.id.initi, R.id.uom });
 					mylv.setAdapter(mAdapter);
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -273,11 +237,8 @@ public class ScanForTransfer extends Activity {
 				if (RetData.indexOf("error") != -1) {
 					progressDialog2.dismiss();
 					// �������б���ݣ���رնԻ���
-					AlertDialog.Builder build = new Builder(
-							ScanForTransfer.this);
-					build.setIcon(R.drawable.add).setTitle("��ʾ")
-							.setMessage("��ȡ��ݴ���,�����������ӣ�")
-							.setPositiveButton("ȷ��", null).show();
+					AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+					build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��ȡ��ݴ���,�����������ӣ�").setPositiveButton("ȷ��", null).show();
 					return;
 				}
 
@@ -325,31 +286,29 @@ public class ScanForTransfer extends Activity {
 					completeflag = true;
 					// ����ɹ�����˰�ť���������Ϊ������
 					progressDialog2.dismiss();
-					//saveItem = (Button) findViewById(R.id.saveItem);
-					//saveItem.setEnabled(false);
-					//saveItem.setVisibility(View.INVISIBLE); // ��ť������
+					// saveItem = (Button) findViewById(R.id.saveItem);
+					// saveItem.setEnabled(false);
+					// saveItem.setVisibility(View.INVISIBLE); // ��ť������
 
 					// �Զ���Toast
-					Toast toast = Toast.makeText(getApplicationContext(),
-							"��˳ɹ�!" + RetData, Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(getApplicationContext(), "��˳ɹ�!" + RetData, Toast.LENGTH_SHORT);
 					toast.setGravity(Gravity.CENTER, 0, 0);
 					LinearLayout toastView = (LinearLayout) toast.getView();
-					ImageView imageCodeProject = new ImageView(
-							getApplicationContext());
+					ImageView imageCodeProject = new ImageView(getApplicationContext());
 					imageCodeProject.setImageResource(R.drawable.accept_ok);
 					toastView.addView(imageCodeProject, 0);
 					toast.show();
 				}
 			}
-			///ɾ����ϸ
+			// /ɾ����ϸ
 			if (paramMessage.what == del_Initdetails) {
-				progressDialog.dismiss();  //�������б���ݣ���رնԻ���
+				progressDialog.dismiss(); // �������б���ݣ���رնԻ���
 				// �Զ���Toast
 				Toast tst = null;
 				if (RetData.equals("0")) {
-					mylistItem.remove(scanselectindex-1);//ѡ���е�λ��   
+					mylistItem.remove(scanselectindex - 1);// ѡ���е�λ��
 					mAdapter.notifyDataSetChanged();
-					scanselectindex=0;
+					scanselectindex = 0;
 					tst = Toast.makeText(ScanForTransfer.this, "ɾ��ɹ���", Toast.LENGTH_SHORT);
 				} else {
 					tst = Toast.makeText(ScanForTransfer.this, "ɾ��ʧ�ܣ�", Toast.LENGTH_SHORT);
@@ -362,7 +321,7 @@ public class ScanForTransfer extends Activity {
 	@SuppressLint({ "NewApi", "ResourceAsColor" })
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
+		// super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.scanfor_transferout_list);
 		super.onCreate(savedInstanceState);
@@ -385,27 +344,21 @@ public class ScanForTransfer extends Activity {
 		mylv = (ListView) findViewById(R.id.inciitmlist);
 		// ������ͷ
 		LayoutInflater mLayoutInflater = LayoutInflater.from(this);
-		View mainViewm = mLayoutInflater
-				.inflate(R.layout.scanfor_transferout_header, null);
+		View mainViewm = mLayoutInflater.inflate(R.layout.scanfor_transferout_header, null);
 		// ��ͷ���ܵ��
 		mainViewm.setOnClickListener(null);
 		mylv.addHeaderView(mainViewm, null, false);
 		// ���ӵ����¼���������ʱ����޸�����
 		mylv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View convertView,
-					int arg2, long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View convertView, int arg2, long arg3) {
 
 				if (completeflag) {
-					AlertDialog.Builder build = new Builder(
-							ScanForTransfer.this);
-					build.setIcon(R.drawable.add).setTitle("��ʾ")
-							.setMessage("��������ɣ�").setPositiveButton("ȷ��", null)
-							.show();
+					AlertDialog.Builder build = new Builder(ScanForTransfer.this);
+					build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��������ɣ�").setPositiveButton("ȷ��", null).show();
 					return;
 				}
-				HashMap<String, String> map = (HashMap<String, String>) mylv
-						.getItemAtPosition(arg2);
+				HashMap<String, String> map = (HashMap<String, String>) mylv.getItemAtPosition(arg2);
 				Intent intent2 = new Intent();
 				// ��BundleЯ�����
 				Bundle bundle2 = new Bundle();
@@ -435,11 +388,10 @@ public class ScanForTransfer extends Activity {
 		mylv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					int position, long arg3) {
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 				// TODO Auto-generated method stub
-            	scanselectindex=position;
-            	registerForContextMenu(mylv);
+				scanselectindex = position;
+				registerForContextMenu(mylv);
 				return false;
 			}
 		});
@@ -467,49 +419,41 @@ public class ScanForTransfer extends Activity {
 		// ҳ����ص�ʱ���ѯ���
 		queryTransferDetails(initID);
 	}
-	
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
-			super.onCreateContextMenu(menu, v, menuInfo);
-            menu.setHeaderTitle("����");     
-            menu.add(0, 0, 0, "�Ƴ�ѡ����"); 
+
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		menu.setHeaderTitle("����");
+		menu.add(0, 0, 0, "�Ƴ�ѡ����");
 	}
-	
+
 	@Override
-    public boolean onContextItemSelected(MenuItem item)  
-	{  
-		if (scanselectindex<1)
-		{
+	public boolean onContextItemSelected(MenuItem item) {
+		if (scanselectindex < 1) {
 			return true;
 		}
 		delTransferDetails();
-//		mylistItem.remove(scanselectindex-1);//ѡ���е�λ��   
-//		mAdapter.notifyDataSetChanged();
-//		scanselectindex=0;
-        return true;  
-    }
-	
+		// mylistItem.remove(scanselectindex-1);//ѡ���е�λ��
+		// mAdapter.notifyDataSetChanged();
+		// scanselectindex=0;
+		return true;
+	}
+
 	/* ��ѯ����б� */
 	private void QueryItemList(String barcode) {
 		// ���״̬
-		progressDialog = ProgressDialog.show(ScanForTransfer.this, "���Ե�...",
-				"��ȡ�����...", true);
-		String Param = "&LocId=" + LoginUser.UserLoc + "&BarCode=" + barcode
-				+ "&IncCatGrp="
-				+ StkCatGrpRowIdView.getText().toString().trim();
-		ThreadHttpStr("web.DHCST.DHCSTSUPCHAUNPACK", "QueryIncBatPackList",
-				Param, "Method", ScanForTransfer.this, 1);
+		progressDialog = ProgressDialog.show(ScanForTransfer.this, "���Ե�...", "��ȡ�����...", true);
+		String Param = "&LocId=" + LoginUser.UserLoc + "&BarCode=" + barcode + "&IncCatGrp=" + StkCatGrpRowIdView.getText().toString().trim();
+		ThreadHttpStr("web.DHCST.DHCSTSUPCHAUNPACK", "QueryIncBatPackList", Param, "Method", ScanForTransfer.this, 1);
 	}
 
 	// ���������ϸ
 	private void saveTransferDetails(String dataString) {
 		// ���״̬
-		TextView barCodeView = null; //(TextView) findViewById(R.id.barcode);
+		TextView barCodeView = null; // (TextView) findViewById(R.id.barcode);
 		String barcode = barCodeView.getText().toString().toUpperCase();
 		if (barcode.equals(tempBarcodeValue)) {
 			// �Զ���Toast
-			Toast toast = Toast.makeText(getApplicationContext(), "�����ظ�ɨ��!",
-					Toast.LENGTH_SHORT);
+			Toast toast = Toast.makeText(getApplicationContext(), "�����ظ�ɨ��!", Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER, 0, 0);
 			LinearLayout toastView = (LinearLayout) toast.getView();
 			ImageView imageCodeProject = new ImageView(getApplicationContext());
@@ -522,8 +466,7 @@ public class ScanForTransfer extends Activity {
 		}
 		String Param = "&InitId=" + initID + "&ListData=" + dataString;
 
-		ThreadHttpStr("web.DHCST.DHCINIsTrfItm", "Save", Param, "Method",
-				ScanForTransfer.this, 2);
+		ThreadHttpStr("web.DHCST.DHCINIsTrfItm", "Save", Param, "Method", ScanForTransfer.this, 2);
 	}
 
 	// ��ѯ���ⵥ��ϸ
@@ -531,33 +474,27 @@ public class ScanForTransfer extends Activity {
 		mylv.setAdapter(null);
 		// ���״̬
 		String Param = "&init=" + initID;
-		ThreadHttpStr("web.DHCST.AndroidTransferOut", "jsQueryTransferOutDet", Param,
-				"Method", ScanForTransfer.this, 3);
+		ThreadHttpStr("web.DHCST.AndroidTransferOut", "jsQueryTransferOutDet", Param, "Method", ScanForTransfer.this, 3);
 	}
 
 	// ɾ����ⵥ��ϸ
 	private void delTransferDetails() {
 		// ���״̬
-		progressDialog = ProgressDialog.show(ScanForTransfer.this, "���Ե�...",
-				"ɾ�������...", true);
+		progressDialog = ProgressDialog.show(ScanForTransfer.this, "���Ե�...", "ɾ�������...", true);
 		// ���״̬
-		String initi = mylistItem.get(scanselectindex-1).get("initi").toString();
+		String initi = mylistItem.get(scanselectindex - 1).get("initi").toString();
 		String Param = "&initi=" + initi;
-		ThreadHttpStr("web.DHCST.AndroidTransferOut", "Delete", Param,
-				"Method", ScanForTransfer.this, 5);
+		ThreadHttpStr("web.DHCST.AndroidTransferOut", "Delete", Param, "Method", ScanForTransfer.this, 5);
 	}
-	
-	private void ThreadHttpStr(final String Cls, final String mth,
-			final String Param, final String Typ, final Activity context,
-			final int whatmsg) {
+
+	private void ThreadHttpStr(final String Cls, final String mth, final String Param, final String Typ, final Activity context, final int whatmsg) {
 
 		Thread thread = new Thread() {
 			public void run() {
 				try {
 					// this.sleep(100);
 					try {
-						RetData = HttpGetPostCls.LinkData(Cls, mth, Param, Typ,
-								context);
+						RetData = HttpGetPostCls.LinkData(Cls, mth, Param, Typ, context);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -584,7 +521,7 @@ public class ScanForTransfer extends Activity {
 			String trNo = data.getExtras().getString("transferNo").toString();
 			String trInitID = data.getExtras().getString("initID").toString();
 			String trStkCatGrpDesc = data.getExtras().getString("initCatGrpDesc").toString();
-			String trStkCatGrpID = data.getExtras().getString("initCatGrpID").toString(); 
+			String trStkCatGrpID = data.getExtras().getString("initCatGrpID").toString();
 			switch (resultCode) {
 			// ������
 			case 0:
@@ -596,10 +533,10 @@ public class ScanForTransfer extends Activity {
 				break;
 			default:
 				break;
-			}			
+			}
 		}
 	}
-	
+
 	/* ��������PDAɨ�빦�� */
 	private void registerReceiver() {
 		if (dataReceiver != null)
@@ -644,8 +581,7 @@ public class ScanForTransfer extends Activity {
 				paraName = actionMap.get(ACTION_CONTENT_NOTIFY_EMII);
 			} else if (intent.getAction().equals(ACTION_CONTENT_NOTIFY_MOTO)) {
 				paraName = actionMap.get(ACTION_CONTENT_NOTIFY_MOTO);
-			} else if (intent.getAction().equals(
-					ACTION_CONTENT_NOTIFY_HoneyWell)) {
+			} else if (intent.getAction().equals(ACTION_CONTENT_NOTIFY_HoneyWell)) {
 				paraName = actionMap.get(ACTION_CONTENT_NOTIFY_HoneyWell);
 			} else {
 				return;
@@ -656,9 +592,7 @@ public class ScanForTransfer extends Activity {
 			content = bundle.getString(paraName);
 			if (completeflag) {
 				AlertDialog.Builder build = new Builder(ScanForTransfer.this);
-				build.setIcon(R.drawable.add).setTitle("��ʾ")
-						.setMessage("��������ɣ�").setPositiveButton("ȷ��", null)
-						.show();
+				build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("��������ɣ�").setPositiveButton("ȷ��", null).show();
 				return;
 			}
 			QueryItemList(content);
@@ -669,25 +603,21 @@ public class ScanForTransfer extends Activity {
 		super();
 		actionMap.put(ACTION_CONTENT_NOTIFY, "CONTENT");
 		actionMap.put(ACTION_CONTENT_NOTIFY_EMII, "value");
-		actionMap.put(ACTION_CONTENT_NOTIFY_MOTO,
-				"com.motorolasolutions.emdk.datawedge.data_string");
+		actionMap.put(ACTION_CONTENT_NOTIFY_MOTO, "com.motorolasolutions.emdk.datawedge.data_string");
 		actionMap.put(ACTION_CONTENT_NOTIFY_HoneyWell, "scannerdata");
 	}
 
 	// ���������ϸ,���
 	private void AuditTransferDetails(String initID) {
 		// ���״̬
-		progressDialog2 = ProgressDialog.show(ScanForTransfer.this, "���Ե�...",
-				"����Ŭ��������....", true);
+		progressDialog2 = ProgressDialog.show(ScanForTransfer.this, "���Ե�...", "����Ŭ��������....", true);
 		String Param = "&init=" + initID + "&comp=Y&status=11&type=6";
-		ThreadHttpStr("web.DHCST.DHCINIsTrf", "SetCompleted", Param,
-				"Method", ScanForTransfer.this, 4);
+		ThreadHttpStr("web.DHCST.DHCINIsTrf", "SetCompleted", Param, "Method", ScanForTransfer.this, 4);
 	}
 
 	private void commDialog(String message) {
 		AlertDialog.Builder build = new Builder(ScanForTransfer.this);
-		build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage(message)
-				.setPositiveButton("ȷ��", null).show();
+		build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage(message).setPositiveButton("ȷ��", null).show();
 	}
 
 	@Override
