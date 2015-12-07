@@ -48,6 +48,9 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 
 	@FindView(id = R.id.ingdrecSearch_select_btn, click = true)
 	private Button ingdrecSearch_select = null;
+	
+	public String startdate = "";
+	public String enddate = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +64,16 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 
 	@Override
 	protected void findViewById() {
-
 	}
 
 	@Override
 	protected void initView() {
-
 	}
 
 	@SuppressLint("SimpleDateFormat")
 	@Override
 	public void onClick(View arg0) {
+		
 		switch (arg0.getId()) {
 		case R.id.ingdrecSearch_startDate_btn:
 			showDate(arg0);
@@ -95,8 +97,13 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 					if (dt1.getTime() > dt2.getTime()) {
 						ViewInject.toast("结束日期不能早于开始日期");
 					} else {
-						Intent nIntent = new Intent(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
-						startActivity(nIntent);
+						Intent intent = new Intent();
+						Bundle bundle = new Bundle();
+						bundle.putString("startdate", startdateValue);
+						bundle.putString("enddate", enddateTxtValue);
+						intent.putExtras(bundle);
+						intent.setClass(InGdRecSearchActivity.this, InGdRecSearchResultActivity.class);
+						startActivity(intent);
 					}
 				} catch (Exception exception) {
 					exception.printStackTrace();
@@ -142,5 +149,4 @@ public class InGdRecSearchActivity extends BaseActivity implements OnClickListen
 		}, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
 		;
 	}
-
 }

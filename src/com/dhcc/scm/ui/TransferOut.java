@@ -42,7 +42,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 	@FindView(id = R.id.transferNo)
 	EditText trnasfNoTxt; // 单号
 	@FindView(id = R.id.stktypedesc, click = true)
-	EditText stkTypeTxt; // 类祖
+	EditText stkTypeTxt; // 类組
 	@FindView(id = R.id.saveDetails, click = true)
 	Button saveDetailBtn; // 保存明细按钮
 	@FindView(id = R.id.saveMaster, click = true)
@@ -140,8 +140,7 @@ public class TransferOut extends BaseActivity implements OnClickListener {
 		Bundle bundle = new Bundle();
 		bundle.putString("flag", "from");
 		intent.putExtras(bundle);
-
-		intent.setClass(TransferOut.this, TransferOutLocListActivity.class);
+        intent.setClass(TransferOut.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 1);
 	}
 

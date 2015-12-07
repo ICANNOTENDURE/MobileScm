@@ -184,8 +184,10 @@
             android:name="com.dhcc.scm.ui.SystemSetup"
             android:label="@string/title_activity_main" >
         </activity>
-        <activity android:name="com.dhcc.scm.ui.InGdRecSearchActivity" />
-        <activity android:name="com.dhcc.scm.ui.InGdRecSearchResultActivity" />
+        <activity android:name="com.dhcc.scm.ui.InGdRecSearchActivity"
+                  />
+        <activity android:name="com.dhcc.scm.ui.InGdRecSearchResultActivity"
+				  />
         <activity android:name="com.dhcc.scm.ui.PersonalActivity" />
         <activity android:name="com.dhcc.scm.ui.PersonalOrderSoonSearchActivity" />
         <activity android:name="com.dhcc.scm.ui.PersonalNopayOrderActivity" />
