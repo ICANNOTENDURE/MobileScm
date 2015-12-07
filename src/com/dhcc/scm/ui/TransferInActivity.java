@@ -42,10 +42,9 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.TransferInMainAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
-import com.dhcc.scm.ui.base.FindView;
 
 public class TransferInActivity extends Activity {
-	
+
 	private EditText trInStartdDate;
 	private EditText trInEndDate;
 	private EditText trInFromLoc;
@@ -59,96 +58,96 @@ public class TransferInActivity extends Activity {
 	private ProgressDialog progressDialog = null;
 	private static final int handle_Init = 1;
 	private String ListData = new String();
-	private ArrayList<HashMap<String,Object>> listItem;
-	
+	private ArrayList<HashMap<String, Object>> listItem;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.transfer_in_main);
-		//����
-		trInStartdDate=(EditText)findViewById(R.id.trinstartdate);
-		trInEndDate=(EditText)findViewById(R.id.trinenddate);
-		//��ѯ����
-		trInFromLoc=(EditText)findViewById(R.id.trinfromloc);
-		trInSeekloc=(ImageView)findViewById(R.id.btn_trinseekloc);
-		
-		trinsearch = (ImageView)findViewById(R.id.btn_trinsearch);
+		// ����
+		trInStartdDate = (EditText) findViewById(R.id.trinstartdate);
+		trInEndDate = (EditText) findViewById(R.id.trinenddate);
+		// ��ѯ����
+		trInFromLoc = (EditText) findViewById(R.id.trinfromloc);
+		trInSeekloc = (ImageView) findViewById(R.id.btn_trinseekloc);
+
+		trinsearch = (ImageView) findViewById(R.id.btn_trinsearch);
 		// ����������¼�
 		trInSeekloc.setOnClickListener(new View.OnClickListener() {
 			@Override
-	        public void onClick(View v) {
+			public void onClick(View v) {
 				initInTrFromLoc();
-	        }
+			}
 		});
-		
-		//��ȡlistview
+
+		// ��ȡlistview
 		trInMainList = (ListView) findViewById(R.id.trin_mainlistview);
-		//������ͷ
+		// ������ͷ
 		LayoutInflater mLayoutInflater = LayoutInflater.from(this);
 		View mainView = mLayoutInflater.inflate(R.layout.activity_tranferin_header, null);
 		trInMainList.addHeaderView(mainView);
-		//��ʼʱ,Ĭ��������Ϊ��,������ʾ��ͷ
+		// ��ʼʱ,Ĭ��������Ϊ��,������ʾ��ͷ
 		trInMainList.setAdapter(null);
 		trInMainList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View convertView, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View convertView, int arg2, long arg3) {
 				// TODO Auto-generated method stub
 				TextView textViewTrInit = null;
 				if (convertView != null) {
 					textViewTrInit = (TextView) convertView.findViewById(R.id.trInit);
 				}
-				Intent intent = new Intent(TransferInActivity.this,TransferInDetActivity.class);
+				Intent intent = new Intent(TransferInActivity.this, TransferInDetActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putString("trInit", textViewTrInit.getText().toString());
 				intent.putExtras(bundle);
 
 				startActivity(intent);
-			}});
-		
+			}
+		});
+
 		// �����¼�
-		trInStartdDate.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-            	hideIM(v);
-            	showDialog(1);
-            	}
-        });
-		trInEndDate.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-            	hideIM(v);
-            	showDialog(2);
-            }
-        });
+		trInStartdDate.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				hideIM(v);
+				showDialog(1);
+			}
+		});
+		trInEndDate.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				hideIM(v);
+				showDialog(2);
+			}
+		});
 		trInStartdDate.setOnFocusChangeListener(new OnFocusChangeListener() {
-		    public void onFocusChange(View v, boolean hasFocus) {
-		        if (hasFocus == true) {
-		            hideIM(v);
-	            	showDialog(1);
-		        }
-		    }
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus == true) {
+					hideIM(v);
+					showDialog(1);
+				}
+			}
 		});
 		trInEndDate.setOnFocusChangeListener(new OnFocusChangeListener() {
-		    public void onFocusChange(View v, boolean hasFocus) {
-		        if (hasFocus == true) {
-		            hideIM(v);
-		            showDialog(2); 
-		        }
-		    }
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus == true) {
+					hideIM(v);
+					showDialog(2);
+				}
+			}
 		});
-		
-		//��ѯ�¼�
-		trinsearch.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-            	QueryTransferIn();
-            }
-        });
-		
-		//���������
+
+		// ��ѯ�¼�
+		trinsearch.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				QueryTransferIn();
+			}
+		});
+
+		// ���������
 		trInStartdDate.setInputType(InputType.TYPE_NULL);
 		trInEndDate.setInputType(InputType.TYPE_NULL);
-		
+
 		deFaultDate();
 	}
 
@@ -158,7 +157,7 @@ public class TransferInActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	/**
 	 * ����Ĭ������
 	 * 
@@ -183,10 +182,10 @@ public class TransferInActivity extends Activity {
 		trInToLoc.setEnabled(false);
 		trInToLocID = LoginUser.UserLoc;
 	}
-	
+
 	public void initInTrFromLoc() {
-		String locinputtext="";
-		locinputtext=trInFromLoc.getText().toString().trim();
+		String locinputtext = "";
+		locinputtext = trInFromLoc.getText().toString().trim();
 		Intent intent = new Intent();
 		// ��BundleЯ�����
 		Bundle bundle = new Bundle();
@@ -197,51 +196,43 @@ public class TransferInActivity extends Activity {
 		intent.setClass(TransferInActivity.this, TransferOutLocListActivity.class);
 		startActivityForResult(intent, 0);
 	}
-	
-    /**
-     * �������ڼ�ʱ��ѡ��Ի���
-     */
-    @Override
-    protected Dialog onCreateDialog(final int id) {
-    	
-        Dialog dialog = null;
-        c = Calendar.getInstance();
-        dialog = new DatePickerDialog(
-            this,
-            new DatePickerDialog.OnDateSetListener() {
-                public void onDateSet(DatePicker dp, int year,int month, int dayOfMonth) {
-                	if (id==1)
-                	{
-                		trInStartdDate.setText(year + "-" + (month+1) + "-" + dayOfMonth);
-                	}
-                	else
-                	{
-                		trInEndDate.setText(year + "-" + (month+1) + "-" + dayOfMonth);
-                		
-                	}
-                	}
-            }, 
-            c.get(Calendar.YEAR), // �������
-            c.get(Calendar.MONTH), // �����·�
-            c.get(Calendar.DAY_OF_MONTH) // ��������
-        );
-        return dialog;
-    }
-    
-    private void hideIM(View edt){
-        try {
-            InputMethodManager im = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-            IBinder windowToken = edt.getWindowToken();
-             
-            if (windowToken != null) {
-                im.hideSoftInputFromWindow(windowToken, 0);
-            }
-        }
-        catch (Exception e) {
-             
-        }
-    }
-    
+
+	/**
+	 * �������ڼ�ʱ��ѡ��Ի���
+	 */
+	@Override
+	protected Dialog onCreateDialog(final int id) {
+
+		Dialog dialog = null;
+		c = Calendar.getInstance();
+		dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+			public void onDateSet(DatePicker dp, int year, int month, int dayOfMonth) {
+				if (id == 1) {
+					trInStartdDate.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+				} else {
+					trInEndDate.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+				}
+			}
+		}, c.get(Calendar.YEAR), // �������
+		   c.get(Calendar.MONTH), // �����·�
+		   c.get(Calendar.DAY_OF_MONTH) // ��������
+		);
+		return dialog;
+	}
+
+	private void hideIM(View edt) {
+		try {
+			InputMethodManager im = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+			IBinder windowToken = edt.getWindowToken();
+
+			if (windowToken != null) {
+				im.hideSoftInputFromWindow(windowToken, 0);
+			}
+		} catch (Exception e) {
+
+		}
+	}
+
 	/**
 	 * Activity�У�ָMainActivity�ࣩ��дonActivityResult����
 	 * 
@@ -265,25 +256,25 @@ public class TransferInActivity extends Activity {
 			}
 		}
 	}
-	
-	private void QueryTransferIn () {
+
+	private void QueryTransferIn() {
 		trInMainList.setAdapter(null);
 		String startDate = trInStartdDate.getText().toString();
 		String endDate = trInEndDate.getText().toString();
 
-		//���״̬
+		// ���״̬
 		progressDialog = ProgressDialog.show(TransferInActivity.this, "���Ե�...", "��ȡ�����...", true);
-		String Param ="&startDate="+startDate+"&endDate="+endDate+"&fromLocID="+trInFromLocID+"&toLocID="+trInToLocID;
+		String Param = "&startDate=" + startDate + "&endDate=" + endDate + "&fromLocID=" + trInFromLocID + "&toLocID=" + trInToLocID;
 		ThreadHttp("web.DHCST.AndroidTransferIn", "jsQueryTransferIn", Param, "Method", TransferInActivity.this, handle_Init);
-		
+
 	}
-	
+
 	private void ThreadHttp(final String Cls, final String mth, final String Param, final String Typ, final Activity context, final int whatmsg) {
 
 		Thread thread = new Thread() {
 			public void run() {
 				try {
-					//this.sleep(100);
+					// this.sleep(100);
 					try {
 						ListData = HttpGetPostCls.LinkData(Cls, mth, Param, Typ, context);
 					} catch (Exception e) {
@@ -301,41 +292,41 @@ public class TransferInActivity extends Activity {
 		};
 		thread.start();
 	}
-	
-	Handler handler = new Handler(){
+
+	Handler handler = new Handler() {
 		public void handleMessage(Message paramMessage) {
 			if (paramMessage.what == handle_Init) {
 				try {
 					JSONObject retString = new JSONObject(ListData);
 					String ErrCode = retString.getString("ErrCode");
-					if (!ErrCode.equals("0")){
-						progressDialog.dismiss();  //�������б���ݣ���رնԻ���
+					if (!ErrCode.equals("0")) {
+						progressDialog.dismiss(); // �������б���ݣ���رնԻ���
 						AlertDialog.Builder build = new Builder(TransferInActivity.this);
 						build.setIcon(R.drawable.add).setTitle("��ʾ").setMessage("����ת�Ƶ���ϸ������˶���ݺ����ԣ�").setPositiveButton("ȷ��", null).show();
 						return;
 					}
 					String jsonarr1 = retString.getString("rows");
 					JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
-					if (jsonArrayinfo.length()==0){
-						progressDialog.dismiss();  //�������б���ݣ���رնԻ���
+					if (jsonArrayinfo.length() == 0) {
+						progressDialog.dismiss(); // �������б���ݣ���رնԻ���
 						Toast tst = Toast.makeText(TransferInActivity.this, "û��Ҫ���յ���ݣ�", Toast.LENGTH_SHORT);
-				        tst.show();
+						tst.show();
 						return;
 					}
-					listItem = new ArrayList<HashMap<String,Object>>();
+					listItem = new ArrayList<HashMap<String, Object>>();
 					for (int i = 0; i < jsonArrayinfo.length(); i++) {
 						JSONObject itemsobj = jsonArrayinfo.getJSONObject(i);
-						HashMap<String, Object> map=new HashMap();
+						HashMap<String, Object> map = new HashMap();
 						map.put("trInit", itemsobj.getString("Init"));
 						map.put("trInNo", itemsobj.getString("TrNo"));
 						map.put("fromLocDesc", itemsobj.getString("LocDesc"));
 						map.put("trInUser", itemsobj.getString("User"));
 						listItem.add(map);
 					}
-				    
-				    TransferInMainAdapter mAdapter = new TransferInMainAdapter(TransferInActivity.this,listItem);
-				    trInMainList.setAdapter(mAdapter);
-			        progressDialog.dismiss();  //�������б���ݣ���رնԻ���
+
+					TransferInMainAdapter mAdapter = new TransferInMainAdapter(TransferInActivity.this, listItem);
+					trInMainList.setAdapter(mAdapter);
+					progressDialog.dismiss(); // �������б���ݣ���رնԻ���
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

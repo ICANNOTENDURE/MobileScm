@@ -2,15 +2,15 @@ package com.dhcc.scm.ui;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
-
+import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
+
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InGdRecSearchAdapter;
 import com.dhcc.scm.entity.Constants;
@@ -18,7 +18,6 @@ import com.dhcc.scm.entity.InGdRecSearch;
 import com.dhcc.scm.entity.InGdRecSearchItm;
 import com.dhcc.scm.http.Http;
 import com.dhcc.scm.http.HttpCallBack;
-import com.dhcc.scm.http.HttpConfig;
 import com.dhcc.scm.http.HttpParams;
 import com.dhcc.scm.ui.base.BaseActivity;
 import com.dhcc.scm.ui.base.FindView;
@@ -32,6 +31,13 @@ import com.dhcc.scm.ui.base.ViewInject;
 
 public class InGdRecSearchResultActivity extends BaseActivity implements OnClickListener {
 
+	String mstartdate = "";
+	String menddate = "";
+	@FindView(id = R.id.result_startdate)
+	TextView restartdate;
+	@FindView(id = R.id.result_enddate)
+	TextView reenddate;
+
 	@FindView(id = R.id.ingdrecsearch_result_back, click = true)
 	ImageView imgBack;// 回退按钮
 	@FindView(id = R.id.ingdrecsearch_itm_scroll_list)
@@ -40,12 +46,21 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 	private List<InGdRecSearchItm> inGdRecsearchs = new ArrayList<InGdRecSearchItm>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
 
+	private HttpParams params = new HttpParams();
+	private Http http = new Http();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search_result);
 		super.onCreate(savedInstanceState);
+		
+		Bundle bundle = this.getIntent().getExtras();
+		mstartdate = bundle.getString("startdate");
+		menddate = bundle.getString("enddate");
+		restartdate.setText(mstartdate);
+		reenddate.setText(menddate);
 		findViewById();
 		initView();
 		getResult();
@@ -53,28 +68,14 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 
 	@Override
 	protected void findViewById() {
-		// InGdRecSearch gdRecSearch=new InGdRecSearch();
-		// gdRecSearch.setHome("dota");
-		// gdRecSearch.setNum("2015");
-		// inGdRecsearchs.add(gdRecSearch);
 		inGdRecsearchAdapter = new InGdRecSearchAdapter(this, inGdRecsearchs);
 		listview.setAdapter(inGdRecsearchAdapter);
 	}
 
 	private void getResult() {
-		// List<NameValuePair> valuePairs = new ArrayList<NameValuePair>();
-		// valuePairs.add(new BasicNameValuePair("start", "2015-01-01"));
-		// valuePairs.add(new BasicNameValuePair("end", "2"));
-		// ThreadPoolUtils.execute(new HttpPostThread(handler,
-		// getIpByType("scm") + Constants.METHOD_SEARCH_INGDREC_ITM,
-		// valuePairs));
 
-		HttpConfig config = new HttpConfig();
-		config.cacheTime = 0;
-		Http http = new Http(config);
-		HttpParams params = new HttpParams();
-		params.put("start", "2015-01-01");
-		params.put("end", "2");
+		params.put("start", mstartdate);
+		params.put("end", menddate);
 		params.put("requestType", "apk");
 		http.post(getIpByType("scm") + "/" + Constants.METHOD_SEARCH_INGDREC_ITM, params, new HttpCallBack() {
 			@Override
@@ -95,25 +96,6 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 					} else {
 						ViewInject.toast(gdRecSearch.getResultContent());
 					}
-					// InGdRecSearchItm gdRec = new InGdRecSearchItm();
-					// try {
-					// JSONObject jsonObject = new JSONObject(str);
-					// String resultCode =
-					// jsonObject.get("resultCode").toString();
-					// if (resultCode.equals("0")) {
-					// List<InGdRecSearchItm>
-					// gdRecSearchs=JSON.parseArray(jsonObject.getString("dataList"),InGdRecSearchItm.class);
-					// inGdRecsearchs.clear();
-					// inGdRecsearchs.addAll(gdRecSearchs);
-					// inGdRecsearchAdapter.notifyDataSetChanged();
-					// } else {
-					// ViewInject.toast(jsonObject.get("resultContent").toString());
-					// }
-					// } catch (JSONException e) {
-					// e.printStackTrace();
-					// ViewInject.toast(e.getMessage());
-					// }
-					// inGdRecsearchs.add(gdRec);
 				}
 			};
 		});

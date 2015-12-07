@@ -60,7 +60,7 @@ public class UpItmListActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_upitmlist);
 		super.onCreate(savedInstanceState);
@@ -75,7 +75,7 @@ public class UpItmListActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View convertView, int arg2, long arg3) {
-				// TODO Auto-generated method stub
+
 				switch (arg2) {
 				case 0:
 					break;
@@ -159,9 +159,7 @@ public class UpItmListActivity extends BaseActivity {
 					msg.what = whatmsg;
 					handler.sendMessage(msg);
 				} catch (Exception e) {
-
 				}
-
 			}
 		};
 		thread.start();
@@ -290,18 +288,15 @@ public class UpItmListActivity extends BaseActivity {
 		actionMap.put(ACTION_CONTENT_NOTIFY_EMII, "value");
 		actionMap.put(ACTION_CONTENT_NOTIFY_MOTO, "com.motorolasolutions.emdk.datawedge.data_string");
 		actionMap.put(ACTION_CONTENT_NOTIFY_HoneyWell, "scannerdata");
-
 	}
 
 	@Override
 	protected void findViewById() {
-	//	barcodeEdit = (EditText) findViewById(R.id.et_barcode);
-	//	mylv = (ListView) findViewById(R.id.mylv);
+		// barcodeEdit = (EditText) findViewById(R.id.et_barcode);
+		// mylv = (ListView) findViewById(R.id.mylv);
 	}
 
 	@Override
 	protected void initView() {
-		
-
 	}
 }
