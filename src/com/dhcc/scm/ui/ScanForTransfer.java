@@ -237,12 +237,12 @@ public class ScanForTransfer extends Activity {
 					for (int i = 0; i < jsonArrayinfo2.length(); i++) {
 						JSONObject itemsobj = jsonArrayinfo2.getJSONObject(i);
 						HashMap<String, Object> map = new HashMap();
-						map.put("���", i + 1);
-						map.put("���", itemsobj.getString("inciDesc"));
-						map.put("����", itemsobj.getString("qty"));
-						map.put("���", itemsobj.getString("batNo"));
-						map.put("Ч��", itemsobj.getString("expDate"));
-						map.put("��װ��λ", itemsobj.getString("uomDesc"));
+						map.put("序号", i + 1);
+						map.put("名称", itemsobj.getString("inciDesc"));
+						map.put("数量", itemsobj.getString("qty"));
+						map.put("批号", itemsobj.getString("batNo"));
+						map.put("效期", itemsobj.getString("expDate"));
+						map.put("单位", itemsobj.getString("uomDesc"));
 						map.put("ID", itemsobj.getString("inci"));
 						map.put("uom", itemsobj.getString("uom"));
 						map.put("barcode", itemsobj.getString("barcode"));
@@ -255,7 +255,7 @@ public class ScanForTransfer extends Activity {
 					mAdapter = new SimpleAdapter(
 							ScanForTransfer.this, mylistItem,
 							R.layout.scanfor_transferout_item, new String[] {
-									"���", "���", "����", "���", "Ч��", "��װ��λ", "ID",
+									"序号", "名称", "数量", "批号", "效期", "单位", "ID",
 									"barcode", "parbarcode", "inclb", "initi",
 									"uom" }, new int[] { R.id.xh,
 									R.id.incidesc, R.id.transqty, R.id.batno,
@@ -410,13 +410,13 @@ public class ScanForTransfer extends Activity {
 				// ��BundleЯ�����
 				Bundle bundle2 = new Bundle();
 				// ����name����Ϊtinyphp
-				bundle2.putString("incidesc", map.get("���"));
-				bundle2.putString("batno", map.get("���"));
-				bundle2.putString("expdate", map.get("Ч��"));
-				bundle2.putString("packuom", map.get("��װ��λ"));
+				bundle2.putString("incidesc", map.get("名称"));
+				bundle2.putString("batno", map.get("批号"));
+				bundle2.putString("expdate", map.get("效期"));
+				bundle2.putString("packuom", map.get("单位"));
 				bundle2.putString("initi", map.get("initi"));
 				bundle2.putString("inclb", map.get("inclb"));
-				bundle2.putString("transqty", map.get("����"));
+				bundle2.putString("transqty", map.get("数量"));
 				bundle2.putString("transferNo", transferNo);
 				bundle2.putString("initID", initID);
 				bundle2.putString("uom", map.get("uom"));

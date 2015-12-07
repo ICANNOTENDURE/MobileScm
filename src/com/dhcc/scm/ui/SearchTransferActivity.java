@@ -268,7 +268,6 @@ public class SearchTransferActivity extends BaseActivity implements OnClickListe
 						JSONObject retString = new JSONObject(str);
 						String ErrCode = retString.getString("ErrCode");
 						if (!ErrCode.equals("0")) {
-							progressDialog.dismiss(); 
 							AlertDialog.Builder build = new Builder(SearchTransferActivity.this);
 							build.setIcon(R.drawable.add).setTitle("错误ʾ").setMessage("查询失败").setPositiveButton("确认", null).show();
 							return;
@@ -277,7 +276,6 @@ public class SearchTransferActivity extends BaseActivity implements OnClickListe
 						List<TransferOut> items=(ArrayList<TransferOut>) JSON.parseArray(retString.getString("rows"), TransferOut.class);
 						listItem.addAll(items);
 						if (listItem.size() == 0) {
-							progressDialog.dismiss(); 
 							ViewInject.toast("没有出库记录");
 							return;
 						}

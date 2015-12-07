@@ -41,24 +41,17 @@ import com.dhcc.scm.zxing.CaptureActivity;
 public class InGdRecActivity extends BaseActivity implements OnClickListener {
 	
 	@FindView(id = R.id.ingdrec_back_btn, click = true)
-	private ImageView imgBack; //回退按钮
-	
+	ImageView imgBack; //回退按钮
 	@FindView(id = R.id.ingdrec_barcode_btn, click = true)
-	private Button btnScanCode;// 扫码
-	
-	//保存按钮
+	Button btnScanCode;// 扫码
 	@FindView(id = R.id.ingdrec_save_btn, click = true)
-	private Button btnSave;
-	
-	//查询按钮
+	Button btnSave;	//保存按钮
 	@FindView(id = R.id.ingdrec_search_btn, click = true)
-	private Button btnSearch;
-	
+	Button btnSearch; //查询按钮
 	@FindView(id = R.id.ingdrec_barcode_txt)
-	private EditText barcodeTxt;// 条码框
-	
+	EditText barcodeTxt;// 条码框
 	@FindView(id = R.id.ingdrec_itm_scroll_list)
-	private ListView listview;
+	ListView listview;
 	
 	private List<InGdRec> inGdRecs=new ArrayList<InGdRec>();
 	private InGdRecAdapter inGdRecAdapter = null;
