@@ -102,4 +102,12 @@ public class InGdRecAdapter extends BaseAdapter {
 	public void updateQty(String label){
 		byQtyMap.put(label, "1");
 	}
+	
+	public String getLabelStr(){
+		StringBuffer sb = new StringBuffer();
+		for(Map.Entry<String, String> entry : byQtyMap.entrySet()) {
+			sb.append(entry.getKey() + ",");
+		}
+		return sb.toString();
+	}
 }

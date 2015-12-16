@@ -27,6 +27,7 @@ import com.dhcc.scm.adapter.InGdRecAdapter;
 import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.InGdRec;
 import com.dhcc.scm.entity.InGdRecResult;
+import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.Http;
 import com.dhcc.scm.http.HttpCallBack;
 import com.dhcc.scm.http.HttpParams;
@@ -89,7 +90,7 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		if (!isServiceRunning("android.intent.action.CONTENT_NOTIFY")) {
 			ViewInject.toast("未检测到扫描服务");
 		}
-		barcodeTxt.setText("{\"content\":2c939386513d403901513dad61b10000,\"seq\":1,\"codeType\":ByInc}");
+		barcodeTxt.setText("{\"content\":2c93938651a8ab5e0151a99a6e650004,\"seq\":1,\"codeType\":ByQty}");
 	}
 
 	@Override
@@ -132,12 +133,18 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 		if (inGdRecAdapter.getCount() > 0) {
 			progressDialog = ViewInject.getprogress(InGdRecActivity.this, Constants.PRO_WAIT_MESSAGE, false);
 			StringBuffer sb = new StringBuffer();
-			for (InGdRec gdRec : inGdRecs) {
-				sb.append(gdRec.getScmId() + "^");
+			if(codeMode.equals("ByQty")){
+				sb.append(inGdRecAdapter.getLabelStr());
+			}else{
+				for (InGdRec gdRec : inGdRecs) {
+					sb.append(gdRec.getScmId() + ",");
+				}
 			}
 			HttpParams params = new HttpParams();
 			params.put("requestType", "apk");
+			params.put("codeType", codeMode);
 			params.put("value", sb.toString());
+			params.put("userid", LoginUser.UserID);
 			http.post(getIpByType("scm") + Constants.METHOD_SAVE_BARCODE, params, new HttpCallBack() {
 				@Override
 				public void onFailure(int errorNo, String strMsg) {
@@ -156,8 +163,12 @@ public class InGdRecActivity extends BaseActivity implements OnClickListener {
 							Log.i("dhcc", str);
 							JSONObject jsonObject = new JSONObject(str);
 							if (jsonObject.getString("resultCode").equals("0")) {
+								inGdRecs.clear();
+								inGdRecAdapter.notifyDataSetChanged();
 								ViewInject.toast("操作成功");
 								return;
+							}else{
+								ViewInject.toast("失败:"+jsonObject.getString("resultContent"));
 							}
 						} catch (JSONException e) {
 							e.printStackTrace();
