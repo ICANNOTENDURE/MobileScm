@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.dhcc.scm.R;
 import com.dhcc.scm.entity.InGdRec;
+import com.dhcc.scm.utils.Loger;
+import com.dhcc.scm.utils.StringUtils;
 
 public class InGdRecAdapter extends BaseAdapter {
 	
@@ -21,6 +23,8 @@ public class InGdRecAdapter extends BaseAdapter {
 	private List<InGdRec> list;
 	
 	private  Map<String, String> map=new HashMap<String, String>();
+	
+	private  Map<String, String> byQtyMap=new HashMap<String, String>();
 	
 	public InGdRecAdapter(Context ctx, List<InGdRec> list) {
 		super();
@@ -68,6 +72,11 @@ public class InGdRecAdapter extends BaseAdapter {
 		holder.manf.setText("厂商:"+list.get(position).getManf());
 		holder.batno.setText("批号/效期:"+list.get(position).getBatno()+"/"+list.get(position).getExpDate());//+"/"+CommonTools.formatDate(list.get(position).getExpDate()));
 		map.put(list.get(position).getScmId(), "1");
+		Loger.debug("list.get(position).getLabelId():"+list.get(position).getLabelId());
+		Loger.debug("byQtyMap:"+byQtyMap.size());
+		if(!StringUtils.isEmpty(list.get(position).getLabelId())){
+			byQtyMap.put(list.get(position).getLabelId(),"1");
+		}
 		return convertView;
 	}
 	
@@ -83,5 +92,14 @@ public class InGdRecAdapter extends BaseAdapter {
 	
 	public boolean checkExist(String barcode){
 		return map.containsKey(barcode);
+	}
+	
+	public boolean checkExistByQty(String barcode){
+		Loger.debug("byQtyMap:"+byQtyMap.size());
+		return byQtyMap.containsKey(barcode);
+	}
+	
+	public void updateQty(String label){
+		byQtyMap.put(label, "1");
 	}
 }

@@ -1,9 +1,18 @@
 package com.dhcc.scm.entity;
 
+import java.io.Serializable;
 
-public class InGdRec {
+
+public class InGdRec implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String scmId;
+	
+	private String labelId;
 	
 	//名称
 	private String desc;
@@ -104,6 +113,14 @@ public class InGdRec {
 
 	public void setScmId(String scmId) {
 		this.scmId = scmId;
+	}
+
+	public String getLabelId() {
+		return labelId;
+	}
+
+	public void setLabelId(String labelId) {
+		this.labelId = labelId;
 	}
 	
 	

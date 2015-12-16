@@ -53,7 +53,7 @@ public class HttpConfig {
     /**
      * 缓存有效时间: 默认5分钟
      */
-    public int cacheTime = 5;
+    public int cacheTime = 0;
 
     /**
      * 在Http请求中，如果服务器也声明了对缓存时间的控制，那么是否优先使用服务器设置: 默认false

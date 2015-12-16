@@ -196,4 +196,10 @@ public class ViewInject {
 		progressDialog.show();
 		return progressDialog;
 	}
+	
+	public static void dismiss(ProgressDialog progressDialog) {
+		if (progressDialog != null) {
+			progressDialog.dismiss();
+		}	
+	}
 }

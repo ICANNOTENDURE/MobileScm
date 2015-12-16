@@ -21,6 +21,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+import com.alibaba.fastjson.JSON;
 import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.LocAdApter;
 import com.dhcc.scm.entity.Constants;
