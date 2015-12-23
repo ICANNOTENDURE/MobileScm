@@ -83,8 +83,7 @@ public class InStkTkMainActivity extends BaseActivity {
 		istEndDate.setInputType(InputType.TYPE_NULL);
 		istWay.setInputType(InputType.TYPE_NULL);
 
-		// listview
-		// istMainList = (ListView) findViewById(R.id.ist_mainlistview);
+	
 		// ������ͷ
 		LayoutInflater mLayoutInflater = LayoutInflater.from(this);
 		View mainView = mLayoutInflater.inflate(R.layout.activity_instktk_mheader, null);
