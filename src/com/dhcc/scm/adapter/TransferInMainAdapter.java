@@ -1,68 +1,62 @@
 package com.dhcc.scm.adapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import java.util.List;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.dhcc.scm.R;
+import com.dhcc.scm.entity.TransferInItem;
 
 public class TransferInMainAdapter extends BaseAdapter {
-	private LayoutInflater mInflater;
-	private ArrayList<HashMap<String,Object>> ListData;
-	
-	public TransferInMainAdapter(Context context, ArrayList<HashMap<String, Object>> InListData) {
-		this.mInflater = LayoutInflater.from(context);
-		ListData = InListData;
-    }
-	
+	private Context ctx;
+	private List<TransferInItem> list;
+
+	public TransferInMainAdapter(Context ctx, List<TransferInItem> list) {
+		super();
+		this.ctx = ctx;
+		this.list = list;
+	}
+
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return ListData.size();//��������ĳ���
+		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		return list.get(arg0);
 	}
 
 	@Override
-	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
+	public long getItemId(int position) {
 		return 0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
-		ViewHolder viewHolder = null;
+		final Holder holder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.activity_tranferin_item, null);
-			viewHolder = new ViewHolder();
-			viewHolder.trInit= (TextView) convertView.findViewById (R.id.trInit);
-			viewHolder.trInNo= (TextView) convertView.findViewById (R.id.trInNo);
-			viewHolder.trInLoc = (TextView) convertView.findViewById (R.id.fromLocDesc);
-			viewHolder.trInUser = (TextView) convertView.findViewById (R.id.trInUser);
-			convertView.setTag(viewHolder); // ��ViewHolder�洢��View��
-		}else{
-			viewHolder = (ViewHolder) convertView.getTag();  //ȡ��ViewHolder����  
-        }
-		//Ȼ��������
-		viewHolder.trInit.setText(ListData.get(position).get("trInit").toString());
-		viewHolder.trInNo.setText(ListData.get(position).get("trInNo").toString());
-		viewHolder.trInLoc.setText(ListData.get(position).get("fromLocDesc").toString());
-		viewHolder.trInUser.setText(ListData.get(position).get("trInUser").toString());
+			holder = new Holder();
+			convertView = View.inflate(ctx, R.layout.activity_tranferin_item, null);
+			holder.trInit = (TextView) convertView.findViewById(R.id.trInit);
+			holder.trInNo = (TextView) convertView.findViewById(R.id.trInNo);
+			holder.trInLoc = (TextView) convertView.findViewById(R.id.fromLocDesc);
+			holder.trInUser = (TextView) convertView.findViewById(R.id.trInUser);
+			convertView.setTag(holder); // 保存至tag
+		} else {
+			holder = (Holder) convertView.getTag();
+		}
+		// get
+		holder.trInit.setText(list.get(position).toString());
+		holder.trInNo.setText(String.valueOf(list.get(position).getTrno().toString()));
+		holder.trInLoc.setText(String.valueOf(list.get(position).getLocdesc().toString()));
+		holder.trInUser.setText(String.valueOf(list.get(position).getUser().toString()));
 		return convertView;
 	}
 
-	public class ViewHolder {
+	public class Holder {
 		TextView trInit;
 		TextView trInNo;
 		TextView trInLoc;

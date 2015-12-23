@@ -1,44 +1,38 @@
 package com.dhcc.scm.adapter;
 
 import java.util.List;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.dhcc.scm.R;
-import com.dhcc.scm.entity.InGdRecSearchItm;
+import com.dhcc.scm.entity.InGdRecSearchItem;
 
 public class InGdRecSearchAdapter extends BaseAdapter {
 
 	private Context ctx;
 
-	private List<InGdRecSearchItm> list;
+	private List<InGdRecSearchItem> list;
 
-	public InGdRecSearchAdapter(Context ctx, List<InGdRecSearchItm> list) {
+	public InGdRecSearchAdapter(Context ctx, List<InGdRecSearchItem> list) {
 		super();
 		this.ctx = ctx;
 		this.list = list;
-
 	}
 
 	@Override
 	public int getCount() {
-
 		return list.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-
 		return list.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int position) {
-
 		return 0;
 	}
 

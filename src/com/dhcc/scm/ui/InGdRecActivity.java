@@ -45,7 +45,6 @@ import com.dhcc.scm.zxing.CaptureActivity;
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author zhouxin
  * @date 2015年7月30日 下午3:33:18
- * 
  */
 public class InGdRecActivity extends BaseActivity implements OnClickListener {
 

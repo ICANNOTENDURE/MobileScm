@@ -32,16 +32,25 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InStkTkBatDetAdapter;
 import com.dhcc.scm.entity.LoginUser;
 import com.dhcc.scm.http.thread.HttpGetPostCls;
+import com.dhcc.scm.ui.base.FindView;
 
 public class InStkTkByItemActivity extends Activity {
 	private String inst;
 	private ListView istMBatList;
+	
+	@FindView(id = R.id.instk_incidesc)
 	private TextView iskIncidesc;
+	@FindView(id = R.id.instk_qty)
 	private TextView iskQty;
+	@FindView(id = R.id.instk_uomdesc)
 	private TextView iskUom;
+	@FindView(id = R.id.instk_batno)
 	private TextView iskBatNo;
+	@FindView(id = R.id.instk_expdate)
 	private TextView iskExpDate;
+	@FindView(id = R.id.instk_uomrowid)
 	private TextView iskUomID;
+	@FindView(id = R.id.instk_inclb)
 	private TextView iskInclb;
 	private Button btnClear=null;
 	private Button btnSure=null;
@@ -65,14 +74,15 @@ public class InStkTkByItemActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_instktkbyitem_main);
+		findViewById();
 		
-		iskIncidesc = (TextView) findViewById(R.id.instk_incidesc);
-		iskBatNo = (TextView) findViewById(R.id.instk_batno);
-		iskExpDate = (TextView) findViewById(R.id.instk_expdate);
-		iskQty = (TextView) findViewById(R.id.instk_qty);
-		iskUom = (TextView) findViewById(R.id.instk_uomdesc);
-		iskUomID = (TextView) findViewById(R.id.instk_uomrowid);
-		iskInclb = (TextView) findViewById(R.id.instk_inclb);
+//		iskIncidesc = (TextView) findViewById(R.id.instk_incidesc);
+//		iskBatNo = (TextView) findViewById(R.id.instk_batno);
+//		iskExpDate = (TextView) findViewById(R.id.instk_expdate);
+//		iskQty = (TextView) findViewById(R.id.instk_qty);
+//		iskUom = (TextView) findViewById(R.id.instk_uomdesc);
+//		iskUomID = (TextView) findViewById(R.id.instk_uomrowid);
+//		iskInclb = (TextView) findViewById(R.id.instk_inclb);
 		
 	    //��ȡIntent�е�Bundle����
         Bundle bundle = this.getIntent().getExtras();
@@ -104,7 +114,10 @@ public class InStkTkByItemActivity extends Activity {
             }
         });
 	}
-
+	//
+	protected void findViewById() {
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -131,126 +144,126 @@ public class InStkTkByItemActivity extends Activity {
 		String CountQty = iskQty.getText().toString();
 		String CountUom = iskUomID.getText().toString();
 		String Param = "&ListData=" + inst+"^^"+LoginUser.UserDR+"^"+CountQty+"^"+CountUom+"^^^"+inclb;
-		ThreadHttp("web.DHCST.AndroidInStkTk", "SaveInStkItmWd", Param, "Method", InStkTkByItemActivity.this, handle_thrid);
+//		ThreadHttp("web.DHCST.AndroidInStkTk", "SaveInStkItmWd", Param, "Method", InStkTkByItemActivity.this, handle_thrid);
 	}
 	
 	///����ת����ϸ�б�
 	public void LoadDrgByBarCode(String barcode){
 		//��ʼ����λ�����ؼ�,ҳ�����ʱֱ�ӵ���
-		progressDialog = ProgressDialog.show(InStkTkByItemActivity.this, "���Ե�...", "����ҩƷ��ϸ...", true);
+//		progressDialog = ProgressDialog.show(InStkTkByItemActivity.this, "���Ե�...", "����ҩƷ��ϸ...", true);
 		String Param = "&LocId=" + LoginUser.UserLoc +"&BarCode=" + barcode+ "&IncCatGrp=";
-		ThreadHttp("web.DHCST.DHCSTSUPCHAUNPACK", "QueryIncBatPackList", Param, "Method", InStkTkByItemActivity.this, handle_second);
+//		ThreadHttp("web.DHCST.DHCSTSUPCHAUNPACK", "QueryIncBatPackList", Param, "Method", InStkTkByItemActivity.this, handle_second);
 	}
 	
 	///�������̵�������ϸ�б�
 	public void LoadInStkTkBatDet(){
 		//��ʼ����λ�����ؼ�,ҳ�����ʱֱ�ӵ���
 		//progressDialog = ProgressDialog.show(InStkTkByItemActivity.this, "���Ե�...", "�����ϸ...", true);
-		String Param = "&inst=" + inst +"&inclb=" + iskInclb.getText().toString();
-		ThreadHttp("web.DHCST.AndroidInStkTk", "jsQueryInStkTkBatDet", Param, "Method", InStkTkByItemActivity.this, handle_Init);
+//		String Param = "&inst=" + inst +"&inclb=" + iskInclb.getText().toString();
+//		ThreadHttp("web.DHCST.AndroidInStkTk", "jsQueryInStkTkBatDet", Param, "Method", InStkTkByItemActivity.this, handle_Init);
 	}
 	
-	private void ThreadHttp(final String Cls, final String mth, final String Param, final String Typ, final Activity context, final int whatmsg) {
+//	private void ThreadHttp(final String Cls, final String mth, final String Param, final String Typ, final Activity context, final int whatmsg) {
+//	
+//		Thread thread = new Thread() {
+//			public void run() {
+//				try {
+//					//this.sleep(100);
+//					try {
+//						ListData = HttpGetPostCls.LinkData(Cls, mth, Param, Typ, context);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					Message msg = new Message();
+//					msg.what = whatmsg;
+//					handler.sendMessage(msg);
+//				} catch (Exception e) {
+//				}
+//			}
+//		};
+//		thread.start();
+//	}
 	
-		Thread thread = new Thread() {
-			public void run() {
-				try {
-					//this.sleep(100);
-					try {
-						ListData = HttpGetPostCls.LinkData(Cls, mth, Param, Typ, context);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					Message msg = new Message();
-					msg.what = whatmsg;
-					handler.sendMessage(msg);
-				} catch (Exception e) {
-				}
-			}
-		};
-		thread.start();
-	}
-	
-	Handler handler = new Handler(){
-		public void handleMessage(Message paramMessage) {
-			if (paramMessage.what == handle_Init) {
-				try {
-					if (ListData.equals("")){
-						 progressDialog.dismiss(); //�������б���ݣ���رնԻ���
-						return; }
-					JSONObject retString = new JSONObject(ListData);
-					String total = retString.getString("results");
-					if (total.equals("0")){
-						 progressDialog.dismiss(); //�������б���ݣ���رնԻ���
-						return; }
-					String jsonarr1 = retString.getString("rows");
-					JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
-					listItem = new ArrayList<HashMap<String,Object>>();
-					for (int i = 0; i < jsonArrayinfo.length(); i++) {
-						JSONObject itemsobj = jsonArrayinfo.getJSONObject(i);
-						HashMap<String, Object> map=new HashMap();
-						map.put("Insti", itemsobj.getString("Insti"));
-						map.put("Inclb", itemsobj.getString("Inclb"));
-						map.put("BatNo", itemsobj.getString("BatNo"));
-						map.put("ExpDate", itemsobj.getString("ExpDate"));
-						map.put("FreUomDesc", itemsobj.getString("FreUomDesc"));
-						map.put("FreQty", itemsobj.getString("FreQty"));
-						map.put("CountQty", itemsobj.getString("CountQty"));
-						listItem.add(map);
-					}
-				    
-					InStkTkBatDetAdapter mAdapter = new InStkTkBatDetAdapter(InStkTkByItemActivity.this,listItem);
-				    istMBatList.setAdapter(mAdapter);
-			        progressDialog.dismiss(); //�������б���ݣ���رնԻ���
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			if (paramMessage.what == handle_second) {
-				try {
-					JSONObject retString = new JSONObject(ListData);
-					String total = retString.getString("total");
-					if (!total.equals("1")){
-						setTipErrorMessage("ȡҩƷ��Ϣ����,��˶ԣ�");
-						return;
-					}
-					String jsonarr1 = retString.getString("rows");
-					JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
-					JSONObject itemsobj = jsonArrayinfo.getJSONObject(0);
-					iskIncidesc.setText(itemsobj.getString("incidesc"));
-					iskQty.setText(itemsobj.getString("qty"));
-					iskUom.setText(itemsobj.getString("puomdesc"));
-					iskBatNo.setText(itemsobj.getString("batno"));
-					iskExpDate.setText(itemsobj.getString("expdate"));
-					iskUomID.setText(itemsobj.getString("puomdr"));
-					iskInclb.setText(itemsobj.getString("inclb"));
-					LoadInStkTkBatDet();
-			        //progressDialog.dismiss(); //�������б���ݣ���رնԻ���
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			if (paramMessage.what == handle_thrid) {
-				try {
-					if (!ListData.equals("0")){
-						setTipErrorMessage("ȷ�ϳ��?");
-					}else{
-						LoadInStkTkBatDet();
-						clearUIContent();
-				        Toast tst = Toast.makeText(InStkTkByItemActivity.this, "����ɹ���", Toast.LENGTH_SHORT);
-				        tst.show();
-					}
-			        progressDialog.dismiss(); //�������б���ݣ���رնԻ���
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-	};
+//	Handler handler = new Handler(){
+//		public void handleMessage(Message paramMessage) {
+//			if (paramMessage.what == handle_Init) {
+//				try {
+//					if (ListData.equals("")){
+//						 progressDialog.dismiss(); //�������б���ݣ���رնԻ���
+//						return; }
+//					JSONObject retString = new JSONObject(ListData);
+//					String total = retString.getString("results");
+//					if (total.equals("0")){
+//						 progressDialog.dismiss(); //�������б���ݣ���رնԻ���
+//						return; }
+//					String jsonarr1 = retString.getString("rows");
+//					JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
+//					listItem = new ArrayList<HashMap<String,Object>>();
+//					for (int i = 0; i < jsonArrayinfo.length(); i++) {
+//						JSONObject itemsobj = jsonArrayinfo.getJSONObject(i);
+//						HashMap<String, Object> map=new HashMap();
+//						map.put("Insti", itemsobj.getString("Insti"));
+//						map.put("Inclb", itemsobj.getString("Inclb"));
+//						map.put("BatNo", itemsobj.getString("BatNo"));
+//						map.put("ExpDate", itemsobj.getString("ExpDate"));
+//						map.put("FreUomDesc", itemsobj.getString("FreUomDesc"));
+//						map.put("FreQty", itemsobj.getString("FreQty"));
+//						map.put("CountQty", itemsobj.getString("CountQty"));
+//						listItem.add(map);
+//					}
+//				    
+//					InStkTkBatDetAdapter mAdapter = new InStkTkBatDetAdapter(InStkTkByItemActivity.this,listItem);
+//				    istMBatList.setAdapter(mAdapter);
+//			        progressDialog.dismiss(); //�������б���ݣ���رնԻ���
+//				} catch (JSONException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			if (paramMessage.what == handle_second) {
+//				try {
+//					JSONObject retString = new JSONObject(ListData);
+//					String total = retString.getString("total");
+//					if (!total.equals("1")){
+//						setTipErrorMessage("ȡҩƷ��Ϣ����,��˶ԣ�");
+//						return;
+//					}
+//					String jsonarr1 = retString.getString("rows");
+//					JSONArray jsonArrayinfo = new JSONArray(jsonarr1);
+//					JSONObject itemsobj = jsonArrayinfo.getJSONObject(0);
+//					iskIncidesc.setText(itemsobj.getString("incidesc"));
+//					iskQty.setText(itemsobj.getString("qty"));
+//					iskUom.setText(itemsobj.getString("puomdesc"));
+//					iskBatNo.setText(itemsobj.getString("batno"));
+//					iskExpDate.setText(itemsobj.getString("expdate"));
+//					iskUomID.setText(itemsobj.getString("puomdr"));
+//					iskInclb.setText(itemsobj.getString("inclb"));
+//					LoadInStkTkBatDet();
+//			        //progressDialog.dismiss(); //�������б���ݣ���رնԻ���
+//				} catch (JSONException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			if (paramMessage.what == handle_thrid) {
+//				try {
+//					if (!ListData.equals("0")){
+//						setTipErrorMessage("ȷ�ϳ��?");
+//					}else{
+//						LoadInStkTkBatDet();
+//						clearUIContent();
+//				        Toast tst = Toast.makeText(InStkTkByItemActivity.this, "����ɹ���", Toast.LENGTH_SHORT);
+//				        tst.show();
+//					}
+//			        progressDialog.dismiss(); //�������б���ݣ���رնԻ���
+//				} catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//	};
 	
 	//���õ�λ���س��������ѶԻ���
 	public void setTipErrorMessage(String ErrorMessage){

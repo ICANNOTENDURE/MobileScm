@@ -15,7 +15,7 @@ import com.dhcc.scm.R;
 import com.dhcc.scm.adapter.InGdRecSearchAdapter;
 import com.dhcc.scm.entity.Constants;
 import com.dhcc.scm.entity.InGdRecSearch;
-import com.dhcc.scm.entity.InGdRecSearchItm;
+import com.dhcc.scm.entity.InGdRecSearchItem;
 import com.dhcc.scm.http.Http;
 import com.dhcc.scm.http.HttpCallBack;
 import com.dhcc.scm.http.HttpParams;
@@ -43,7 +43,7 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 	@FindView(id = R.id.ingdrecsearch_itm_scroll_list)
 	ListView listview;
 
-	private List<InGdRecSearchItm> inGdRecsearchs = new ArrayList<InGdRecSearchItm>();
+	private List<InGdRecSearchItem> inGdRecsearchs = new ArrayList<InGdRecSearchItem>();
 	private InGdRecSearchAdapter inGdRecsearchAdapter = null;
 
 	private HttpParams params = new HttpParams();
@@ -55,10 +55,11 @@ public class InGdRecSearchResultActivity extends BaseActivity implements OnClick
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_ingdrec_search_result);
 		super.onCreate(savedInstanceState);
-		
+		//跨类取数据
 		Bundle bundle = this.getIntent().getExtras();
 		mstartdate = bundle.getString("startdate");
 		menddate = bundle.getString("enddate");
+		//显示开始结束日期
 		restartdate.setText(mstartdate);
 		reenddate.setText(menddate);
 		findViewById();

@@ -7,7 +7,7 @@ public class InGdRecSearch {
 	 private String resultCode;
 	 private String resultContent;
 	 private int count;
-	 private List<InGdRecSearchItm> dataList;
+	 private List<InGdRecSearchItem> dataList;
 	public String getResultCode() {
 		return resultCode;
 	}
@@ -26,10 +26,10 @@ public class InGdRecSearch {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public List<InGdRecSearchItm> getDataList() {
+	public List<InGdRecSearchItem> getDataList() {
 		return dataList;
 	}
-	public void setDataList(List<InGdRecSearchItm> dataList) {
+	public void setDataList(List<InGdRecSearchItem> dataList) {
 		this.dataList = dataList;
 	}
 	
